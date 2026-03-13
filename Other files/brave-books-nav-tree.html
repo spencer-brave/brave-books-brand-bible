@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BRAVE Books — Site Navigation Tree</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brave-red: #C41A1A;
+    --navy: #1B2A4A;
+    --warm-white: #FAF8F5;
+    --cream: #F5F0E8;
+    --gold: #D4A853;
+    --charcoal: #2D3748;
+    --soft-red: #FEF2F2;
+    --light-gray: #E5E7EB;
+    --mid-gray: #9CA3AF;
+    --white: #FFFFFF;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--warm-white);
+    font-family: 'DM Sans', 'Helvetica Neue', Arial, sans-serif;
+    color: var(--charcoal);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 32px 20px 60px;
+  }
+
+  /* ── Header ── */
+  .header { margin-bottom: 32px; }
+
+  .header-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .logo-mark {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: var(--brave-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-weight: 700;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .header h1 {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+  }
+
+  .header .subtitle {
+    font-size: 13px;
+    color: var(--mid-gray);
+  }
+
+  .header .intro {
+    font-size: 13px;
+    line-height: 1.6;
+    color: #6B7280;
+    max-width: 640px;
+    margin-top: 12px;
+  }
+
+  /* ── Section Labels ── */
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brave-red);
+    margin-bottom: 12px;
+    padding-left: 2px;
+  }
+
+  /* ── Legend ── */
+  .legend {
+    background: var(--white);
+    border: 1px solid var(--light-gray);
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 28px;
+  }
+
+  .legend-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .legend-toggle span:first-child {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+  }
+
+  .legend-toggle span:last-child {
+    font-size: 12px;
+    color: var(--mid-gray);
+  }
+
+  .legend-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 12px;
+    transition: all 0.2s ease;
+  }
+
+  .legend-items.hidden { display: none; }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+  }
+
+  .legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    flex-shrink: 0;
+  }
+
+  .dot-primary { background: var(--brave-red); }
+  .dot-secondary { background: var(--gold); }
+  .dot-maintain { background: var(--navy); }
+  .dot-supporting { background: #6B7280; }
+
+  /* ── Tree ── */
+  .tree { margin-bottom: 40px; }
+
+  .tree-node { position: relative; }
+
+  .tree-children {
+    padding-left: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.25s ease;
+  }
+
+  .tree-children.collapsed {
+    max-height: 0 !important;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .tree-children.expanded {
+    opacity: 1;
+  }
+
+  /* Vertical connector line */
+  .tree-children::before {
+    content: '';
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 12px;
+    width: 0;
+    border-left: 2px solid var(--light-gray);
+  }
+
+  /* Horizontal connector arm */
+  .tree-children > .tree-node::before {
+    content: '';
+    position: absolute;
+    left: -24px;
+    top: 20px;
+    width: 24px;
+    height: 0;
+    border-top: 2px solid var(--light-gray);
+  }
+
+  .node-card {
+    border-radius: 8px;
+    padding: 10px 14px;
+    margin-bottom: 8px;
+    position: relative;
+    transition: box-shadow 0.2s ease;
+    border-width: 2px;
+    border-style: solid;
+  }
+
+  .node-card.clickable { cursor: pointer; }
+  .node-card.clickable:hover { box-shadow: 0 3px 12px rgba(0,0,0,0.08); }
+
+  .node-card.type-root {
+    background: var(--navy);
+    border-color: var(--navy);
+    border-radius: 12px;
+    padding: 14px 20px;
+  }
+
+  .node-card.type-mega-menu { background: var(--soft-red); border-color: var(--brave-red); }
+  .node-card.type-link { background: var(--white); border-color: var(--light-gray); }
+  .node-card.type-column { background: var(--cream); border-color: var(--gold); }
+  .node-card.type-page { background: var(--white); border-color: var(--light-gray); }
+  .node-card.type-section { background: var(--warm-white); border-color: var(--light-gray); }
+  .node-card.type-template { background: #FEF9EF; border-color: var(--gold); }
+
+  /* Priority border overrides */
+  .node-card.priority-primary { border-color: var(--brave-red); }
+  .node-card.priority-secondary { border-color: var(--gold); }
+  .node-card.priority-maintain { border-color: var(--navy); }
+  .node-card.priority-supporting { border-color: #6B7280; }
+
+  /* Depth-1 shadow */
+  .tree > .tree-node > .tree-children > .tree-node > .node-card {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  }
+
+  .node-top-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .expand-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+    line-height: 1;
+  }
+
+  .expand-btn.open { background: var(--navy); color: var(--white); }
+  .expand-btn.closed { background: var(--light-gray); color: var(--charcoal); }
+
+  .node-name {
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--charcoal);
+  }
+
+  .type-root .node-name {
+    font-size: 18px;
+    color: var(--white);
+    letter-spacing: 0.02em;
+  }
+
+  .badge {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 6px;
+    border-radius: 4px;
+    white-space: nowrap;
+  }
+
+  .badge-type { background: rgba(0,0,0,0.05); color: var(--mid-gray); }
+  .type-root .badge-type { background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.7); }
+
+  .badge-priority { color: var(--white); letter-spacing: 0.06em; }
+  .badge-priority.p-primary { background: var(--brave-red); }
+  .badge-priority.p-secondary { background: var(--gold); }
+  .badge-priority.p-maintain { background: var(--navy); }
+  .badge-priority.p-supporting { background: #6B7280; }
+
+  .node-desc {
+    margin-top: 6px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #6B7280;
+  }
+
+  .node-desc.has-toggle { padding-left: 28px; }
+
+  .type-root .node-desc { color: rgba(255,255,255,0.75); }
+
+  /* ── Additional Pages ── */
+  .additional-pages { display: grid; gap: 8px; margin-bottom: 40px; }
+
+  .additional-card {
+    background: var(--white);
+    border-radius: 8px;
+    padding: 10px 14px;
+    border-width: 2px;
+    border-style: solid;
+  }
+
+  .additional-card.priority-primary { border-color: var(--brave-red); }
+  .additional-card.priority-maintain { border-color: var(--navy); }
+
+  .additional-card .node-top-row { margin-bottom: 4px; }
+
+  .additional-card .node-desc { margin-top: 0; }
+
+  /* ── Mega Menu Visual ── */
+  .mega-visual {
+    background: var(--white);
+    border: 2px solid var(--navy);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 40px;
+  }
+
+  .mega-nav-bar {
+    background: var(--navy);
+    padding: 10px 18px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+
+  .mega-nav-item {
+    font-size: 13px;
+    font-weight: 500;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .mega-nav-item.active {
+    font-weight: 700;
+    color: var(--white);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  .mega-body {
+    display: flex;
+    border-top: 1px solid var(--light-gray);
+  }
+
+  .mega-col-books {
+    flex: 0 0 65%;
+    padding: 20px 24px;
+    border-right: 1px solid var(--light-gray);
+  }
+
+  .mega-col-more {
+    flex: 0 0 35%;
+    padding: 20px 24px;
+    background: var(--cream);
+  }
+
+  .mega-col-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+
+  .mega-col-books .mega-col-label { color: var(--brave-red); }
+  .mega-col-more .mega-col-label { color: var(--gold); }
+
+  .mega-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 24px;
+  }
+
+  .mega-list { display: grid; gap: 10px; }
+
+  .mega-item-name { font-size: 13px; font-weight: 600; color: var(--charcoal); }
+  .mega-item-sub { font-size: 11px; color: var(--mid-gray); margin-top: 1px; }
+
+  .mega-featured {
+    margin-top: 16px;
+    padding: 12px;
+    background: var(--warm-white);
+    border-radius: 8px;
+    border: 1px dashed var(--gold);
+    text-align: center;
+  }
+
+  .mega-featured-label { font-size: 10px; color: var(--mid-gray); }
+  .mega-featured-sub { font-size: 9px; color: #D1D5DB; margin-top: 2px; }
+
+  /* ── Footer ── */
+  .footer {
+    padding-top: 16px;
+    border-top: 1px solid var(--light-gray);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .footer span { font-size: 11px; color: var(--mid-gray); }
+
+  /* ── Responsive ── */
+  @media (max-width: 640px) {
+    .header h1 { font-size: 18px; }
+    .mega-body { flex-direction: column; }
+    .mega-col-books { flex: 1 1 auto; border-right: none; border-bottom: 1px solid var(--light-gray); }
+    .mega-col-more { flex: 1 1 auto; }
+    .mega-grid { grid-template-columns: 1fr; }
+    .mega-nav-bar { gap: 14px; }
+  }
+
+  /* ── Print ── */
+  @media print {
+    body { background: white; }
+    .tree-children.collapsed { max-height: none !important; opacity: 1; pointer-events: auto; }
+    .node-card.clickable { cursor: default; }
+    .expand-btn { display: none; }
+    .node-desc.has-toggle { padding-left: 0; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-row">
+      <div class="logo-mark">B</div>
+      <div>
+        <h1>BRAVE Books — Site Navigation Tree</h1>
+        <p class="subtitle">Proposed Information Architecture · March 2026</p>
+      </div>
+    </div>
+    <p class="intro">
+      This tree maps the full navigation structure and page hierarchy for the redesigned site.
+      Nodes are color-coded by business priority. Click any node with children to expand or collapse it.
+    </p>
+  </div>
+
+  <!-- Legend -->
+  <div class="legend">
+    <div class="legend-toggle" onclick="toggleLegend()">
+      <span>Priority Legend</span>
+      <span id="legend-toggle-text">Hide</span>
+    </div>
+    <div class="legend-items" id="legend-items">
+      <div class="legend-item"><div class="legend-dot dot-primary"></div> P1 — Growth Engine</div>
+      <div class="legend-item"><div class="legend-dot dot-secondary"></div> P2 — Growing</div>
+      <div class="legend-item"><div class="legend-dot dot-maintain"></div> P3 — Maintain</div>
+      <div class="legend-item"><div class="legend-dot dot-supporting"></div> P4 — Supporting</div>
+    </div>
+  </div>
+
+  <!-- ═══ PRIMARY NAVIGATION TREE ═══ -->
+  <div class="section-label">Persistent Top Navigation</div>
+
+  <div class="tree" id="nav-tree"></div>
+
+  <!-- ═══ ADDITIONAL PAGES ═══ -->
+  <div class="section-label">Additional Key Pages (Outside Primary Nav)</div>
+
+  <div class="additional-pages" id="additional-pages"></div>
+
+  <!-- ═══ MEGA MENU VISUAL ═══ -->
+  <div class="section-label">Shop Mega Menu — Visual Layout</div>
+
+  <div class="mega-visual">
+    <div class="mega-nav-bar">
+      <span class="mega-nav-item">New &amp; Trending</span>
+      <span class="mega-nav-item active">Shop ▾</span>
+      <span class="mega-nav-item">Authors</span>
+      <span class="mega-nav-item">BRAVE+</span>
+      <span class="mega-nav-item">Book Club</span>
+      <span class="mega-nav-item">About</span>
+    </div>
+    <div class="mega-body">
+      <div class="mega-col-books">
+        <div class="mega-col-label">Books</div>
+        <div class="mega-grid">
+          <div><div class="mega-item-name">Browse All Books</div><div class="mega-item-sub">Full catalog + filters</div></div>
+          <div><div class="mega-item-name">By Author</div><div class="mega-item-sub">Author portrait grid</div></div>
+          <div><div class="mega-item-name">By Age</div><div class="mega-item-sub">0–2, 3–5, 6–8, 9–12</div></div>
+          <div><div class="mega-item-name">By Value</div><div class="mega-item-sub">Courage, Faith, Honesty…</div></div>
+          <div><div class="mega-item-name">Bundles &amp; Sets</div><div class="mega-item-sub">Pre-built + custom</div></div>
+          <div><div class="mega-item-name">Gift Guide</div><div class="mega-item-sub">Seasonal / evergreen</div></div>
+        </div>
+      </div>
+      <div class="mega-col-more">
+        <div class="mega-col-label">More from BRAVE</div>
+        <div class="mega-list">
+          <div><div class="mega-item-name">Plushes</div><div class="mega-item-sub">Character plushes</div></div>
+          <div><div class="mega-item-name">Games &amp; Activities</div><div class="mega-item-sub">Board games, kits</div></div>
+          <div><div class="mega-item-name">All Products</div><div class="mega-item-sub">Everything in one place</div></div>
+        </div>
+        <div class="mega-featured">
+          <div class="mega-featured-label">Featured Product Image</div>
+          <div class="mega-featured-sub">Draws eye to non-book products</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <span>BRAVE Books · Website Redesign · Confidential</span>
+    <span>v1.0 — Strategy Phase</span>
+  </div>
+
+</div>
+
+<script>
+// ── Data ──
+const navData = {
+  name: "bravebooks.us",
+  type: "root",
+  children: [
+    {
+      name: "Shop",
+      type: "mega-menu",
+      priority: "primary",
+      desc: "Two-column mega menu — Books (60–70% width) + More from BRAVE",
+      children: [
+        {
+          name: "Books (Column 1)",
+          type: "column",
+          desc: "Primary column — visually dominant",
+          children: [
+            { name: "Browse All Books", type: "page", desc: "Full catalog with robust filtering (author, age, theme, format, price)" },
+            { name: "By Author", type: "page", desc: "Grid of author portraits → individual author pages" },
+            { name: "By Age", type: "page", desc: "0–2, 3–5, 6–8, 9–12 — parent-friendly groupings" },
+            { name: "By Value", type: "page", desc: "Courage, Honesty, Faith, Generosity, etc." },
+            { name: "Bundles & Sets", type: "page", desc: "Pre-built and customizable bundles" },
+            { name: "Gift Guide", type: "page", desc: "Seasonal / evergreen gifting collection" },
+          ],
+        },
+        {
+          name: "More from BRAVE (Column 2)",
+          type: "column",
+          priority: "supporting",
+          desc: "Supporting discovery path — 30–40% width",
+          children: [
+            { name: "Plushes", type: "page", desc: "Character plushes, cross-linked to related books" },
+            { name: "Games & Activities", type: "page", desc: "Board games, card games, activity kits" },
+            { name: "All Products", type: "page", desc: "Full catalog across all product types" },
+          ],
+        },
+      ],
+    },
+    {
+      name: "Book Club",
+      type: "link",
+      priority: "maintain",
+      desc: "Subscription landing page. Maintains existing recurring revenue.",
+      children: [
+        { name: "Subscription LP", type: "page", desc: "Monthly box pitch, pricing, 'subscribe & get book FREE' mechanic" },
+      ],
+    },
+    {
+      name: "Authors",
+      type: "link",
+      priority: "primary",
+      desc: "Author directory — portraits, bios, featured books. #1 discovery path for influencer traffic.",
+      children: [
+        { name: "Author Directory", type: "page", desc: "Grid of all author portraits + featured books" },
+        { name: "Individual Author Page", type: "template", desc: "Metaobject template: hero, bio, all books, video, related products, related authors" },
+      ],
+    },
+    {
+      name: "BRAVE+",
+      type: "link",
+      priority: "secondary",
+      desc: "Streaming service landing page. Growing 75–100 new users/day.",
+      children: [
+        { name: "Streaming LP", type: "page", desc: "Value prop, pricing, content preview, sign-up CTA" },
+      ],
+    },
+    {
+      name: "New & Trending",
+      type: "link",
+      priority: "primary",
+      desc: "Curated landing page: latest launches, pre-orders, bestsellers",
+      children: [
+        { name: "Latest Launches", type: "section", desc: "Most recent influencer book releases" },
+        { name: "Pre-Orders", type: "section", desc: "Upcoming titles available for pre-order" },
+        { name: "Bestsellers", type: "section", desc: "Top-performing titles by sales volume" },
+      ],
+    },
+    {
+      name: "About",
+      type: "link",
+      priority: "supporting",
+      desc: "Our mission, press, contact",
+      children: [
+        { name: "Our Mission", type: "page", desc: "Brand story and values" },
+        { name: "Press", type: "page", desc: "Media mentions and logos" },
+        { name: "Contact", type: "page", desc: "Support and inquiries" },
+      ],
+    },
+  ],
+};
+
+const additionalPages = [
+  { name: "Homepage", desc: "Completely redesigned — marketplace storefront, not subscription pitch", priority: "primary" },
+  { name: "Product Detail Pages", desc: "Enhanced PDPs: author attribution, bundle upsell, age/value tags, BRAVE+ teaser", priority: "primary" },
+  { name: "Influencer Launch Pages", desc: "Repeatable Shopify template for ~30 launches/year — spinnable in <1 hour", priority: "primary" },
+  { name: "Account / Subscription Mgmt", desc: "Customer account, order history, subscription management", priority: "maintain" },
+];
+
+const TYPE_LABELS = {
+  root: "DOMAIN", "mega-menu": "MEGA MENU", link: "NAV LINK",
+  column: "COLUMN", page: "PAGE", section: "SECTION", template: "TEMPLATE",
+};
+
+const PRIORITY_LABELS = {
+  primary: "P1 — Growth Engine", secondary: "P2 — Growing",
+  maintain: "P3 — Maintain", supporting: "P4 — Supporting",
+};
+
+// ── Render tree ──
+let nodeId = 0;
+
+function renderNode(node, depth) {
+  const id = "node-" + (nodeId++);
+  const hasKids = node.children && node.children.length > 0;
+  const isOpen = depth < 2;
+
+  const priorityClass = node.priority && node.type !== "root" ? " priority-" + node.priority : "";
+  const clickClass = hasKids ? " clickable" : "";
+
+  let html = '<div class="tree-node">';
+  html += '<div class="node-card type-' + node.type + priorityClass + clickClass + '"';
+  if (hasKids) html += ' onclick="toggleNode(\'' + id + '\')"';
+  html += '>';
+
+  // Top row
+  html += '<div class="node-top-row">';
+  if (hasKids) {
+    html += '<span class="expand-btn ' + (isOpen ? "open" : "closed") + '" id="btn-' + id + '">' + (isOpen ? "−" : "+") + '</span>';
+  }
+  html += '<span class="node-name">' + escHtml(node.name) + '</span>';
+  html += '<span class="badge badge-type">' + TYPE_LABELS[node.type] + '</span>';
+  if (node.priority && node.type !== "root") {
+    html += '<span class="badge badge-priority p-' + node.priority + '">' + PRIORITY_LABELS[node.priority] + '</span>';
+  }
+  html += '</div>';
+
+  // Description
+  if (node.desc) {
+    html += '<p class="node-desc' + (hasKids ? " has-toggle" : "") + '">' + escHtml(node.desc) + '</p>';
+  }
+
+  html += '</div>'; // end node-card
+
+  // Children
+  if (hasKids) {
+    html += '<div class="tree-children ' + (isOpen ? "expanded" : "collapsed") + '" id="children-' + id + '">';
+    node.children.forEach(function(child) { html += renderNode(child, depth + 1); });
+    html += '</div>';
+  }
+
+  html += '</div>'; // end tree-node
+  return html;
+}
+
+function renderAdditional(pages) {
+  let html = '';
+  pages.forEach(function(p) {
+    html += '<div class="additional-card priority-' + p.priority + '">';
+    html += '<div class="node-top-row">';
+    html += '<span class="node-name">' + escHtml(p.name) + '</span>';
+    html += '<span class="badge badge-priority p-' + p.priority + '">' + PRIORITY_LABELS[p.priority] + '</span>';
+    html += '</div>';
+    html += '<p class="node-desc">' + escHtml(p.desc) + '</p>';
+    html += '</div>';
+  });
+  return html;
+}
+
+function escHtml(str) {
+  return str.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+}
+
+// ── Interactions ──
+function toggleNode(id) {
+  var children = document.getElementById("children-" + id);
+  var btn = document.getElementById("btn-" + id);
+  if (!children || !btn) return;
+
+  var isOpen = children.classList.contains("expanded");
+  if (isOpen) {
+    children.style.maxHeight = children.scrollHeight + "px";
+    requestAnimationFrame(function() {
+      children.classList.remove("expanded");
+      children.classList.add("collapsed");
+      children.style.maxHeight = "0px";
+    });
+    btn.classList.remove("open");
+    btn.classList.add("closed");
+    btn.textContent = "+";
+  } else {
+    children.classList.remove("collapsed");
+    children.classList.add("expanded");
+    children.style.maxHeight = children.scrollHeight + "px";
+    setTimeout(function() { children.style.maxHeight = "none"; }, 300);
+    btn.classList.remove("closed");
+    btn.classList.add("open");
+    btn.textContent = "−";
+  }
+}
+
+function toggleLegend() {
+  var items = document.getElementById("legend-items");
+  var text = document.getElementById("legend-toggle-text");
+  items.classList.toggle("hidden");
+  text.textContent = items.classList.contains("hidden") ? "Show" : "Hide";
+}
+
+// ── Init ──
+document.getElementById("nav-tree").innerHTML = renderNode(navData, 0);
+document.getElementById("additional-pages").innerHTML = renderAdditional(additionalPages);
+
+// Set initial max-height for expanded nodes
+document.querySelectorAll(".tree-children.expanded").forEach(function(el) {
+  el.style.maxHeight = "none";
+});
+</script>
+
+</body>
+</html>

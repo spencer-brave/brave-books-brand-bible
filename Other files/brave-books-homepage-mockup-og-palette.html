@@ -1,0 +1,1686 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>BRAVE Books — Homepage Mockup (Original Palette)</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --brave-red: #C41A1A;
+  --brave-red-hover: #A81616;
+  --navy: #1B2A4A;
+  --navy-light: #243558;
+  --warm-white: #FAF8F5;
+  --cream: #F5F0E8;
+  --gold: #D4A853;
+  --charcoal: #2D3748;
+  --light-gray: #E5E7EB;
+  --mid-gray: #9CA3AF;
+  --soft-red: #FEF2F2;
+  --white: #FFFFFF;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--warm-white);
+  font-family: 'DM Sans', sans-serif;
+  color: var(--charcoal);
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── Utility ── */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.serif { font-family: 'Libre Baskerville', Georgia, serif; }
+
+/* ── Design Note Banner ── */
+.design-note-banner {
+  background: var(--soft-red);
+  border-bottom: 1px solid #FECACA;
+  padding: 10px 24px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--brave-red);
+  letter-spacing: 0.02em;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.design-note-banner span {
+  background: var(--brave-red);
+  color: #fff;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-right: 8px;
+}
+
+/* ══════════════════════════════════════════
+   ANNOUNCEMENT BAR — Scheme 4 (BRAVE Red)
+   ══════════════════════════════════════════ */
+.announcement-bar {
+  background: var(--brave-red);
+  color: #fff;
+  text-align: center;
+  padding: 10px 24px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.announcement-bar a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  margin-left: 6px;
+}
+
+/* ══════════════════════════════════════════
+   HEADER / NAV — Scheme 3 (Navy)
+   ══════════════════════════════════════════ */
+.site-header {
+  background: var(--navy);
+  padding: 0 24px;
+  position: relative;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.logo {
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #fff;
+  letter-spacing: 0.02em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  width: 34px; height: 34px;
+  background: var(--brave-red);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px; font-weight: 700;
+  color: #fff;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-links li a {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+  letter-spacing: 0.01em;
+}
+
+.nav-links li a:hover { color: #fff; }
+
+.nav-links li a.active {
+  color: #fff;
+  font-weight: 700;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-icon {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.8);
+  font-size: 18px;
+  transition: background 0.2s;
+  cursor: pointer;
+}
+
+.nav-icon:hover { background: rgba(255,255,255,0.1); }
+
+.cart-badge {
+  position: relative;
+}
+
+.cart-badge::after {
+  content: "2";
+  position: absolute;
+  top: 2px; right: 2px;
+  width: 16px; height: 16px;
+  background: var(--brave-red);
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ══════════════════════════════════════════
+   SECTION 1: HERO — Scheme 3 (Navy)
+   ══════════════════════════════════════════ */
+.hero {
+  background: var(--navy);
+  padding: 56px 24px 64px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 120px;
+  background: linear-gradient(to top, rgba(27,42,74,0.4), transparent);
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-content { color: #fff; }
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.hero-eyebrow .dot {
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.hero h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-sub {
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 28px;
+  max-width: 460px;
+}
+
+.hero-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.hero-author-avatar {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  background: var(--navy-light);
+  border: 2px solid rgba(255,255,255,0.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 700; color: rgba(255,255,255,0.5);
+}
+
+.hero-author-info {
+  font-size: 14px;
+}
+
+.hero-author-info strong {
+  display: block;
+  color: #fff;
+  font-weight: 700;
+}
+
+.hero-author-info span {
+  color: rgba(255,255,255,0.55);
+  font-size: 13px;
+}
+
+.hero-btns {
+  display: flex; gap: 12px; flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--brave-red);
+  color: #fff;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary:hover { background: var(--brave-red-hover); transform: translateY(-1px); }
+
+.btn-outline-white {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255,255,255,0.35);
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-outline-white:hover { border-color: #fff; background: rgba(255,255,255,0.06); }
+
+.hero-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.book-mockup {
+  width: 260px;
+  height: 340px;
+  background: linear-gradient(145deg, #e8d5b0, #c9a96e);
+  border-radius: 4px 12px 12px 4px;
+  box-shadow: -6px 6px 24px rgba(0,0,0,0.35), 0 0 0 1px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 32px;
+  text-align: center;
+  position: relative;
+  transform: rotate(-2deg);
+}
+
+.book-mockup::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 8px; bottom: 8px;
+  width: 4px;
+  background: rgba(0,0,0,0.15);
+  border-radius: 0 2px 2px 0;
+}
+
+.book-mockup .book-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.book-mockup .book-author-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--brave-red);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.book-secondary {
+  width: 180px;
+  height: 240px;
+  background: linear-gradient(145deg, #b8d4e8, #8ab4cf);
+  border-radius: 3px 10px 10px 3px;
+  box-shadow: -4px 4px 16px rgba(0,0,0,0.25);
+  position: absolute;
+  right: -20px;
+  bottom: -10px;
+  transform: rotate(4deg);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--navy);
+  padding: 20px;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.book-secondary::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 6px; bottom: 6px;
+  width: 3px;
+  background: rgba(0,0,0,0.12);
+  border-radius: 0 2px 2px 0;
+}
+
+/* ══════════════════════════════════════════
+   SECTION 2: TRUST BAR — Scheme 3 (Navy)
+   ══════════════════════════════════════════ */
+.trust-bar {
+  background: var(--navy-light);
+  padding: 16px 24px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.trust-bar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.trust-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.trust-stars {
+  color: var(--gold);
+  font-size: 16px;
+  letter-spacing: 2px;
+}
+
+.trust-divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(255,255,255,0.15);
+}
+
+.trust-logos {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.trust-logo {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ══════════════════════════════════════════
+   SECTION 3: NEW & TRENDING — Scheme 1 (Warm White)
+   ══════════════════════════════════════════ */
+.new-trending {
+  background: var(--warm-white);
+  padding: 56px 24px;
+}
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.section-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+.section-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--brave-red);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition: gap 0.2s;
+}
+
+.section-link:hover { gap: 8px; }
+
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.book-card {
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--light-gray);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.book-card-cover {
+  aspect-ratio: 3/4;
+  position: relative;
+  overflow: hidden;
+}
+
+.book-cover-img {
+  width: 100%;
+  height: 100%;
+  display: flex; align-items: center; justify-content: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.book-cover-img .inner-title {
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.3;
+}
+
+.book-cover-img .inner-author {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 8px;
+}
+
+.book-badge {
+  position: absolute;
+  top: 10px; left: 10px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.badge-new { background: var(--navy); color: #fff; }
+.badge-preorder { background: var(--brave-red); color: #fff; }
+.badge-bestseller { background: var(--gold); color: var(--navy); }
+
+.book-card-info {
+  padding: 14px 16px;
+}
+
+.book-card-author {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--mid-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 4px;
+}
+
+.book-card-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--charcoal);
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.book-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.book-card-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--charcoal);
+}
+
+.book-card-age {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--mid-gray);
+  background: #f3f4f6;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+/* ══════════════════════════════════════════
+   SECTION 4: SHOP BY AUTHOR — Scheme 2 (Cream)
+   ══════════════════════════════════════════ */
+.shop-by-author {
+  background: var(--cream);
+  padding: 56px 24px;
+}
+
+.author-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 20px;
+}
+
+.author-card {
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.author-card:hover { transform: translateY(-4px); }
+
+.author-avatar {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  margin-bottom: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px; font-weight: 700;
+  border: 3px solid var(--white);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.author-name {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--charcoal);
+  line-height: 1.3;
+}
+
+.author-book-count {
+  font-size: 12px;
+  color: var(--mid-gray);
+  margin-top: 2px;
+}
+
+/* ══════════════════════════════════════════
+   SECTION 5: FEATURED BUNDLE — Scheme 2 (Cream)
+   ══════════════════════════════════════════ */
+.featured-bundle {
+  background: var(--cream);
+  padding: 0 24px 56px;
+}
+
+.bundle-card {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+  border: 1px solid var(--light-gray);
+}
+
+.bundle-visual {
+  background: linear-gradient(135deg, #fdf6ee, #f5e6d0);
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  min-height: 280px;
+}
+
+.bundle-book {
+  width: 100px; height: 140px;
+  border-radius: 3px 8px 8px 3px;
+  box-shadow: -3px 3px 12px rgba(0,0,0,0.15);
+  display: flex; align-items: center; justify-content: center;
+  padding: 12px;
+  text-align: center;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.3;
+  transition: transform 0.2s;
+}
+
+.bundle-book:nth-child(2) { transform: translateY(-12px); }
+.bundle-book:hover { transform: scale(1.05); }
+
+.bundle-info {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bundle-eyebrow {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.bundle-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.bundle-desc {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--mid-gray);
+  margin-bottom: 20px;
+}
+
+.bundle-pricing {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.bundle-price {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--charcoal);
+}
+
+.bundle-original {
+  font-size: 16px;
+  color: var(--mid-gray);
+  text-decoration: line-through;
+}
+
+.bundle-save {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--brave-red);
+  background: var(--soft-red);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.btn-primary-sm {
+  background: var(--brave-red);
+  color: #fff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s;
+  align-self: flex-start;
+}
+
+.btn-primary-sm:hover { background: var(--brave-red-hover); }
+
+/* ══════════════════════════════════════════
+   SECTION 6: BRAVE+ — Scheme 3 (Navy)
+   ══════════════════════════════════════════ */
+.brave-plus {
+  background: var(--navy);
+  padding: 56px 24px;
+}
+
+.brave-plus-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.brave-plus-content { color: #fff; }
+
+.brave-plus-badge {
+  display: inline-block;
+  background: rgba(212,168,83,0.15);
+  color: var(--gold);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(212,168,83,0.25);
+  margin-bottom: 16px;
+}
+
+.brave-plus h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+
+.brave-plus-sub {
+  font-size: 16px;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 24px;
+}
+
+.brave-plus-features {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.bp-feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: rgba(255,255,255,0.85);
+}
+
+.bp-feature-icon {
+  width: 24px; height: 24px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.08);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+.brave-plus-visual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.bp-video-card {
+  background: var(--navy-light);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.bp-video-card:hover { transform: translateY(-3px); }
+
+.bp-video-thumb {
+  aspect-ratio: 16/10;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 32px;
+  position: relative;
+}
+
+.bp-video-play {
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+  color: #fff;
+  backdrop-filter: blur(4px);
+}
+
+.bp-video-title {
+  padding: 10px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+}
+
+/* ══════════════════════════════════════════
+   SECTION 7: BEYOND THE BOOKS — Scheme 1 (Warm White)
+   ══════════════════════════════════════════ */
+.beyond-books {
+  background: var(--warm-white);
+  padding: 56px 24px;
+}
+
+.product-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.product-card {
+  background: var(--white);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--light-gray);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+
+.product-card-img {
+  aspect-ratio: 1;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 48px;
+  position: relative;
+}
+
+.product-card-type {
+  position: absolute;
+  top: 10px; left: 10px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 5px;
+  background: var(--navy);
+  color: #fff;
+}
+
+.product-card-info {
+  padding: 14px 16px;
+}
+
+.product-card-name {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--charcoal);
+  margin-bottom: 4px;
+}
+
+.product-card-desc {
+  font-size: 12px;
+  color: var(--mid-gray);
+  margin-bottom: 8px;
+}
+
+.product-card-price {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--charcoal);
+}
+
+/* ══════════════════════════════════════════
+   SECTION 8: BOOK CLUB — Scheme 2 (Cream)
+   ══════════════════════════════════════════ */
+.book-club {
+  background: var(--cream);
+  padding: 56px 24px;
+}
+
+.book-club-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.book-club-content h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.25;
+  margin-bottom: 14px;
+}
+
+.book-club-content p {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--mid-gray);
+  margin-bottom: 20px;
+}
+
+.book-club-perks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.bc-perk {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--charcoal);
+}
+
+.bc-perk-icon {
+  width: 22px; height: 22px;
+  border-radius: 50%;
+  background: var(--brave-red);
+  color: #fff;
+  font-size: 12px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+
+.btn-outline-navy {
+  background: transparent;
+  color: var(--navy);
+  border: 2px solid var(--navy);
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-outline-navy:hover {
+  background: var(--navy);
+  color: #fff;
+}
+
+.book-club-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box-mockup {
+  width: 260px;
+  height: 220px;
+  background: var(--brave-red);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  padding: 24px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(196,26,26,0.2);
+  position: relative;
+}
+
+.box-mockup .box-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  margin-bottom: 8px;
+}
+
+.box-mockup .box-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.box-mockup .box-sub {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+/* ══════════════════════════════════════════
+   SECTION 9: REVIEWS / UGC — Scheme 1 (Warm White)
+   ══════════════════════════════════════════ */
+.reviews {
+  background: var(--warm-white);
+  padding: 56px 24px;
+}
+
+.review-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.review-card {
+  background: var(--white);
+  border: 1px solid var(--light-gray);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.review-stars {
+  color: var(--gold);
+  font-size: 16px;
+  letter-spacing: 2px;
+  margin-bottom: 12px;
+}
+
+.review-text {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--charcoal);
+  margin-bottom: 14px;
+  font-style: italic;
+}
+
+.review-author {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--charcoal);
+}
+
+.review-meta {
+  font-size: 12px;
+  color: var(--mid-gray);
+  margin-top: 2px;
+}
+
+/* ══════════════════════════════════════════
+   FOOTER — Scheme 3 (Navy)
+   ══════════════════════════════════════════ */
+.site-footer {
+  background: var(--navy);
+  color: rgba(255,255,255,0.65);
+  padding: 48px 24px 32px;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 36px;
+}
+
+.footer-brand .logo {
+  margin-bottom: 12px;
+}
+
+.footer-brand p {
+  font-size: 13px;
+  line-height: 1.65;
+  max-width: 280px;
+}
+
+.footer-col h4 {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 14px;
+}
+
+.footer-col ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-col ul li a {
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-col ul li a:hover { color: #fff; }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; text-align: center; }
+  .hero-sub { margin: 0 auto 28px; }
+  .hero-author { justify-content: center; }
+  .hero-btns { justify-content: center; }
+  .hero-visual { margin-top: 32px; }
+  .book-grid { grid-template-columns: repeat(2, 1fr); }
+  .author-grid { grid-template-columns: repeat(3, 1fr); }
+  .bundle-card { grid-template-columns: 1fr; }
+  .brave-plus-inner { grid-template-columns: 1fr; }
+  .product-row { grid-template-columns: repeat(2, 1fr); }
+  .book-club-inner { grid-template-columns: 1fr; }
+  .review-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .nav-links { display: none; }
+}
+
+@media (max-width: 640px) {
+  .hero h1 { font-size: 28px; }
+  .section-title { font-size: 22px; }
+  .book-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .author-grid { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- Design Note -->
+<div class="design-note-banner">
+  <span>MOCKUP</span>
+  BRAVE Books Homepage — Original v1.0 Color Palette (Navy, BRAVE Red, Warm White, Cream, Gold)
+</div>
+
+<!-- Announcement Bar — Scheme 4 (BRAVE Red) -->
+<div class="announcement-bar">
+  🎉 Pre-Order Now: "Standing Strong" by Riley Gaines — Ships April 15th!
+  <a href="#">Shop Now →</a>
+</div>
+
+<!-- Header — Scheme 3 (Navy) -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-icon">B</div>
+      BRAVE Books
+    </div>
+    <ul class="nav-links">
+      <li><a href="#" class="active">New & Trending</a></li>
+      <li><a href="#">Shop</a></li>
+      <li><a href="#">Authors</a></li>
+      <li><a href="#">BRAVE+</a></li>
+      <li><a href="#">Book Club</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </div>
+      <div class="nav-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+      </div>
+      <div class="nav-icon cart-badge">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Section 1: Hero — Scheme 3 (Navy) -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="dot"></span>
+        New Release — March 2026
+      </div>
+      <h1>Introducing <em>"Standing Strong"</em> by Riley Gaines</h1>
+      <p class="hero-sub">A story about courage, fairness, and standing up for what's right — even when it's hard. For ages 5–10.</p>
+      <div class="hero-author">
+        <div class="hero-author-avatar">RG</div>
+        <div class="hero-author-info">
+          <strong>Riley Gaines</strong>
+          <span>NCAA Champion · 1.2M Followers</span>
+        </div>
+      </div>
+      <div class="hero-btns">
+        <a href="#" class="btn-primary">Pre-Order Now — $24.99</a>
+        <a href="#" class="btn-outline-white">Preview Book</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="book-mockup" style="background: linear-gradient(145deg, #fde8c8, #f0c97d);">
+        <div class="book-title">Standing Strong</div>
+        <div class="book-author-name">Riley Gaines</div>
+      </div>
+      <div class="book-secondary" style="background: linear-gradient(145deg, #d5e8d4, #a8ccb0);">
+        The Big <br/>Adventure
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 2: Trust Bar — Scheme 3 (Navy, darker) -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-rating">
+      <span class="trust-stars">★★★★★</span>
+      Trusted by 250,000+ Families
+    </div>
+    <div class="trust-divider"></div>
+    <div class="trust-logos">
+      <span class="trust-logo">Fox News</span>
+      <span class="trust-logo">Fox Business</span>
+      <span class="trust-logo">Joe Rogan</span>
+      <span class="trust-logo">Daily Wire</span>
+    </div>
+  </div>
+</div>
+
+<!-- Section 3: New & Trending — Scheme 1 (Warm White) -->
+<section class="new-trending">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">New & Trending</h2>
+      <a href="#" class="section-link">See All Books →</a>
+    </div>
+    <div class="book-grid">
+      <div class="book-card">
+        <div class="book-card-cover">
+          <div class="book-cover-img" style="background: linear-gradient(145deg, #fde8c8, #f0c97d);">
+            <div>
+              <div class="inner-title" style="color:#1B2A4A;">Standing Strong</div>
+              <div class="inner-author" style="color:#C41A1A;">Riley Gaines</div>
+            </div>
+          </div>
+          <span class="book-badge badge-preorder">Pre-Order</span>
+        </div>
+        <div class="book-card-info">
+          <div class="book-card-author">Riley Gaines</div>
+          <div class="book-card-title">Standing Strong</div>
+          <div class="book-card-meta">
+            <span class="book-card-price">$24.99</span>
+            <span class="book-card-age">Ages 5–10</span>
+          </div>
+        </div>
+      </div>
+      <div class="book-card">
+        <div class="book-card-cover">
+          <div class="book-cover-img" style="background: linear-gradient(145deg, #d5e8d4, #a8ccb0);">
+            <div>
+              <div class="inner-title" style="color:#1B2A4A;">The Big Adventure</div>
+              <div class="inner-author" style="color:#C41A1A;">Kirk Cameron</div>
+            </div>
+          </div>
+          <span class="book-badge badge-bestseller">Bestseller</span>
+        </div>
+        <div class="book-card-info">
+          <div class="book-card-author">Kirk Cameron</div>
+          <div class="book-card-title">The Big Adventure</div>
+          <div class="book-card-meta">
+            <span class="book-card-price">$19.99</span>
+            <span class="book-card-age">Ages 3–8</span>
+          </div>
+        </div>
+      </div>
+      <div class="book-card">
+        <div class="book-card-cover">
+          <div class="book-cover-img" style="background: linear-gradient(145deg, #e0d4f0, #c4b0e0);">
+            <div>
+              <div class="inner-title" style="color:#1B2A4A;">A World of Wonder</div>
+              <div class="inner-author" style="color:#C41A1A;">Ben Carson</div>
+            </div>
+          </div>
+          <span class="book-badge badge-new">New</span>
+        </div>
+        <div class="book-card-info">
+          <div class="book-card-author">Ben Carson</div>
+          <div class="book-card-title">A World of Wonder</div>
+          <div class="book-card-meta">
+            <span class="book-card-price">$22.99</span>
+            <span class="book-card-age">Ages 4–8</span>
+          </div>
+        </div>
+      </div>
+      <div class="book-card">
+        <div class="book-card-cover">
+          <div class="book-cover-img" style="background: linear-gradient(145deg, #fcd5ce, #f0a898);">
+            <div>
+              <div class="inner-title" style="color:#1B2A4A;">Brave & Kind</div>
+              <div class="inner-author" style="color:#C41A1A;">Dana Perino</div>
+            </div>
+          </div>
+          <span class="book-badge badge-new">New</span>
+        </div>
+        <div class="book-card-info">
+          <div class="book-card-author">Dana Perino</div>
+          <div class="book-card-title">Brave & Kind</div>
+          <div class="book-card-meta">
+            <span class="book-card-price">$21.99</span>
+            <span class="book-card-age">Ages 3–6</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 4: Shop by Author — Scheme 2 (Cream) -->
+<section class="shop-by-author">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Shop by Author</h2>
+      <a href="#" class="section-link">See All Authors →</a>
+    </div>
+    <div class="author-grid">
+      <div class="author-card">
+        <div class="author-avatar" style="background: linear-gradient(145deg, #f0c97d, #ddb35c); color: #1B2A4A;">RG</div>
+        <div class="author-name">Riley Gaines</div>
+        <div class="author-book-count">2 books</div>
+      </div>
+      <div class="author-card">
+        <div class="author-avatar" style="background: linear-gradient(145deg, #a8ccb0, #89b896); color: #1B2A4A;">KC</div>
+        <div class="author-name">Kirk Cameron</div>
+        <div class="author-book-count">4 books</div>
+      </div>
+      <div class="author-card">
+        <div class="author-avatar" style="background: linear-gradient(145deg, #c4b0e0, #a898d0); color: #1B2A4A;">BC</div>
+        <div class="author-name">Ben Carson</div>
+        <div class="author-book-count">3 books</div>
+      </div>
+      <div class="author-card">
+        <div class="author-avatar" style="background: linear-gradient(145deg, #f0a898, #e08878); color: #1B2A4A;">DP</div>
+        <div class="author-name">Dana Perino</div>
+        <div class="author-book-count">2 books</div>
+      </div>
+      <div class="author-card">
+        <div class="author-avatar" style="background: linear-gradient(145deg, #b8d4e8, #96c0d8); color: #1B2A4A;">TL</div>
+        <div class="author-name">Trent Loos</div>
+        <div class="author-book-count">1 book</div>
+      </div>
+      <div class="author-card">
+        <div class="author-avatar" style="background: linear-gradient(145deg, #f5d5a0, #e8c080); color: #1B2A4A;">JR</div>
+        <div class="author-name">Jack Roper</div>
+        <div class="author-book-count">1 book</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 5: Featured Bundle — Scheme 2 (Cream) -->
+<section class="featured-bundle">
+  <div class="bundle-card">
+    <div class="bundle-visual">
+      <div class="bundle-book" style="background: linear-gradient(145deg, #fde8c8, #f0c97d); color: #1B2A4A;">Standing Strong</div>
+      <div class="bundle-book" style="background: linear-gradient(145deg, #d5e8d4, #a8ccb0); color: #1B2A4A;">The Big Adventure</div>
+      <div class="bundle-book" style="background: linear-gradient(145deg, #e0d4f0, #c4b0e0); color: #1B2A4A;">A World of Wonder</div>
+    </div>
+    <div class="bundle-info">
+      <div class="bundle-eyebrow">★ Featured Bundle</div>
+      <h3 class="bundle-title">The Courage Collection</h3>
+      <p class="bundle-desc">Three bestselling books that teach kids about bravery, perseverance, and doing the right thing. Perfect gift for ages 4–10.</p>
+      <div class="bundle-pricing">
+        <span class="bundle-price">$54.99</span>
+        <span class="bundle-original">$67.97</span>
+        <span class="bundle-save">Save 19%</span>
+      </div>
+      <button class="btn-primary-sm">Add Bundle to Cart</button>
+    </div>
+  </div>
+</section>
+
+<!-- Section 6: BRAVE+ — Scheme 3 (Navy) -->
+<section class="brave-plus">
+  <div class="brave-plus-inner">
+    <div class="brave-plus-content">
+      <div class="brave-plus-badge">★ Streaming</div>
+      <h2>Stories Come Alive on BRAVE+</h2>
+      <p class="brave-plus-sub">Watch animated adventures, author read-alouds, and original shows — all rooted in the values you're already teaching at home.</p>
+      <div class="brave-plus-features">
+        <div class="bp-feature">
+          <div class="bp-feature-icon">▶</div>
+          50+ episodes of original content
+        </div>
+        <div class="bp-feature">
+          <div class="bp-feature-icon">★</div>
+          New episodes every week
+        </div>
+        <div class="bp-feature">
+          <div class="bp-feature-icon">♥</div>
+          Safe, ad-free viewing for kids
+        </div>
+      </div>
+      <a href="#" class="btn-primary">Start Watching — $4.99/mo</a>
+    </div>
+    <div class="brave-plus-visual">
+      <div class="bp-video-card" style="grid-column: span 2;">
+        <div class="bp-video-thumb" style="background: linear-gradient(145deg, #2a4a6a, #1B2A4A);">
+          <div class="bp-video-play">▶</div>
+        </div>
+        <div class="bp-video-title">Freedom Island — Season 2 Trailer</div>
+      </div>
+      <div class="bp-video-card">
+        <div class="bp-video-thumb" style="background: linear-gradient(145deg, #4a3a2a, #2a2018);">
+          <div class="bp-video-play">▶</div>
+        </div>
+        <div class="bp-video-title">Kirk Cameron Reads Along</div>
+      </div>
+      <div class="bp-video-card">
+        <div class="bp-video-thumb" style="background: linear-gradient(145deg, #3a4a3a, #1a2a1a);">
+          <div class="bp-video-play">▶</div>
+        </div>
+        <div class="bp-video-title">The Honesty Song</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 7: Beyond the Books — Scheme 1 (Warm White) -->
+<section class="beyond-books">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Beyond the Books</h2>
+      <a href="#" class="section-link">See All Products →</a>
+    </div>
+    <div class="product-row">
+      <div class="product-card">
+        <div class="product-card-img" style="background: linear-gradient(145deg, #fef3e2, #fde8c8);">
+          🧸
+          <span class="product-card-type">Plush</span>
+        </div>
+        <div class="product-card-info">
+          <div class="product-card-name">Liberty the Eagle</div>
+          <div class="product-card-desc">From the Freedom Island series</div>
+          <div class="product-card-price">$29.99</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img" style="background: linear-gradient(145deg, #e8f0e8, #d0e0d0);">
+          🎲
+          <span class="product-card-type">Game</span>
+        </div>
+        <div class="product-card-info">
+          <div class="product-card-name">Values Quest Board Game</div>
+          <div class="product-card-desc">Family game night for ages 6+</div>
+          <div class="product-card-price">$34.99</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img" style="background: linear-gradient(145deg, #f0e8f5, #e0d4f0);">
+          🎨
+          <span class="product-card-type">Activity</span>
+        </div>
+        <div class="product-card-info">
+          <div class="product-card-name">Courage Coloring Kit</div>
+          <div class="product-card-desc">48 pages of activities & games</div>
+          <div class="product-card-price">$14.99</div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-img" style="background: linear-gradient(145deg, #fde8d0, #f5d5a0);">
+          🧸
+          <span class="product-card-type">Plush</span>
+        </div>
+        <div class="product-card-info">
+          <div class="product-card-name">Brave Bear</div>
+          <div class="product-card-desc">Companion to "Standing Strong"</div>
+          <div class="product-card-price">$24.99</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 8: Book Club — Scheme 2 (Cream) -->
+<section class="book-club">
+  <div class="book-club-inner">
+    <div class="book-club-content">
+      <h2>Get a New Book Every Month</h2>
+      <p>The BRAVE Books Book Club delivers a beautifully illustrated, values-driven book to your door every month — plus exclusive member perks and early access to new launches.</p>
+      <div class="book-club-perks">
+        <div class="bc-perk">
+          <div class="bc-perk-icon">✓</div>
+          A new hardcover book every month
+        </div>
+        <div class="bc-perk">
+          <div class="bc-perk-icon">✓</div>
+          Free book with every new launch
+        </div>
+        <div class="bc-perk">
+          <div class="bc-perk-icon">✓</div>
+          Member-only discounts on all products
+        </div>
+        <div class="bc-perk">
+          <div class="bc-perk-icon">✓</div>
+          Cancel anytime — no commitment
+        </div>
+      </div>
+      <button class="btn-outline-navy">Subscribe Today — $22.99/mo</button>
+    </div>
+    <div class="book-club-visual">
+      <div class="box-mockup">
+        <div class="box-label">Monthly Subscription</div>
+        <div class="box-title">BRAVE Books</div>
+        <div class="box-sub">Book Club Box</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Section 9: Reviews — Scheme 1 (Warm White) -->
+<section class="reviews">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">What Families Are Saying</h2>
+    </div>
+    <div class="review-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"My kids ask to read these books every single night. The stories are engaging, the illustrations are beautiful, and the values come through naturally without being preachy."</p>
+        <div class="review-author">Sarah M.</div>
+        <div class="review-meta">Mom of 3 · Verified Buyer</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"We've been subscribers for over a year and every book has been a hit. The quality is incredible — hardcover, thick pages, gorgeous art. Worth every penny."</p>
+        <div class="review-author">James T.</div>
+        <div class="review-meta">Dad of 2 · Book Club Member</div>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Bought the Kirk Cameron bundle for my grandkids and they absolutely loved it. Already ordered more for their birthdays. So grateful for BRAVE Books!"</p>
+        <div class="review-author">Linda R.</div>
+        <div class="review-meta">Grandparent · Repeat Buyer</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer — Scheme 3 (Navy) -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">
+          <div class="logo-icon">B</div>
+          BRAVE Books
+        </div>
+        <p>Values-driven children's books from authors and voices families already know and love.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="#">New & Trending</a></li>
+          <li><a href="#">All Books</a></li>
+          <li><a href="#">Authors</a></li>
+          <li><a href="#">Bundles</a></li>
+          <li><a href="#">Gift Guide</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Subscribe</h4>
+        <ul>
+          <li><a href="#">Book Club</a></li>
+          <li><a href="#">BRAVE+</a></li>
+          <li><a href="#">Gift a Subscription</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="#">Our Mission</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 BRAVE Books. All rights reserved.</span>
+      <span>Privacy Policy · Terms of Service</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

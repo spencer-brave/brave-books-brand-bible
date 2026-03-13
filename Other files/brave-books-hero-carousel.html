@@ -1,0 +1,1161 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>BRAVE Books — Hero Carousel (5 Slide Types)</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --brave-red: #C41A1A;
+  --brave-red-hover: #A81616;
+  --navy: #1B2A4A;
+  --navy-light: #243558;
+  --navy-deep: #141E33;
+  --warm-white: #FAF8F5;
+  --cream: #F5F0E8;
+  --gold: #D4A853;
+  --charcoal: #2D3748;
+  --light-gray: #E5E7EB;
+  --mid-gray: #9CA3AF;
+  --soft-red: #FEF2F2;
+  --white: #FFFFFF;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  background: var(--warm-white);
+  font-family: 'DM Sans', sans-serif;
+  color: var(--charcoal);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Design Note ── */
+.design-note {
+  background: var(--soft-red);
+  border-bottom: 1px solid #FECACA;
+  padding: 10px 24px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--brave-red);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.design-note span {
+  background: var(--brave-red);
+  color: #fff;
+  padding: 2px 7px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-right: 8px;
+}
+
+/* ── Announcement Bar — Scheme 4 ── */
+.announcement-bar {
+  background: var(--brave-red);
+  color: #fff;
+  text-align: center;
+  padding: 10px 24px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.announcement-bar a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  margin-left: 6px;
+}
+
+/* ── Header — Scheme 3 ── */
+.site-header {
+  background: var(--navy);
+  padding: 0 24px;
+}
+
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.logo {
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 700;
+  font-size: 20px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo-icon {
+  width: 34px; height: 34px;
+  background: var(--brave-red);
+  border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 17px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover, .nav-links a.active { color: #fff; font-weight: 600; }
+
+.nav-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.nav-icon {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.75);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.nav-icon:hover { background: rgba(255,255,255,0.08); }
+
+/* ══════════════════════════════════════
+   HERO CAROUSEL
+   ══════════════════════════════════════ */
+.hero-carousel {
+  position: relative;
+  overflow: hidden;
+  background: var(--navy);
+}
+
+/* ── Slides Container ── */
+.slides-track {
+  display: flex;
+  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.slide {
+  min-width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Shared Slide Layout ── */
+.slide-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  align-items: center;
+  min-height: 420px;
+}
+
+.slide-two-col {
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+}
+
+.slide-centered {
+  grid-template-columns: 1fr;
+  justify-items: center;
+  text-align: center;
+}
+
+/* ── Slide Content (shared) ── */
+.slide-content { color: #fff; z-index: 2; position: relative; }
+
+.slide-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+
+.eyebrow-gold {
+  background: rgba(212,168,83,0.15);
+  border: 1px solid rgba(212,168,83,0.25);
+  color: var(--gold);
+}
+
+.eyebrow-red {
+  background: rgba(196,26,26,0.2);
+  border: 1px solid rgba(196,26,26,0.3);
+  color: #ff8a8a;
+}
+
+.eyebrow-white {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: rgba(255,255,255,0.9);
+}
+
+.eyebrow-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.slide h1, .slide h2 {
+  font-family: 'Libre Baskerville', serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.slide h1 { font-size: 40px; margin-bottom: 14px; }
+.slide h2 { font-size: 36px; margin-bottom: 14px; }
+
+.slide h1 em, .slide h2 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.slide-sub {
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 24px;
+  max-width: 480px;
+}
+
+.slide-centered .slide-sub {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Author credit line */
+.slide-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.slide-centered .slide-author {
+  justify-content: center;
+}
+
+.author-avatar {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 700;
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
+.author-info strong {
+  display: block;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.author-info span {
+  color: rgba(255,255,255,0.5);
+  font-size: 13px;
+}
+
+/* Buttons */
+.slide-btns {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.slide-centered .slide-btns {
+  justify-content: center;
+}
+
+.btn-hero {
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 2px solid transparent;
+}
+
+.btn-hero-primary {
+  background: var(--brave-red);
+  color: #fff;
+  border-color: var(--brave-red);
+}
+
+.btn-hero-primary:hover {
+  background: var(--brave-red-hover);
+  border-color: var(--brave-red-hover);
+  transform: translateY(-1px);
+}
+
+.btn-hero-white {
+  background: #fff;
+  color: var(--navy);
+  border-color: #fff;
+}
+
+.btn-hero-white:hover {
+  background: var(--cream);
+  border-color: var(--cream);
+  transform: translateY(-1px);
+}
+
+.btn-hero-outline {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255,255,255,0.35);
+}
+
+.btn-hero-outline:hover {
+  border-color: #fff;
+  background: rgba(255,255,255,0.06);
+}
+
+.btn-hero-gold {
+  background: var(--gold);
+  color: var(--navy);
+  border-color: var(--gold);
+}
+
+.btn-hero-gold:hover {
+  background: #c99a42;
+  border-color: #c99a42;
+  transform: translateY(-1px);
+}
+
+/* ── Visual Panels ── */
+.slide-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* Book mockups */
+.book-main {
+  width: 230px; height: 310px;
+  border-radius: 4px 12px 12px 4px;
+  box-shadow: -6px 8px 30px rgba(0,0,0,0.35);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 28px; text-align: center;
+  position: relative;
+  transform: rotate(-2deg);
+}
+
+.book-main::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 8px; bottom: 8px;
+  width: 4px;
+  background: rgba(0,0,0,0.15);
+  border-radius: 0 2px 2px 0;
+}
+
+.book-main .book-title {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 22px; font-weight: 700;
+  line-height: 1.25; margin-bottom: 10px;
+}
+
+.book-main .book-author {
+  font-size: 12px; font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.book-side {
+  width: 160px; height: 220px;
+  border-radius: 3px 10px 10px 3px;
+  box-shadow: -4px 4px 18px rgba(0,0,0,0.25);
+  position: absolute;
+  display: flex; align-items: center; justify-content: center;
+  padding: 18px; text-align: center;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 13px; font-weight: 700;
+  line-height: 1.3;
+}
+
+.book-side::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 6px; bottom: 6px;
+  width: 3px;
+  background: rgba(0,0,0,0.12);
+  border-radius: 0 2px 2px 0;
+}
+
+/* Bundle stack */
+.bundle-stack {
+  display: flex;
+  gap: 14px;
+  align-items: flex-end;
+}
+
+.bundle-book {
+  width: 120px;
+  border-radius: 3px 10px 10px 3px;
+  box-shadow: -3px 4px 16px rgba(0,0,0,0.2);
+  display: flex; align-items: center; justify-content: center;
+  padding: 16px; text-align: center;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 12px; font-weight: 700;
+  line-height: 1.3;
+  transition: transform 0.3s;
+}
+
+.bundle-book::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 6px; bottom: 6px;
+  width: 3px;
+  background: rgba(0,0,0,0.1);
+  border-radius: 0 2px 2px 0;
+}
+
+.bundle-book:nth-child(1) { height: 180px; }
+.bundle-book:nth-child(2) { height: 200px; }
+.bundle-book:nth-child(3) { height: 190px; }
+.bundle-book:nth-child(4) { height: 175px; }
+
+/* Sale visual */
+.sale-visual-box {
+  background: rgba(255,255,255,0.06);
+  border: 2px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  padding: 40px 48px;
+  text-align: center;
+  backdrop-filter: blur(8px);
+}
+
+.sale-big-number {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 96px;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.sale-percent {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--gold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.sale-detail {
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 8px;
+}
+
+/* Author spotlight large avatar */
+.author-spotlight-avatar {
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 64px; font-weight: 700;
+  border: 4px solid rgba(255,255,255,0.15);
+  box-shadow: 0 8px 40px rgba(0,0,0,0.25);
+  position: relative;
+}
+
+.author-books-count {
+  position: absolute;
+  bottom: 8px; right: 8px;
+  background: var(--brave-red);
+  color: #fff;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 800;
+  line-height: 1;
+  border: 3px solid var(--navy);
+}
+
+.author-books-count span {
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.8;
+}
+
+/* BRAVE+ visual */
+.braveplus-visual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  width: 100%;
+  max-width: 360px;
+}
+
+.bp-thumb {
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.08);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.bp-thumb:hover { transform: scale(1.03); }
+
+.bp-thumb-img {
+  aspect-ratio: 16/10;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+  position: relative;
+}
+
+.bp-play {
+  width: 32px; height: 32px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; color: #fff;
+  backdrop-filter: blur(4px);
+}
+
+.bp-thumb-title {
+  padding: 8px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.75);
+  background: rgba(255,255,255,0.04);
+}
+
+.bp-thumb.featured {
+  grid-column: span 2;
+}
+
+/* ── Slide Backgrounds ── */
+.slide-bg-navy { background: var(--navy); }
+
+.slide-bg-navy-gradient {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+}
+
+.slide-bg-red {
+  background: linear-gradient(135deg, var(--brave-red) 0%, #8B1212 100%);
+}
+
+.slide-bg-red .slide-eyebrow {
+  background: rgba(255,255,255,0.15);
+  border-color: rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+.slide-bg-dark {
+  background: linear-gradient(135deg, #0F1A2E 0%, var(--navy) 100%);
+}
+
+/* Decorative shapes */
+.slide-decor {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.06;
+  pointer-events: none;
+}
+
+/* ── Navigation: Arrows ── */
+.hero-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #fff;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+.hero-arrow:hover {
+  background: rgba(255,255,255,0.2);
+  border-color: rgba(255,255,255,0.3);
+}
+
+.hero-arrow-left { left: 20px; }
+.hero-arrow-right { right: 20px; }
+
+/* ── Navigation: Dots + Progress ── */
+.hero-nav {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  padding: 6px 12px;
+}
+
+.hero-dot {
+  width: 28px; height: 4px;
+  border-radius: 2px;
+  background: rgba(255,255,255,0.25);
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-dot.active {
+  background: rgba(255,255,255,0.2);
+  width: 36px;
+}
+
+.hero-dot-fill {
+  position: absolute;
+  top: 0; left: 0;
+  height: 100%;
+  width: 0%;
+  background: #fff;
+  border-radius: 2px;
+  transition: none;
+}
+
+.hero-dot.active .hero-dot-fill {
+  animation: dotProgress var(--slide-duration) linear forwards;
+}
+
+.hero-carousel.paused .hero-dot.active .hero-dot-fill {
+  animation-play-state: paused;
+}
+
+@keyframes dotProgress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+/* ── Slide Label Pill ── */
+.slide-type-label {
+  position: absolute;
+  top: 16px; right: 16px;
+  z-index: 10;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(6px);
+  color: rgba(255,255,255,0.7);
+}
+
+/* ── Trust Bar ── */
+.trust-bar {
+  background: var(--navy-light);
+  padding: 14px 24px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.trust-bar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+
+.trust-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.trust-stars {
+  color: var(--gold);
+  font-size: 15px;
+  letter-spacing: 2px;
+}
+
+.trust-divider {
+  width: 1px; height: 18px;
+  background: rgba(255,255,255,0.12);
+}
+
+.trust-logo {
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ── Below Hero placeholder ── */
+.below-hero {
+  padding: 64px 24px;
+  text-align: center;
+  color: var(--mid-gray);
+  font-size: 14px;
+}
+
+.below-hero strong {
+  color: var(--charcoal);
+}
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .slide-two-col { grid-template-columns: 1fr; text-align: center; }
+  .slide-two-col .slide-sub { margin: 0 auto 24px; }
+  .slide-two-col .slide-author { justify-content: center; }
+  .slide-two-col .slide-btns { justify-content: center; }
+  .slide-two-col .slide-visual { margin-top: 28px; }
+  .slide h1 { font-size: 30px; }
+  .slide h2 { font-size: 28px; }
+  .slide-inner { min-height: 520px; padding-top: 32px; padding-bottom: 60px; }
+  .hero-arrow { display: none; }
+  .book-main { width: 180px; height: 240px; }
+  .book-main .book-title { font-size: 17px; }
+  .book-side { width: 120px; height: 165px; font-size: 11px; }
+  .sale-big-number { font-size: 72px; }
+  .bundle-stack { gap: 8px; }
+  .bundle-book { width: 80px; font-size: 10px; padding: 10px; }
+  .bundle-book:nth-child(1) { height: 130px; }
+  .bundle-book:nth-child(2) { height: 150px; }
+  .bundle-book:nth-child(3) { height: 140px; }
+  .bundle-book:nth-child(4) { height: 125px; }
+  .author-spotlight-avatar { width: 140px; height: 140px; font-size: 48px; }
+}
+
+@media (max-width: 640px) {
+  .slide h1 { font-size: 26px; }
+  .slide h2 { font-size: 24px; }
+  .btn-hero { padding: 12px 24px; font-size: 13px; }
+}
+</style>
+</head>
+<body>
+
+<div class="design-note">
+  <span>MOCKUP</span>
+  Hero Carousel — 5 Slide Types · Auto-Rotate 6s · Pause on Hover · OG Palette
+</div>
+
+<!-- Announcement Bar -->
+<div class="announcement-bar">
+  🎉 Pre-Order Now: "Standing Strong" by Riley Gaines — Ships April 15th!
+  <a href="#">Shop Now →</a>
+</div>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo">
+      <div class="logo-icon">B</div>
+      BRAVE Books
+    </div>
+    <ul class="nav-links">
+      <li><a href="#" class="active">New & Trending</a></li>
+      <li><a href="#">Shop</a></li>
+      <li><a href="#">Authors</a></li>
+      <li><a href="#">BRAVE+</a></li>
+      <li><a href="#">Book Club</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+      <div class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+      <div class="nav-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div>
+    </div>
+  </div>
+</header>
+
+<!-- ════════════════════════════════════════
+     HERO CAROUSEL
+     ════════════════════════════════════════ -->
+<div class="hero-carousel" id="heroCarousel" style="--slide-duration: 6s;">
+
+  <div class="slides-track" id="slidesTrack">
+
+    <!-- ═══ SLIDE 1: Book Launch ═══ -->
+    <div class="slide slide-bg-navy">
+      <div class="slide-type-label">New Release</div>
+      <div class="slide-decor" style="width:500px;height:500px;background:var(--brave-red);top:-200px;right:-100px;"></div>
+      <div class="slide-decor" style="width:300px;height:300px;background:var(--gold);bottom:-100px;left:-50px;"></div>
+      <div class="slide-inner slide-two-col">
+        <div class="slide-content">
+          <div class="slide-eyebrow eyebrow-gold">
+            <span class="eyebrow-dot" style="background:var(--gold);"></span>
+            New Release — March 2026
+          </div>
+          <h1>Introducing <em>"Standing Strong"</em> by Riley Gaines</h1>
+          <p class="slide-sub">A story about courage, fairness, and standing up for what's right — even when it's hard. For ages 5–10.</p>
+          <div class="slide-author">
+            <div class="author-avatar" style="background:var(--navy-light); color:rgba(255,255,255,0.5);">RG</div>
+            <div class="author-info">
+              <strong>Riley Gaines</strong>
+              <span>NCAA Champion · 1.2M Followers</span>
+            </div>
+          </div>
+          <div class="slide-btns">
+            <a href="#" class="btn-hero btn-hero-primary">Pre-Order Now — $24.99</a>
+            <a href="#" class="btn-hero btn-hero-outline">Preview Book</a>
+          </div>
+        </div>
+        <div class="slide-visual">
+          <div class="book-main" style="background:linear-gradient(145deg,#fde8c8,#f0c97d);">
+            <div class="book-title" style="color:var(--navy);">Standing Strong</div>
+            <div class="book-author" style="color:var(--brave-red);">Riley Gaines</div>
+          </div>
+          <div class="book-side" style="background:linear-gradient(145deg,#d5e8d4,#a8ccb0); color:var(--navy); right:-30px; bottom:-15px; transform:rotate(5deg);">The Big Adventure</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ SLIDE 2: Sale / Promo ═══ -->
+    <div class="slide slide-bg-red">
+      <div class="slide-type-label">Limited Time</div>
+      <div class="slide-decor" style="width:600px;height:600px;background:#fff;top:-250px;right:-200px;"></div>
+      <div class="slide-decor" style="width:400px;height:400px;background:#fff;bottom:-200px;left:-100px;"></div>
+      <div class="slide-inner slide-two-col">
+        <div class="slide-content">
+          <div class="slide-eyebrow eyebrow-white">
+            <span class="eyebrow-dot" style="background:#fff;"></span>
+            Ends Sunday at Midnight
+          </div>
+          <h1>Spring Sale — <em>Save Big</em> on Bundles</h1>
+          <p class="slide-sub">Stock up for Easter baskets, birthdays, and summer reading. Every bundle in the store is marked down this week only.</p>
+          <div class="slide-btns">
+            <a href="#" class="btn-hero btn-hero-white">Shop All Bundles</a>
+            <a href="#" class="btn-hero btn-hero-outline">Browse All Books</a>
+          </div>
+        </div>
+        <div class="slide-visual">
+          <div class="sale-visual-box">
+            <div class="sale-big-number">20</div>
+            <div class="sale-percent">Percent Off</div>
+            <div class="sale-detail">All bundles · Code: SPRING26</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ SLIDE 3: Featured Bundle ═══ -->
+    <div class="slide slide-bg-navy-gradient">
+      <div class="slide-type-label">Featured</div>
+      <div class="slide-decor" style="width:450px;height:450px;background:var(--gold);top:-180px;left:-150px;"></div>
+      <div class="slide-inner slide-two-col">
+        <div class="slide-content">
+          <div class="slide-eyebrow eyebrow-gold">
+            <span class="eyebrow-dot" style="background:var(--gold);"></span>
+            Bestselling Bundle
+          </div>
+          <h2>The Courage Collection</h2>
+          <p class="slide-sub">Four books from four authors — all teaching kids about bravery, perseverance, and doing the right thing. Save 20% vs. buying individually.</p>
+          <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:24px;">
+            <span style="font-size:32px;font-weight:700;color:#fff;">$64.99</span>
+            <span style="font-size:16px;color:rgba(255,255,255,0.45);text-decoration:line-through;">$87.96</span>
+            <span style="font-size:12px;font-weight:700;color:var(--gold);background:rgba(212,168,83,0.15);padding:3px 8px;border-radius:4px;">Save $22.97</span>
+          </div>
+          <div class="slide-btns">
+            <a href="#" class="btn-hero btn-hero-primary">Add Bundle to Cart</a>
+            <a href="#" class="btn-hero btn-hero-outline">See What's Inside</a>
+          </div>
+        </div>
+        <div class="slide-visual">
+          <div class="bundle-stack">
+            <div class="bundle-book" style="background:linear-gradient(145deg,#fde8c8,#f0c97d); color:var(--navy); position:relative;">Standing<br/>Strong</div>
+            <div class="bundle-book" style="background:linear-gradient(145deg,#d5e8d4,#a8ccb0); color:var(--navy); position:relative;">The Big<br/>Adventure</div>
+            <div class="bundle-book" style="background:linear-gradient(145deg,#e0d4f0,#c4b0e0); color:var(--navy); position:relative;">A World of<br/>Wonder</div>
+            <div class="bundle-book" style="background:linear-gradient(145deg,#fcd5ce,#f0a898); color:var(--navy); position:relative;">Brave<br/>& Kind</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ SLIDE 4: Author Spotlight ═══ -->
+    <div class="slide slide-bg-navy">
+      <div class="slide-type-label">Author Spotlight</div>
+      <div class="slide-decor" style="width:500px;height:500px;background:var(--brave-red);bottom:-200px;right:-150px;"></div>
+      <div class="slide-inner slide-two-col">
+        <div class="slide-content">
+          <div class="slide-eyebrow eyebrow-gold">
+            <span class="eyebrow-dot" style="background:var(--gold);"></span>
+            Featured Author
+          </div>
+          <h2>Meet <em>Kirk Cameron</em></h2>
+          <p class="slide-sub">Actor, filmmaker, and father of six. Kirk's BRAVE Books collection teaches kids about adventure, faith, and the joy of doing good. Four bestselling titles and counting.</p>
+          <div class="slide-btns">
+            <a href="#" class="btn-hero btn-hero-primary">Shop Kirk's Books</a>
+            <a href="#" class="btn-hero btn-hero-outline">Watch His Story</a>
+          </div>
+        </div>
+        <div class="slide-visual">
+          <div class="author-spotlight-avatar" style="background:linear-gradient(145deg,#a8ccb0,#6ea882); color:var(--navy);">
+            KC
+            <div class="author-books-count">
+              4
+              <span>Books</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ SLIDE 5: BRAVE+ Push ═══ -->
+    <div class="slide slide-bg-dark">
+      <div class="slide-type-label">Streaming</div>
+      <div class="slide-decor" style="width:400px;height:400px;background:var(--gold);top:-150px;right:-100px;"></div>
+      <div class="slide-decor" style="width:350px;height:350px;background:var(--brave-red);bottom:-180px;left:-80px;"></div>
+      <div class="slide-inner slide-two-col">
+        <div class="slide-content">
+          <div class="slide-eyebrow eyebrow-gold">
+            <span class="eyebrow-dot" style="background:var(--gold);"></span>
+            BRAVE+ Streaming
+          </div>
+          <h2>Stories Come <em>Alive</em></h2>
+          <p class="slide-sub">Watch animated adventures, author read-alouds, and original shows — all rooted in the values you're already teaching at home. New episodes weekly.</p>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:24px;">
+            <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:rgba(255,255,255,0.8);">
+              <span style="width:22px;height:22px;border-radius:5px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:12px;">▶</span>
+              50+ episodes of original content
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;font-size:14px;color:rgba(255,255,255,0.8);">
+              <span style="width:22px;height:22px;border-radius:5px;background:rgba(255,255,255,0.08);display:flex;align-items:center;justify-content:center;font-size:12px;">♥</span>
+              Safe, ad-free viewing for kids
+            </div>
+          </div>
+          <div class="slide-btns">
+            <a href="#" class="btn-hero btn-hero-gold">Start Watching — $4.99/mo</a>
+            <a href="#" class="btn-hero btn-hero-outline">Learn More</a>
+          </div>
+        </div>
+        <div class="slide-visual">
+          <div class="braveplus-visual">
+            <div class="bp-thumb featured">
+              <div class="bp-thumb-img" style="background:linear-gradient(145deg,#2a4a6a,#1B2A4A);">
+                <div class="bp-play">▶</div>
+              </div>
+              <div class="bp-thumb-title">Freedom Island — Season 2 Trailer</div>
+            </div>
+            <div class="bp-thumb">
+              <div class="bp-thumb-img" style="background:linear-gradient(145deg,#4a3a2a,#2a2018);">
+                <div class="bp-play">▶</div>
+              </div>
+              <div class="bp-thumb-title">Kirk Reads Along</div>
+            </div>
+            <div class="bp-thumb">
+              <div class="bp-thumb-img" style="background:linear-gradient(145deg,#3a4a3a,#1a2a1a);">
+                <div class="bp-play">▶</div>
+              </div>
+              <div class="bp-thumb-title">The Honesty Song</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Arrows -->
+  <button class="hero-arrow hero-arrow-left" id="arrowLeft" aria-label="Previous slide">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="hero-arrow hero-arrow-right" id="arrowRight" aria-label="Next slide">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+
+  <!-- Dots -->
+  <div class="hero-nav" id="heroDots"></div>
+
+</div>
+
+<!-- Trust Bar -->
+<div class="trust-bar">
+  <div class="trust-bar-inner">
+    <div class="trust-rating">
+      <span class="trust-stars">★★★★★</span>
+      Trusted by 250,000+ Families
+    </div>
+    <div class="trust-divider"></div>
+    <span class="trust-logo">Fox News</span>
+    <span class="trust-logo">Fox Business</span>
+    <span class="trust-logo">Joe Rogan</span>
+    <span class="trust-logo">Daily Wire</span>
+  </div>
+</div>
+
+<!-- Below Hero -->
+<div class="below-hero">
+  <strong>↓ New & Trending, Shop by Author, Bundles, BRAVE+, and more below ↓</strong><br/>
+  The rest of the homepage continues here — this mockup focuses on the hero carousel.
+</div>
+
+<script>
+(function() {
+  var carousel = document.getElementById('heroCarousel');
+  var track = document.getElementById('slidesTrack');
+  var dotsContainer = document.getElementById('heroDots');
+  var slides = track.children;
+  var count = slides.length;
+  var current = 0;
+  var timer = null;
+  var paused = false;
+  var DURATION = 6000;
+
+  // Build dots
+  for (var i = 0; i < count; i++) {
+    var dot = document.createElement('div');
+    dot.className = 'hero-dot' + (i === 0 ? ' active' : '');
+    dot.innerHTML = '<div class="hero-dot-fill"></div>';
+    dot.setAttribute('data-index', i);
+    dot.addEventListener('click', function() {
+      goTo(parseInt(this.getAttribute('data-index')));
+    });
+    dotsContainer.appendChild(dot);
+  }
+
+  function goTo(index) {
+    if (index < 0) index = count - 1;
+    if (index >= count) index = 0;
+    current = index;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+
+    // Update dots
+    var dots = dotsContainer.children;
+    for (var i = 0; i < dots.length; i++) {
+      dots[i].className = 'hero-dot' + (i === current ? ' active' : '');
+    }
+
+    resetTimer();
+  }
+
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
+
+  function startTimer() {
+    clearInterval(timer);
+    timer = setInterval(function() {
+      if (!paused) next();
+    }, DURATION);
+  }
+
+  function resetTimer() {
+    startTimer();
+  }
+
+  // Arrows
+  document.getElementById('arrowRight').addEventListener('click', function() { next(); });
+  document.getElementById('arrowLeft').addEventListener('click', function() { prev(); });
+
+  // Pause on hover
+  carousel.addEventListener('mouseenter', function() {
+    paused = true;
+    carousel.classList.add('paused');
+  });
+
+  carousel.addEventListener('mouseleave', function() {
+    paused = false;
+    carousel.classList.remove('paused');
+    resetTimer();
+  });
+
+  // Pause on focus (keyboard accessibility)
+  carousel.addEventListener('focusin', function() {
+    paused = true;
+    carousel.classList.add('paused');
+  });
+
+  carousel.addEventListener('focusout', function() {
+    paused = false;
+    carousel.classList.remove('paused');
+    resetTimer();
+  });
+
+  // Touch swipe support
+  var touchStartX = 0;
+  var touchEndX = 0;
+
+  carousel.addEventListener('touchstart', function(e) {
+    touchStartX = e.changedTouches[0].screenX;
+    paused = true;
+    carousel.classList.add('paused');
+  }, { passive: true });
+
+  carousel.addEventListener('touchend', function(e) {
+    touchEndX = e.changedTouches[0].screenX;
+    var diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) next();
+      else prev();
+    }
+    paused = false;
+    carousel.classList.remove('paused');
+    resetTimer();
+  }, { passive: true });
+
+  // Keyboard nav
+  carousel.setAttribute('tabindex', '0');
+  carousel.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight') { next(); e.preventDefault(); }
+    if (e.key === 'ArrowLeft') { prev(); e.preventDefault(); }
+  });
+
+  // Start
+  startTimer();
+})();
+</script>
+
+</body>
+</html>

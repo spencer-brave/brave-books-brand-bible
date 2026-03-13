@@ -1,0 +1,1218 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BRAVE Books — Dawn Color Schemes</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --brave-red: #cd3636;
+        --navy: #1b2a4a;
+        --warm-white: #faf8f5;
+        --cream: #f5f0e8;
+        --gold: #d4a853;
+        --charcoal: #2d3748;
+        --light-gray: #e5e7eb;
+        --mid-gray: #9ca3af;
+        --white: #ffffff;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: var(--warm-white);
+        font-family: "DM Sans", "Helvetica Neue", Arial, sans-serif;
+        color: var(--charcoal);
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .container {
+        max-width: 920px;
+        margin: 0 auto;
+        padding: 36px 24px 72px;
+      }
+
+      /* ── Header ── */
+      .header {
+        margin-bottom: 36px;
+      }
+
+      .header-row {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 6px;
+      }
+
+      .logo-mark {
+        width: 42px;
+        height: 42px;
+        border-radius: 8px;
+        background: var(--brave-red);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #fff;
+        font-family: "Libre Baskerville", serif;
+        font-weight: 700;
+        font-size: 19px;
+        flex-shrink: 0;
+      }
+
+      .header h1 {
+        font-family: "Libre Baskerville", serif;
+        font-size: 22px;
+        font-weight: 700;
+        color: var(--navy);
+        line-height: 1.2;
+      }
+
+      .header .subtitle {
+        font-size: 13px;
+        color: var(--mid-gray);
+      }
+
+      .header .intro {
+        font-size: 13px;
+        line-height: 1.65;
+        color: #6b7280;
+        max-width: 680px;
+        margin-top: 14px;
+      }
+
+      .path-note {
+        display: inline-block;
+        background: var(--cream);
+        border: 1px solid var(--light-gray);
+        border-radius: 6px;
+        padding: 6px 12px;
+        font-size: 12px;
+        color: var(--charcoal);
+        margin-top: 10px;
+        font-weight: 500;
+      }
+
+      .path-note code {
+        background: #fff;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-size: 11px;
+      }
+
+      /* ── Scheme Card ── */
+      .scheme-card {
+        background: #fff;
+        border: 2px solid var(--light-gray);
+        border-radius: 12px;
+        overflow: hidden;
+        margin-bottom: 24px;
+        transition: box-shadow 0.2s;
+      }
+
+      .scheme-card:hover {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      }
+
+      .scheme-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 20px;
+        cursor: pointer;
+        user-select: none;
+        gap: 12px;
+      }
+
+      .scheme-header-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex: 1;
+        min-width: 0;
+      }
+
+      .scheme-number {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 14px;
+        flex-shrink: 0;
+      }
+
+      .scheme-title {
+        font-family: "Libre Baskerville", serif;
+        font-size: 16px;
+        font-weight: 700;
+        color: var(--navy);
+      }
+
+      .scheme-tagline {
+        font-size: 12px;
+        color: var(--mid-gray);
+        margin-top: 2px;
+      }
+
+      .scheme-mini-swatches {
+        display: flex;
+        gap: 3px;
+        flex-shrink: 0;
+      }
+
+      .mini-swatch {
+        width: 18px;
+        height: 18px;
+        border-radius: 4px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .expand-icon {
+        width: 28px;
+        height: 28px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--cream);
+        color: var(--charcoal);
+        font-size: 16px;
+        font-weight: 700;
+        flex-shrink: 0;
+        transition: all 0.2s;
+      }
+
+      .scheme-card.open .expand-icon {
+        background: var(--navy);
+        color: #fff;
+      }
+
+      .scheme-body {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height 0.35s ease,
+          padding 0.35s ease;
+        padding: 0 20px;
+        border-top: 0px solid transparent;
+      }
+
+      .scheme-card.open .scheme-body {
+        border-top: 1px solid var(--light-gray);
+        padding: 20px;
+      }
+
+      /* ── Preview Strip ── */
+      .preview-strip {
+        display: flex;
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 20px;
+        border: 1px solid var(--light-gray);
+        min-height: 72px;
+      }
+
+      .preview-area {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 16px 12px;
+        gap: 8px;
+      }
+
+      .preview-text {
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .preview-btn {
+        display: flex;
+        align-items: center;
+        padding: 6px 16px;
+        border-radius: 6px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        border: 2px solid transparent;
+      }
+
+      .preview-btn-solid {
+        border: none;
+      }
+      .preview-btn-outline {
+        background: transparent;
+      }
+
+      /* ── Field Table ── */
+      .field-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+
+      .field-table th {
+        text-align: left;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--mid-gray);
+        padding: 8px 12px;
+        border-bottom: 2px solid var(--light-gray);
+      }
+
+      .field-table td {
+        padding: 10px 12px;
+        border-bottom: 1px solid #f3f4f6;
+        font-size: 13px;
+        vertical-align: middle;
+      }
+
+      .field-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .field-name {
+        font-weight: 600;
+        color: var(--charcoal);
+        white-space: nowrap;
+      }
+
+      .swatch-cell {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .swatch {
+        width: 28px;
+        height: 28px;
+        border-radius: 6px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        flex-shrink: 0;
+      }
+
+      .hex-code {
+        font-family: "DM Sans", monospace;
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--charcoal);
+      }
+
+      .field-note {
+        font-size: 12px;
+        color: #6b7280;
+      }
+
+      /* ── Usage Tags ── */
+      .usage-section {
+        margin-bottom: 4px;
+      }
+
+      .usage-label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--mid-gray);
+        margin-bottom: 8px;
+      }
+
+      .usage-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 14px;
+      }
+
+      .usage-tag {
+        font-size: 11px;
+        font-weight: 600;
+        padding: 4px 10px;
+        border-radius: 6px;
+        background: var(--cream);
+        color: var(--charcoal);
+      }
+
+      .usage-tag.caution {
+        background: #fef2f2;
+        color: var(--brave-red);
+      }
+
+      /* ── Cheatsheet ── */
+      .cheatsheet {
+        margin-top: 40px;
+      }
+
+      .cheatsheet-title {
+        font-family: "Libre Baskerville", serif;
+        font-size: 18px;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 6px;
+      }
+
+      .cheatsheet-subtitle {
+        font-size: 13px;
+        color: var(--mid-gray);
+        margin-bottom: 20px;
+      }
+
+      .cs-table {
+        width: 100%;
+        border-collapse: collapse;
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid var(--light-gray);
+      }
+
+      .cs-table th {
+        text-align: left;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: #fff;
+        background: var(--navy);
+        padding: 10px 14px;
+      }
+
+      .cs-table td {
+        padding: 9px 14px;
+        border-bottom: 1px solid #f3f4f6;
+        font-size: 13px;
+      }
+
+      .cs-table tr:last-child td {
+        border-bottom: none;
+      }
+
+      .cs-table .section-name {
+        font-weight: 600;
+        color: var(--charcoal);
+      }
+
+      .cs-table .scheme-badge {
+        display: inline-block;
+        font-size: 11px;
+        font-weight: 700;
+        padding: 3px 8px;
+        border-radius: 5px;
+        white-space: nowrap;
+      }
+
+      .badge-1 {
+        background: #faf8f5;
+        color: var(--charcoal);
+        border: 1px solid var(--light-gray);
+      }
+      .badge-2 {
+        background: #f5f0e8;
+        color: var(--charcoal);
+        border: 1px solid #ddd5c5;
+      }
+      .badge-3 {
+        background: var(--navy);
+        color: #fff;
+      }
+      .badge-4 {
+        background: var(--brave-red);
+        color: #fff;
+      }
+      .badge-5 {
+        background: #fff;
+        color: var(--charcoal);
+        border: 1px solid var(--light-gray);
+      }
+
+      .cs-note {
+        font-size: 12px;
+        color: #6b7280;
+      }
+
+      .cs-table tr.cs-group td {
+        background: var(--cream);
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--mid-gray);
+        padding: 8px 14px;
+        border-bottom: 1px solid #ddd5c5;
+      }
+
+      /* ── Footer ── */
+      .doc-footer {
+        margin-top: 48px;
+        padding-top: 16px;
+        border-top: 1px solid var(--light-gray);
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        color: var(--mid-gray);
+      }
+
+      /* ── Responsive ── */
+      @media (max-width: 640px) {
+        .scheme-mini-swatches {
+          display: none;
+        }
+        .preview-strip {
+          flex-direction: column;
+        }
+        .field-table {
+          font-size: 12px;
+        }
+        .cs-table {
+          font-size: 12px;
+        }
+        .header h1 {
+          font-size: 18px;
+        }
+      }
+
+      /* ── Print ── */
+      @media print {
+        body {
+          background: #fff;
+        }
+        .scheme-body {
+          max-height: none !important;
+          padding: 20px !important;
+          border-top: 1px solid var(--light-gray) !important;
+        }
+        .expand-icon {
+          display: none;
+        }
+        .scheme-card {
+          break-inside: avoid;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <div class="header">
+        <div class="header-row">
+          <div class="logo-mark">B</div>
+          <div>
+            <h1>BRAVE Books — Dawn Color Schemes</h1>
+            <p class="subtitle">
+              Shopify Theme Configuration Reference · March 2026
+            </p>
+          </div>
+        </div>
+        <p class="intro">
+          Five color schemes for the new Dawn theme. Each maps to Dawn's seven
+          color fields. Assign schemes per-section in the theme editor via the
+          "Color scheme" dropdown.
+        </p>
+        <div class="path-note">
+          Shopify path:
+          <code
+            >Online Store → Themes → Customize → Theme Settings → Colors</code
+          >
+        </div>
+      </div>
+
+      <!-- Schemes -->
+      <div id="schemes"></div>
+
+      <!-- Cheatsheet -->
+      <div class="cheatsheet">
+        <div class="cheatsheet-title">Section Assignment Cheatsheet</div>
+        <div class="cheatsheet-subtitle">
+          Which scheme to assign to each major section across the site.
+        </div>
+        <table class="cs-table" id="cheatsheet-table"></table>
+      </div>
+
+      <div class="doc-footer">
+        <span>BRAVE Books · Website Redesign · Confidential</span>
+        <span>v1.0 — Theme Setup</span>
+      </div>
+    </div>
+
+    <script>
+      // ── Scheme Data ──
+      var schemes = [
+        {
+          number: 1,
+          name: "Default (Warm White)",
+          tagline:
+            "Your workhorse. Used on the majority of content sections across the site.",
+          numBg: "#FAF8F5",
+          numColor: "#2D3748",
+          numBorder: "#E5E7EB",
+          fields: [
+            {
+              field: "Background",
+              hex: "#FAF8F5",
+              notes: "Warm off-white — replaces the cold blue-gray (#D6E4EC)",
+            },
+            {
+              field: "Background Gradient",
+              hex: "#FAF8F5",
+              notes: "Match background — no gradient needed",
+            },
+            {
+              field: "Text",
+              hex: "#2D3748",
+              notes: "Charcoal — softer than pure black",
+            },
+            {
+              field: "Solid Button BG",
+              hex: "#C41A1A",
+              notes: "BRAVE Red — primary CTA color",
+            },
+            {
+              field: "Solid Button Label",
+              hex: "#FFFFFF",
+              notes: "White text on BRAVE Red",
+            },
+            {
+              field: "Outline Button",
+              hex: "#1B2A4A",
+              notes: "Navy outline for secondary actions",
+            },
+            {
+              field: "Shadow",
+              hex: "#2D3748",
+              notes: "Charcoal shadow for subtle depth",
+            },
+          ],
+          preview: {
+            bg: "#FAF8F5",
+            text: "#2D3748",
+            solidBg: "#C41A1A",
+            solidLabel: "#FFFFFF",
+            outlineColor: "#1B2A4A",
+          },
+          use: [
+            "Product grids",
+            "Collection pages",
+            "Author directory",
+            "Standard content sections",
+            "Default for any new section",
+          ],
+          pair: ["Alternate with Scheme 2 (Cream) for scroll rhythm"],
+          caution: [],
+        },
+        {
+          number: 2,
+          name: "Cream (Alternating)",
+          tagline:
+            "Alternating background for visual rhythm. Keeps the page warm without monotony.",
+          numBg: "#F5F0E8",
+          numColor: "#2D3748",
+          numBorder: "#DDD5C5",
+          fields: [
+            {
+              field: "Background",
+              hex: "#F5F0E8",
+              notes: "Warm cream for alternating contrast",
+            },
+            {
+              field: "Background Gradient",
+              hex: "#F5F0E8",
+              notes: "Match background",
+            },
+            {
+              field: "Text",
+              hex: "#2D3748",
+              notes: "Charcoal — consistent across schemes",
+            },
+            {
+              field: "Solid Button BG",
+              hex: "#C41A1A",
+              notes: "BRAVE Red CTA",
+            },
+            {
+              field: "Solid Button Label",
+              hex: "#FFFFFF",
+              notes: "White label",
+            },
+            {
+              field: "Outline Button",
+              hex: "#1B2A4A",
+              notes: "Navy outline — consistent with Default",
+            },
+            { field: "Shadow", hex: "#2D3748", notes: "Charcoal shadow" },
+          ],
+          preview: {
+            bg: "#F5F0E8",
+            text: "#2D3748",
+            solidBg: "#C41A1A",
+            solidLabel: "#FFFFFF",
+            outlineColor: "#1B2A4A",
+          },
+          use: [
+            "Alternating homepage sections",
+            "Shop by Author section",
+            "Featured Bundle section",
+            "Reviews / UGC carousel",
+            "Book Club pitch section",
+          ],
+          pair: [
+            "Always alternate with Scheme 1 (Default) — never stack two Cream sections",
+          ],
+          caution: [],
+        },
+        {
+          number: 3,
+          name: "Navy (Bold / Authority)",
+          tagline:
+            "Power scheme for high-authority moments. Conveys trust and gravitas.",
+          numBg: "#1B2A4A",
+          numColor: "#FFFFFF",
+          numBorder: "#1B2A4A",
+          fields: [
+            {
+              field: "Background",
+              hex: "#1B2A4A",
+              notes: "Deep navy — authoritative and premium",
+            },
+            {
+              field: "Background Gradient",
+              hex: "#1B2A4A",
+              notes: "Match background, or subtle darker fade to #141E33",
+            },
+            {
+              field: "Text",
+              hex: "#FFFFFF",
+              notes: "White for readability on dark",
+            },
+            {
+              field: "Solid Button BG",
+              hex: "#C41A1A",
+              notes: "BRAVE Red pops strongly against navy",
+            },
+            {
+              field: "Solid Button Label",
+              hex: "#FFFFFF",
+              notes: "White label on red",
+            },
+            {
+              field: "Outline Button",
+              hex: "#FFFFFF",
+              notes: "White outline for secondary actions on dark BG",
+            },
+            {
+              field: "Shadow",
+              hex: "#0F1A2E",
+              notes: "Deep shadow — darker than background",
+            },
+          ],
+          preview: {
+            bg: "#1B2A4A",
+            text: "#FFFFFF",
+            solidBg: "#C41A1A",
+            solidLabel: "#FFFFFF",
+            outlineColor: "#FFFFFF",
+          },
+          use: [
+            "Site header / navigation",
+            "Footer",
+            "Hero banners (launch + author pages)",
+            "Trust bar",
+            "BRAVE+ streaming callout",
+          ],
+          pair: [],
+          caution: [
+            "Max 2 sections per page — loses impact if overused",
+            "Don't use on product grids — covers need lighter BGs",
+          ],
+        },
+        {
+          number: 4,
+          name: "BRAVE Red (High Energy)",
+          tagline:
+            "Maximum urgency. Reserve for the single most important CTA on the page.",
+          numBg: "#C41A1A",
+          numColor: "#FFFFFF",
+          numBorder: "#C41A1A",
+          fields: [
+            {
+              field: "Background",
+              hex: "#C41A1A",
+              notes: "Full BRAVE Red — use sparingly",
+            },
+            {
+              field: "Background Gradient",
+              hex: "#C41A1A",
+              notes: "Match background, or subtle fade to #A31515",
+            },
+            { field: "Text", hex: "#FFFFFF", notes: "White text on red" },
+            {
+              field: "Solid Button BG",
+              hex: "#FFFFFF",
+              notes: "INVERTED — white button on red background",
+            },
+            {
+              field: "Solid Button Label",
+              hex: "#C41A1A",
+              notes: "Red text on white — inverted CTA",
+            },
+            {
+              field: "Outline Button",
+              hex: "#FFFFFF",
+              notes: "White outline for secondary actions",
+            },
+            { field: "Shadow", hex: "#8B1212", notes: "Darker red shadow" },
+          ],
+          preview: {
+            bg: "#C41A1A",
+            text: "#FFFFFF",
+            solidBg: "#FFFFFF",
+            solidLabel: "#C41A1A",
+            outlineColor: "#FFFFFF",
+          },
+          use: [
+            "Subscribe & Save callout on launch pages",
+            "Sale / limited-time announcements",
+            "Sticky mobile add-to-cart bar",
+            "Promo announcement bar",
+          ],
+          pair: [],
+          caution: [
+            "ONE per page maximum — if everything is urgent, nothing is",
+          ],
+        },
+        {
+          number: 5,
+          name: "White (Clean)",
+          tagline:
+            "Maximum contrast for product photography. Book covers render true to color.",
+          numBg: "#FFFFFF",
+          numColor: "#2D3748",
+          numBorder: "#E5E7EB",
+          fields: [
+            {
+              field: "Background",
+              hex: "#FFFFFF",
+              notes: "Pure white for product image accuracy",
+            },
+            {
+              field: "Background Gradient",
+              hex: "#FFFFFF",
+              notes: "Match background",
+            },
+            { field: "Text", hex: "#2D3748", notes: "Charcoal body text" },
+            {
+              field: "Solid Button BG",
+              hex: "#C41A1A",
+              notes: "BRAVE Red CTA",
+            },
+            {
+              field: "Solid Button Label",
+              hex: "#FFFFFF",
+              notes: "White label",
+            },
+            { field: "Outline Button", hex: "#1B2A4A", notes: "Navy outline" },
+            {
+              field: "Shadow",
+              hex: "#E5E7EB",
+              notes: "Light gray shadow — subtle on white",
+            },
+          ],
+          preview: {
+            bg: "#FFFFFF",
+            text: "#2D3748",
+            solidBg: "#C41A1A",
+            solidLabel: "#FFFFFF",
+            outlineColor: "#1B2A4A",
+          },
+          use: [
+            "Product Detail Pages (PDPs)",
+            "Mega menu dropdown",
+            "Cart drawer / slide-out",
+            "Modals and overlays",
+            "Book preview sections",
+          ],
+          pair: [
+            "Use instead of Default when product photography needs true-color rendering",
+          ],
+          caution: [],
+        },
+      ];
+
+      var cheatsheetData = [
+        { group: "Global" },
+        {
+          section: "Header / Navigation",
+          scheme: 3,
+          note: "Persistent across all pages",
+        },
+        { section: "Footer", scheme: 3, note: "Consistent with header" },
+        {
+          section: "Announcement Bar (promo)",
+          scheme: 4,
+          note: "Sale alerts, limited-time offers",
+        },
+        { group: "Homepage" },
+        {
+          section: "Hero Banner",
+          scheme: 3,
+          note: "Launch spotlight — bold and authoritative",
+        },
+        {
+          section: "Trust Bar",
+          scheme: 3,
+          note: '"Trusted by 250,000+ Families"',
+        },
+        {
+          section: "New & Trending Row",
+          scheme: 1,
+          note: "Standard product grid",
+        },
+        {
+          section: "Shop by Author",
+          scheme: 2,
+          note: "Alternating rhythm after Default",
+        },
+        {
+          section: "Featured Bundle",
+          scheme: 2,
+          note: "Bundle / collection upsell",
+        },
+        {
+          section: "BRAVE+ Callout",
+          scheme: 3,
+          note: "Streaming cross-sell — bold treatment",
+        },
+        {
+          section: "Beyond the Books",
+          scheme: 1,
+          note: "Non-book product discovery",
+        },
+        {
+          section: "Book Club Pitch",
+          scheme: 2,
+          note: "Maintain — not the hero",
+        },
+        {
+          section: "Reviews / UGC",
+          scheme: 1,
+          note: "Standard content section",
+        },
+        { group: "Launch Pages" },
+        {
+          section: "Launch Hero",
+          scheme: 3,
+          note: "Bold author + book spotlight",
+        },
+        {
+          section: "Book Preview",
+          scheme: 5,
+          note: "Clean BG for interior page images",
+        },
+        {
+          section: "Value Proposition",
+          scheme: 1,
+          note: "Scannable content section",
+        },
+        {
+          section: "Subscribe & Save",
+          scheme: 4,
+          note: "Highest urgency CTA on page",
+        },
+        {
+          section: "Author Bio Section",
+          scheme: 2,
+          note: "Warm, approachable",
+        },
+        {
+          section: "Bundle Upsell",
+          scheme: 2,
+          note: '"Add more to your order"',
+        },
+        { section: "FAQ", scheme: 1, note: "Standard content" },
+        { group: "Author Pages" },
+        {
+          section: "Author Hero Banner",
+          scheme: 3,
+          note: "Bold identity banner",
+        },
+        {
+          section: "Books by Author Grid",
+          scheme: 1,
+          note: "Standard product display",
+        },
+        {
+          section: "Related Products",
+          scheme: 2,
+          note: '"Complete the Experience" module',
+        },
+        { group: "Product & Browse" },
+        {
+          section: "Product Detail Pages",
+          scheme: 5,
+          note: "True color for book covers",
+        },
+        {
+          section: "Collection Pages",
+          scheme: 1,
+          note: "Standard browse experience",
+        },
+        {
+          section: "Mega Menu Dropdown",
+          scheme: 5,
+          note: "Clean navigation panel",
+        },
+        { section: "Cart Drawer", scheme: 5, note: "Clean for product review" },
+      ];
+
+      // ── Render ──
+      function esc(s) {
+        return s
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+      }
+
+      function renderSchemes() {
+        var container = document.getElementById("schemes");
+        var html = "";
+
+        schemes.forEach(function (s, idx) {
+          var open = idx === 0 ? " open" : "";
+          var miniSwatches = s.fields
+            .filter(function (f) {
+              return (
+                f.field === "Background" ||
+                f.field === "Solid Button BG" ||
+                f.field === "Outline Button"
+              );
+            })
+            .map(function (f) {
+              return (
+                '<div class="mini-swatch" style="background:' +
+                f.hex +
+                '"></div>'
+              );
+            })
+            .join("");
+
+          html +=
+            '<div class="scheme-card' +
+            open +
+            '" id="scheme-' +
+            s.number +
+            '">';
+
+          // Header
+          html +=
+            '<div class="scheme-header" onclick="toggleScheme(' +
+            s.number +
+            ')">';
+          html += '<div class="scheme-header-left">';
+          html +=
+            '<div class="scheme-number" style="background:' +
+            s.numBg +
+            ";color:" +
+            s.numColor +
+            ";border:2px solid " +
+            s.numBorder +
+            '">' +
+            s.number +
+            "</div>";
+          html += '<div><div class="scheme-title">' + esc(s.name) + "</div>";
+          html +=
+            '<div class="scheme-tagline">' + esc(s.tagline) + "</div></div>";
+          html += "</div>";
+          html +=
+            '<div class="scheme-mini-swatches">' + miniSwatches + "</div>";
+          html +=
+            '<div class="expand-icon" id="icon-' +
+            s.number +
+            '">' +
+            (open ? "\u2212" : "+") +
+            "</div>";
+          html += "</div>";
+
+          // Body
+          html += '<div class="scheme-body" id="body-' + s.number + '">';
+
+          // Preview strip
+          var p = s.preview;
+          html += '<div class="preview-strip">';
+          html +=
+            '<div class="preview-area" style="background:' + p.bg + ';flex:2">';
+          html +=
+            '<span class="preview-text" style="color:' +
+            p.text +
+            '">Sample body text</span>';
+          html +=
+            '<div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center">';
+          html +=
+            '<span class="preview-btn preview-btn-solid" style="background:' +
+            p.solidBg +
+            ";color:" +
+            p.solidLabel +
+            '">Shop Now</span>';
+          html +=
+            '<span class="preview-btn preview-btn-outline" style="border:2px solid ' +
+            p.outlineColor +
+            ";color:" +
+            p.outlineColor +
+            '">Learn More</span>';
+          html += "</div></div></div>";
+
+          // Field table
+          html += '<table class="field-table"><thead><tr>';
+          html +=
+            '<th style="width:170px">Dawn Field</th><th style="width:140px">Color</th><th style="width:90px">Hex</th><th>Notes</th>';
+          html += "</tr></thead><tbody>";
+          s.fields.forEach(function (f) {
+            html += "<tr>";
+            html += '<td class="field-name">' + esc(f.field) + "</td>";
+            html +=
+              '<td><div class="swatch-cell"><div class="swatch" style="background:' +
+              f.hex +
+              '"></div></div></td>';
+            html += '<td class="hex-code">' + f.hex + "</td>";
+            html += '<td class="field-note">' + esc(f.notes) + "</td>";
+            html += "</tr>";
+          });
+          html += "</tbody></table>";
+
+          // Usage
+          html += '<div class="usage-section">';
+          if (s.use.length) {
+            html += '<div class="usage-label">Use on</div>';
+            html +=
+              '<div class="usage-tags">' +
+              s.use
+                .map(function (u) {
+                  return '<span class="usage-tag">' + esc(u) + "</span>";
+                })
+                .join("") +
+              "</div>";
+          }
+          if (s.pair.length) {
+            html += '<div class="usage-label">Pairs with</div>';
+            html +=
+              '<div class="usage-tags">' +
+              s.pair
+                .map(function (u) {
+                  return '<span class="usage-tag">' + esc(u) + "</span>";
+                })
+                .join("") +
+              "</div>";
+          }
+          if (s.caution.length) {
+            html += '<div class="usage-label">Caution</div>';
+            html +=
+              '<div class="usage-tags">' +
+              s.caution
+                .map(function (u) {
+                  return (
+                    '<span class="usage-tag caution">' + esc(u) + "</span>"
+                  );
+                })
+                .join("") +
+              "</div>";
+          }
+          html += "</div>";
+
+          html += "</div>"; // body
+          html += "</div>"; // card
+        });
+
+        container.innerHTML = html;
+
+        // Set initial open state height
+        var firstBody = document.getElementById("body-1");
+        if (firstBody)
+          firstBody.style.maxHeight = firstBody.scrollHeight + "px";
+      }
+
+      function renderCheatsheet() {
+        var table = document.getElementById("cheatsheet-table");
+        var html =
+          "<thead><tr><th>Section / Page</th><th>Scheme</th><th>Notes</th></tr></thead><tbody>";
+
+        var badgeClasses = {
+          1: "badge-1",
+          2: "badge-2",
+          3: "badge-3",
+          4: "badge-4",
+          5: "badge-5",
+        };
+        var schemeNames = {
+          1: "1: Default",
+          2: "2: Cream",
+          3: "3: Navy",
+          4: "4: BRAVE Red",
+          5: "5: White",
+        };
+
+        cheatsheetData.forEach(function (row) {
+          if (row.group) {
+            html +=
+              '<tr class="cs-group"><td colspan="3">' +
+              esc(row.group) +
+              "</td></tr>";
+          } else {
+            html += "<tr>";
+            html += '<td class="section-name">' + esc(row.section) + "</td>";
+            html +=
+              '<td><span class="scheme-badge ' +
+              badgeClasses[row.scheme] +
+              '">' +
+              schemeNames[row.scheme] +
+              "</span></td>";
+            html += '<td class="cs-note">' + esc(row.note) + "</td>";
+            html += "</tr>";
+          }
+        });
+
+        html += "</tbody>";
+        table.innerHTML = html;
+      }
+
+      function toggleScheme(num) {
+        var card = document.getElementById("scheme-" + num);
+        var body = document.getElementById("body-" + num);
+        var icon = document.getElementById("icon-" + num);
+        if (!card || !body) return;
+
+        var isOpen = card.classList.contains("open");
+        if (isOpen) {
+          body.style.maxHeight = body.scrollHeight + "px";
+          requestAnimationFrame(function () {
+            body.style.maxHeight = "0px";
+          });
+          card.classList.remove("open");
+          icon.textContent = "+";
+        } else {
+          card.classList.add("open");
+          body.style.maxHeight = body.scrollHeight + "px";
+          icon.textContent = "\u2212";
+          setTimeout(function () {
+            body.style.maxHeight = "none";
+          }, 350);
+        }
+      }
+
+      renderSchemes();
+      renderCheatsheet();
+    </script>
+  </body>
+</html>

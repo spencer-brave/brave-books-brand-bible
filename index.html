@@ -1,0 +1,1657 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BRAVE Books — Brand Style Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* =============================================
+   BRAVE BOOKS BRAND STYLE GUIDE
+   Section 1: Brand Foundation
+   ============================================= */
+
+      :root {
+        --brave-red: #c41a1a;
+        --navy: #1b2a4a;
+        --warm-white: #faf8f5;
+        --cream: #f5f0e8;
+        --gold: #d4a853;
+        --charcoal: #2d3748;
+        --soft-red: #fef2f2;
+        --light-gray: #e5e7eb;
+        --font-heading: "Libre Baskerville", Georgia, "Times New Roman", serif;
+        --font-body: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+      }
+
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 16px;
+        scroll-behavior: smooth;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      body {
+        font-family: var(--font-body);
+        color: var(--charcoal);
+        background-color: var(--warm-white);
+        line-height: 1.65;
+      }
+
+      /* --- Guide Header --- */
+      .guide-header {
+        background-color: var(--navy);
+        color: #fff;
+        padding: 40px 0 36px;
+        border-bottom: 4px solid var(--brave-red);
+      }
+
+      .guide-header-inner {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 32px;
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .guide-logo {
+        width: 200px;
+        height: unset;
+      }
+
+      .guide-subtitle {
+        font-family: var(--font-body);
+        font-size: 0.8125rem;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.5);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      /* --- Section Nav --- */
+      .section-nav {
+        background-color: var(--cream);
+        border-bottom: 1px solid var(--light-gray);
+        padding: 0 32px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+
+      .section-nav-inner {
+        max-width: 960px;
+        margin: 0 auto;
+        display: flex;
+        gap: 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .section-nav a {
+        display: block;
+        padding: 14px 20px;
+        font-family: var(--font-body);
+        font-size: 0.8125rem;
+        font-weight: 600;
+        color: var(--charcoal);
+        text-decoration: none;
+        white-space: nowrap;
+        border-bottom: 2px solid transparent;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+      }
+
+      .section-nav a:hover {
+        color: var(--brave-red);
+      }
+
+      .section-nav a.active {
+        color: var(--brave-red);
+        border-bottom-color: var(--brave-red);
+      }
+
+      /* --- Main --- */
+      .guide-main {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+
+      .guide-section {
+        padding: 72px 0 64px;
+        border-bottom: 1px solid var(--light-gray);
+      }
+
+      .guide-section:last-child {
+        border-bottom: none;
+      }
+
+      /* --- Section Headings --- */
+      .section-label {
+        font-family: var(--font-body);
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--brave-red);
+        margin-bottom: 12px;
+      }
+
+      .section-title {
+        font-family: var(--font-heading);
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--navy);
+        line-height: 1.25;
+        margin-bottom: 12px;
+      }
+
+      .section-desc {
+        font-size: 1.0625rem;
+        color: var(--charcoal);
+        opacity: 0.72;
+        max-width: 640px;
+        line-height: 1.7;
+        margin-bottom: 48px;
+      }
+
+      /* --- Mission Block --- */
+      .mission-block {
+        background-color: var(--navy);
+        color: #fff;
+        padding: 48px 56px;
+        border-radius: 6px;
+        position: relative;
+        margin-bottom: 56px;
+      }
+
+      .mission-block::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--brave-red);
+        border-radius: 6px 6px 0 0;
+      }
+
+      .mission-eyebrow {
+        font-family: var(--font-body);
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 20px;
+      }
+
+      .mission-text {
+        font-family: var(--font-heading);
+        font-size: 1.375rem;
+        font-weight: 400;
+        line-height: 1.65;
+        color: rgba(255, 255, 255, 0.92);
+      }
+
+      .mission-text em {
+        font-style: italic;
+        color: #fff;
+      }
+
+      /* --- Subsection Title --- */
+      .subsection-title {
+        font-family: var(--font-heading);
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 32px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--light-gray);
+      }
+
+      /* --- Values Grid --- */
+      .values-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-bottom: 56px;
+      }
+
+      @media (min-width: 640px) {
+        .values-grid {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+      }
+
+      .value-card {
+        padding: 32px 28px;
+        background: var(--cream);
+        border-radius: 4px;
+        border-left: 3px solid var(--brave-red);
+      }
+
+      .value-number {
+        font-family: var(--font-body);
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--brave-red);
+        margin-bottom: 10px;
+      }
+
+      .value-name {
+        font-family: var(--font-heading);
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 10px;
+        line-height: 1.3;
+      }
+
+      .value-desc {
+        font-size: 0.9375rem;
+        color: var(--charcoal);
+        line-height: 1.6;
+        opacity: 0.78;
+      }
+
+      /* --- Personality Table --- */
+      .personality-table {
+        width: 100%;
+        margin-bottom: 56px;
+        border-collapse: collapse;
+      }
+
+      .personality-table thead th {
+        font-family: var(--font-body);
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--charcoal);
+        opacity: 0.5;
+        text-align: left;
+        padding: 0 0 14px 0;
+      }
+
+      .personality-table tbody tr {
+        border-top: 1px solid var(--light-gray);
+      }
+
+      .personality-table tbody td {
+        padding: 20px 24px 20px 0;
+        vertical-align: top;
+      }
+
+      .personality-table tbody td:first-child {
+        font-family: var(--font-heading);
+        font-weight: 700;
+        color: var(--navy);
+        font-size: 1rem;
+        white-space: nowrap;
+        width: 180px;
+      }
+
+      .personality-table tbody td:nth-child(2) {
+        font-size: 0.9375rem;
+        color: var(--charcoal);
+        line-height: 1.6;
+      }
+
+      .personality-table tbody td:nth-child(3) {
+        font-size: 0.9375rem;
+        color: var(--charcoal);
+        opacity: 0.55;
+        line-height: 1.6;
+      }
+
+      .pill-we-are {
+        display: inline-block;
+        background: rgba(196, 26, 26, 0.08);
+        color: var(--brave-red);
+        font-family: var(--font-body);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        padding: 3px 10px;
+        border-radius: 3px;
+        margin-bottom: 6px;
+      }
+
+      .pill-not {
+        display: inline-block;
+        background: rgba(45, 55, 72, 0.06);
+        color: var(--charcoal);
+        font-family: var(--font-body);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        padding: 3px 10px;
+        border-radius: 3px;
+        margin-bottom: 6px;
+        opacity: 0.6;
+      }
+
+      /* --- Positioning Block --- */
+      .positioning-block {
+        background: var(--cream);
+        border-radius: 6px;
+        padding: 44px 48px;
+        position: relative;
+        margin-bottom: 56px;
+        overflow: hidden;
+      }
+
+      .positioning-block::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 48px;
+        right: 48px;
+        height: 2px;
+        background: linear-gradient(
+          to right,
+          var(--brave-red),
+          var(--gold),
+          transparent
+        );
+      }
+
+      .positioning-label {
+        font-family: var(--font-body);
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--brave-red);
+        margin-bottom: 16px;
+      }
+
+      .positioning-text {
+        font-family: var(--font-heading);
+        font-size: 1.125rem;
+        font-weight: 400;
+        line-height: 1.7;
+        color: var(--navy);
+        max-width: 720px;
+      }
+
+      /* --- Priority Stack --- */
+      .priority-intro {
+        font-size: 0.9375rem;
+        color: var(--charcoal);
+        opacity: 0.72;
+        margin-bottom: 24px;
+        max-width: 640px;
+        line-height: 1.6;
+      }
+
+      .priority-stack {
+        display: flex;
+        flex-direction: column;
+        gap: 0;
+      }
+
+      .priority-row {
+        display: grid;
+        grid-template-columns: 48px 1fr 1.4fr;
+        gap: 0;
+        align-items: stretch;
+        border-bottom: 1px solid var(--light-gray);
+      }
+
+      .priority-row:last-child {
+        border-bottom: none;
+      }
+
+      .priority-rank {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-heading);
+        font-size: 1rem;
+        font-weight: 700;
+        color: var(--navy);
+        padding: 20px 0;
+      }
+
+      .priority-rank.rank-1 {
+        color: var(--brave-red);
+      }
+
+      .priority-name {
+        display: flex;
+        align-items: center;
+        padding: 20px 16px;
+        font-family: var(--font-body);
+        font-size: 0.9375rem;
+        font-weight: 600;
+        color: var(--navy);
+      }
+
+      .priority-role {
+        display: flex;
+        align-items: center;
+        padding: 20px 16px;
+        font-family: var(--font-body);
+        font-size: 0.9375rem;
+        color: var(--charcoal);
+        opacity: 0.72;
+        line-height: 1.5;
+      }
+
+      /* --- Usage Note --- */
+      .usage-note {
+        background: var(--soft-red);
+        border-left: 3px solid var(--brave-red);
+        padding: 20px 24px;
+        border-radius: 0 4px 4px 0;
+        margin-top: 32px;
+      }
+
+      .usage-note p {
+        font-size: 0.9375rem;
+        line-height: 1.6;
+        color: var(--charcoal);
+      }
+
+      .usage-note strong {
+        font-weight: 600;
+        color: var(--navy);
+      }
+
+      /* =============================================
+   Section 2: Logo & Logo Usage
+   ============================================= */
+
+      .logo-intro {
+        font-size: 0.9375rem;
+        color: var(--charcoal);
+        opacity: 0.72;
+        max-width: 640px;
+        line-height: 1.6;
+        margin-bottom: 32px;
+      }
+
+      .logo-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-bottom: 56px;
+      }
+
+      @media (min-width: 640px) {
+        .logo-grid {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+      }
+
+      .logo-card {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .logo-card-label {
+        font-family: var(--font-body);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        color: var(--navy);
+        margin-bottom: 12px;
+      }
+
+      .logo-preview {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 32px;
+        border-radius: 6px;
+        min-height: 180px;
+      }
+
+      .logo-preview--dark {
+        background-color: var(--navy);
+      }
+      .logo-preview--light {
+        background-color: var(--cream);
+        border: 1px solid var(--light-gray);
+      }
+      .logo-preview--white {
+        background-color: #fff;
+        border: 1px solid var(--light-gray);
+      }
+      .logo-preview--red {
+        background-color: var(--brave-red);
+      }
+
+      .logo-img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .logo-img--horizontal {
+        max-height: 56px;
+      }
+      .logo-img--stacked {
+        max-height: 100px;
+      }
+      .logo-img--lion {
+        max-height: 88px;
+      }
+
+      .logo-meta {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding: 14px 0 12px;
+      }
+
+      .logo-meta-tag {
+        font-size: 0.8125rem;
+        color: var(--charcoal);
+        opacity: 0.6;
+        line-height: 1.4;
+      }
+
+      .download-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: var(--font-body);
+        font-size: 0.8125rem;
+        font-weight: 600;
+        color: var(--brave-red);
+        background: none;
+        border: 1px solid var(--brave-red);
+        padding: 8px 16px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition:
+          background 0.2s,
+          color 0.2s;
+        align-self: flex-start;
+      }
+
+      .download-btn:hover {
+        background: var(--brave-red);
+        color: #fff;
+      }
+
+      .bg-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        margin-bottom: 56px;
+      }
+
+      @media (min-width: 640px) {
+        .bg-grid {
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+      }
+
+      .bg-cell-label {
+        font-family: var(--font-body);
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--charcoal);
+        opacity: 0.5;
+        margin-bottom: 8px;
+      }
+
+      .bg-cell-preview {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 28px 20px;
+        border-radius: 6px;
+        min-height: 120px;
+      }
+
+      .bg-cell-preview img {
+        max-width: 100%;
+        max-height: 44px;
+        display: block;
+      }
+
+      .bg-cell-check {
+        font-size: 0.8125rem;
+        color: var(--charcoal);
+        opacity: 0.6;
+        padding-top: 10px;
+        line-height: 1.4;
+      }
+
+      .bg-cell-check.approved::before {
+        content: "✓  ";
+        color: #16a34a;
+        font-weight: 700;
+      }
+      .bg-cell-check.avoid::before {
+        content: "✕  ";
+        color: var(--brave-red);
+        font-weight: 700;
+      }
+
+      .rules-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-bottom: 56px;
+      }
+
+      @media (min-width: 640px) {
+        .rules-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .rule-card {
+        padding: 28px 24px;
+        border-radius: 6px;
+        border: 1px solid var(--light-gray);
+        background: #fff;
+      }
+
+      .rule-card--do {
+        border-left: 3px solid #16a34a;
+      }
+      .rule-card--dont {
+        border-left: 3px solid var(--brave-red);
+      }
+
+      .rule-card-label {
+        font-family: var(--font-body);
+        font-size: 0.6875rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin-bottom: 14px;
+      }
+
+      .rule-card-label.do-label {
+        color: #16a34a;
+      }
+      .rule-card-label.dont-label {
+        color: var(--brave-red);
+      }
+
+      .rule-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .rule-list li {
+        font-size: 0.9375rem;
+        color: var(--charcoal);
+        line-height: 1.5;
+        padding-left: 20px;
+        position: relative;
+      }
+
+      .rule-list li::before {
+        position: absolute;
+        left: 0;
+        font-weight: 700;
+        font-size: 0.875rem;
+      }
+
+      .rule-card--do .rule-list li::before {
+        content: "✓";
+        color: #16a34a;
+      }
+      .rule-card--dont .rule-list li::before {
+        content: "✕";
+        color: var(--brave-red);
+      }
+
+      .spec-row {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 32px;
+        margin-bottom: 56px;
+      }
+
+      @media (min-width: 640px) {
+        .spec-row {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .spec-block-title {
+        font-family: var(--font-body);
+        font-size: 0.75rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        color: var(--navy);
+        margin-bottom: 16px;
+      }
+
+      .spec-visual {
+        background: var(--cream);
+        border-radius: 6px;
+        padding: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        margin-bottom: 12px;
+      }
+
+      .clear-space-demo {
+        position: relative;
+        display: inline-block;
+      }
+
+      .clear-space-demo img {
+        display: block;
+        max-height: 48px;
+      }
+
+      .clear-space-box {
+        position: absolute;
+        top: -24px;
+        left: -24px;
+        right: -24px;
+        bottom: -24px;
+        border: 1px dashed var(--brave-red);
+        border-radius: 2px;
+        opacity: 0.4;
+      }
+
+      .clear-space-label {
+        position: absolute;
+        font-family: var(--font-body);
+        font-size: 0.5625rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--brave-red);
+        opacity: 0.7;
+      }
+
+      .clear-space-label--top {
+        top: -38px;
+        left: 50%;
+        transform: translateX(-50%);
+        white-space: nowrap;
+      }
+
+      .clear-space-label--right {
+        right: -56px;
+        top: 50%;
+        transform: translateY(-50%) rotate(90deg);
+        white-space: nowrap;
+      }
+
+      .spec-desc {
+        font-size: 0.9375rem;
+        color: var(--charcoal);
+        opacity: 0.72;
+        line-height: 1.6;
+      }
+
+      .min-size-row {
+        display: flex;
+        align-items: flex-end;
+        gap: 40px;
+        padding: 32px 40px;
+        background: var(--cream);
+        border-radius: 6px;
+        margin-bottom: 12px;
+      }
+
+      .min-size-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .min-size-item img {
+        display: block;
+      }
+
+      .min-size-label {
+        font-family: var(--font-body);
+        font-size: 0.6875rem;
+        font-weight: 600;
+        color: var(--charcoal);
+        opacity: 0.6;
+        text-align: center;
+        white-space: nowrap;
+      }
+
+      .file-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 32px;
+      }
+
+      .file-table thead th {
+        font-family: var(--font-body);
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--charcoal);
+        opacity: 0.5;
+        text-align: left;
+        padding: 0 0 14px 0;
+      }
+
+      .file-table tbody tr {
+        border-top: 1px solid var(--light-gray);
+      }
+
+      .file-table tbody td {
+        padding: 14px 16px 14px 0;
+        font-size: 0.9375rem;
+        color: var(--charcoal);
+        vertical-align: middle;
+      }
+
+      .file-table .filename {
+        font-family: "DM Sans", monospace;
+        font-size: 0.8125rem;
+        font-weight: 500;
+        color: var(--navy);
+        background: var(--cream);
+        padding: 3px 8px;
+        border-radius: 3px;
+      }
+
+      /* --- Footer --- */
+      .guide-footer {
+        text-align: center;
+        padding: 48px 32px;
+        font-size: 0.8125rem;
+        color: var(--charcoal);
+        opacity: 0.4;
+      }
+
+      /* --- Responsive --- */
+      @media (max-width: 639px) {
+        .guide-header-inner {
+          flex-direction: column;
+          gap: 4px;
+        }
+
+        .section-title {
+          font-size: 1.625rem;
+        }
+
+        .mission-block {
+          padding: 36px 28px;
+        }
+        .mission-text {
+          font-size: 1.1875rem;
+        }
+        .positioning-block {
+          padding: 32px 24px;
+        }
+
+        .personality-table {
+          display: block;
+        }
+        .personality-table thead {
+          display: none;
+        }
+        .personality-table tbody {
+          display: flex;
+          flex-direction: column;
+          gap: 24px;
+        }
+        .personality-table tbody tr {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+          border-top: 1px solid var(--light-gray);
+          padding-top: 20px;
+        }
+        .personality-table tbody td {
+          padding: 0;
+          width: auto !important;
+        }
+
+        .priority-row {
+          grid-template-columns: 40px 1fr;
+        }
+        .priority-role {
+          grid-column: 1 / -1;
+          padding: 0 16px 16px 56px;
+          margin-top: -8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- GUIDE HEADER -->
+    <header class="guide-header">
+      <div class="guide-header-inner">
+        <img class="guide-logo" src="Assets/Brave Books logo - white.png" alt="BRAVE Books Logo" width="200" height="40" />
+        <div class="guide-subtitle">
+          Brand Style Guide &mdash; v1.0 &mdash; March 2026
+        </div>
+      </div>
+    </header>
+
+    <!-- SECTION NAV -->
+    <nav class="section-nav">
+      <div class="section-nav-inner">
+        <a href="#brand-foundation" class="active">Brand Foundation</a>
+        <a href="#logo-usage">Logo & Usage</a>
+        <!-- Future sections added here as we build them -->
+      </div>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="guide-main">
+      <!-- SECTION 1: BRAND FOUNDATION -->
+      <section id="brand-foundation" class="guide-section">
+        <div class="section-label">Section 01</div>
+        <h1 class="section-title">Brand Foundation</h1>
+        <p class="section-desc">
+          The strategic layer that sits above every visual decision. This
+          section defines what BRAVE Books is, what it stands for, and how it
+          shows up — so that every touchpoint, from a Shopify page to a Meta ad,
+          feels like it came from the same team.
+        </p>
+
+        <!-- Mission -->
+        <div class="mission-block">
+          <div class="mission-eyebrow">Site Mission</div>
+          <p class="mission-text">
+            BRAVE Books is the trusted home for values-driven children's books
+            from authors and voices families already know and love. Our site
+            exists to make it
+            <em>effortless</em> to discover, preview, and purchase the right
+            books for your family — whether you're here for a specific author or
+            browsing the full collection.
+          </p>
+        </div>
+
+        <!-- Core Values -->
+        <h2 class="subsection-title">Core Values</h2>
+        <div class="values-grid">
+          <div class="value-card">
+            <div class="value-number">Value 01</div>
+            <div class="value-name">Get 1% Better</div>
+            <p class="value-desc">
+              We pursue continuous, compounding improvement — in our products,
+              our site experience, and the stories we put into families' hands.
+              Progress over perfection, every single day.
+            </p>
+          </div>
+          <div class="value-card">
+            <div class="value-number">Value 02</div>
+            <div class="value-name">Embrace Discomfort</div>
+            <p class="value-desc">
+              Growth lives outside the comfort zone. We take on hard
+              conversations, enter crowded markets, and back authors who say
+              what others won't. If it's easy, someone else is already doing it.
+            </p>
+          </div>
+          <div class="value-card">
+            <div class="value-number">Value 03</div>
+            <div class="value-name">Speak with Truth &amp; Love</div>
+            <p class="value-desc">
+              We lead with honesty and warmth in equal measure. Our books don't
+              shy from real values, and our brand doesn't shy from real
+              conversations — but we always do it with kindness.
+            </p>
+          </div>
+        </div>
+
+        <!-- Brand Personality -->
+        <h2 class="subsection-title">Brand Personality</h2>
+        <table class="personality-table">
+          <thead>
+            <tr>
+              <th>Attribute</th>
+              <th>We Are</th>
+              <th>We Are Not</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Confident</td>
+              <td>
+                <span class="pill-we-are">We are</span><br />
+                "Books your kids will love." Bold assertions backed by 250,000+
+                families. We know what we're selling and why it matters.
+              </td>
+              <td>
+                <span class="pill-not">Not</span><br />
+                Aggressive or combative. We don't define ourselves by what we're
+                against. No culture-war framing in customer-facing copy.
+              </td>
+            </tr>
+            <tr>
+              <td>Warm</td>
+              <td>
+                <span class="pill-we-are">We are</span><br />
+                "For families who care about character." Approachable and
+                genuine — the kind of brand you'd recommend to a friend.
+              </td>
+              <td>
+                <span class="pill-not">Not</span><br />
+                Saccharine or performative. No "For the most amazing parents
+                ever!" We respect our audience, we don't flatter them.
+              </td>
+            </tr>
+            <tr>
+              <td>Clear</td>
+              <td>
+                <span class="pill-we-are">We are</span><br />
+                "Free book when you subscribe." Direct, scannable, no jargon.
+                Every headline and CTA earns its space.
+              </td>
+              <td>
+                <span class="pill-not">Not</span><br />
+                Clever for clever's sake. No "Unlock your complimentary literary
+                companion." Clarity always beats creativity.
+              </td>
+            </tr>
+            <tr>
+              <td>Trustworthy</td>
+              <td>
+                <span class="pill-we-are">We are</span><br />
+                Quality and storytelling come first. We let the books and the
+                authors speak for themselves. Values come through naturally.
+              </td>
+              <td>
+                <span class="pill-not">Not</span><br />
+                Preachy or didactic. We never lecture parents. The values are in
+                the stories, not in the marketing copy.
+              </td>
+            </tr>
+            <tr>
+              <td>Author-Celebratory</td>
+              <td>
+                <span class="pill-we-are">We are</span><br />
+                Proud of the voices behind our books. We spotlight authors
+                because families deserve to know who's shaping the stories their
+                kids read.
+              </td>
+              <td>
+                <span class="pill-not">Not</span><br />
+                A faceless publisher. We don't hide the people behind the pages.
+                But we also don't let any single name overshadow the BRAVE Books
+                mission.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Positioning -->
+        <h2 class="subsection-title">Positioning Statement</h2>
+        <div class="positioning-block">
+          <div class="positioning-label">Market Positioning</div>
+          <p class="positioning-text">
+            For parents and gift-givers who want children's books that reflect
+            their values, BRAVE Books is the children's publishing home that
+            brings together trusted voices and quality storytelling in one place
+            — making it easy to find, preview, and buy books the whole family
+            will love.
+          </p>
+        </div>
+
+        <!-- Priority Stack -->
+        <h2 class="subsection-title">Business Priority Stack</h2>
+        <p class="priority-intro">
+          Every design decision on the site should be filtered through this
+          hierarchy. When two priorities compete for space or attention, the
+          higher-ranked line wins.
+        </p>
+
+        <div class="priority-stack">
+          <div class="priority-row">
+            <div class="priority-rank rank-1">1</div>
+            <div class="priority-name">One-Off Influencer Book Launches</div>
+            <div class="priority-role">
+              Growth engine. ~30 launches in 2026. Main revenue driver.
+            </div>
+          </div>
+          <div class="priority-row">
+            <div class="priority-rank">2</div>
+            <div class="priority-name">BRAVE+ Streaming</div>
+            <div class="priority-role">
+              Growing 75–100 new users/day. Prominent placement, cross-sell
+              opportunity.
+            </div>
+          </div>
+          <div class="priority-row">
+            <div class="priority-rank">3</div>
+            <div class="priority-name">Book Club Subscription</div>
+            <div class="priority-role">
+              Existing recurring revenue. Maintain visibility, don't disrupt.
+            </div>
+          </div>
+          <div class="priority-row">
+            <div class="priority-rank">4</div>
+            <div class="priority-name">Non-Book Products</div>
+            <div class="priority-role">
+              Plushes, games, activities. Available and browsable, not driving
+              navigation.
+            </div>
+          </div>
+        </div>
+
+        <div class="usage-note">
+          <p>
+            <strong>How to use this section:</strong> Share this page with
+            anyone joining the project — designers, developers, copywriters, ad
+            buyers, or influencer partners. If a decision doesn't align with the
+            mission, values, and priority stack above, it needs to be
+            reconsidered.
+          </p>
+        </div>
+      </section>
+
+      <!-- =========================================== -->
+      <!-- SECTION 2: LOGO & LOGO USAGE                -->
+      <!-- =========================================== -->
+      <section id="logo-usage" class="guide-section">
+        <div class="section-label">Section 02</div>
+        <h1 class="section-title">Logo &amp; Logo Usage</h1>
+        <p class="section-desc">
+          The BRAVE Books logo features an origami lion, a symbol of courage,
+          strength, and craftsmanship. These rules ensure it's always presented
+          with the care and consistency the brand deserves.
+        </p>
+
+        <!-- Logo Variations -->
+        <h2 class="subsection-title">Logo Variations</h2>
+        <p class="logo-intro">
+          Use the version that best fits the layout and context. Never recreate,
+          redraw, or substitute any version.
+        </p>
+
+        <div class="logo-grid">
+          <!-- Primary Light: Horizontal -->
+          <div class="logo-card">
+            <div class="logo-card-label">Primary Light — Horizontal Lockup</div>
+            <div class="logo-preview logo-preview--dark">
+              <img
+                src="Assets/Brave Books logo - white.png"
+                alt="BRAVE Books horizontal logo, white on light"
+                class="logo-img logo-img--horizontal"
+              />
+            </div>
+            <div class="logo-meta">
+              <span class="logo-meta-tag"
+                >Default for navigation, headers, partnerships</span
+              >
+              <span class="logo-meta-tag"
+                >Use when horizontal space is available</span
+              >
+            </div>
+            <button
+              class="download-btn"
+              onclick="
+                downloadAsset(
+                  'Assets/Brave Books logo - white.png',
+                  'brave-logo-horizontal-light.png',
+                )
+              "
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Download
+            </button>
+          </div>
+
+          <!-- Primary Dark: Horizontal -->
+          <div class="logo-card">
+            <div class="logo-card-label">Primary Dark — Horizontal Lockup</div>
+            <div class="logo-preview logo-preview--light">
+              <img
+                src="Assets/Brave Books logo (horizontal - 600px).png"
+                alt="BRAVE Books horizontal logo, white on dark"
+                class="logo-img logo-img--horizontal"
+              />
+            </div>
+            <div class="logo-meta">
+              <span class="logo-meta-tag"
+                >Default for navigation, headers, partnerships</span
+              >
+              <span class="logo-meta-tag"
+                >Use when horizontal space is available</span
+              >
+            </div>
+            <button
+              class="download-btn"
+              onclick="
+                downloadAsset(
+                  'Assets/Brave Books logo (horizontal - 600px).png',
+                  'brave-logo-horizontal-dark.png',
+                )
+              "
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Download
+            </button>
+          </div>
+
+          <!-- Primary White: Horizontal -->
+          <div class="logo-card">
+            <div class="logo-card-label">Primary White — Horizontal Lockup</div>
+            <div class="logo-preview logo-preview--red">
+              <img
+                src="Assets/BRAVE Books Logo White.png"
+                alt="BRAVE Books horizontal logo, white on dark"
+                class="logo-img logo-img--horizontal"
+              />
+            </div>
+            <div class="logo-meta">
+              <span class="logo-meta-tag"
+                >Default for navigation, headers, partnerships</span
+              >
+              <span class="logo-meta-tag"
+                >Use when horizontal space is available</span
+              >
+            </div>
+            <button
+              class="download-btn"
+              onclick="
+                downloadAsset(
+                  'Assets/BRAVE Books Logo White.png',
+                  'brave-logo-horizontal-white.png',
+                )
+              "
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Download
+            </button>
+          </div>
+
+          <!-- Stacked - Dark / Vertical -->
+          <div class="logo-card">
+            <div class="logo-card-label">Stacked Dark — Vertical Lockup</div>
+            <div class="logo-preview logo-preview--light">
+              <img
+                src="Assets/Brave Books logo (Vertical - 80px).png"
+                alt="BRAVE Books stacked logo"
+                class="logo-img logo-img--stacked"
+              />
+            </div>
+            <div class="logo-meta">
+              <span class="logo-meta-tag"
+                >Square formats: social avatars, app icons</span
+              >
+              <span class="logo-meta-tag"
+                >Use when vertical space is preferred</span
+              >
+            </div>
+            <button
+              class="download-btn"
+              onclick="
+                downloadAsset(
+                  'Assets/Brave Books logo (Vertical - 80px).png',
+                  'brave-logo-stacked-dark.png',
+                )
+              "
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Download
+            </button>
+          </div>
+
+          <!-- Stacked - Light / Vertical -->
+          <div class="logo-card">
+            <div class="logo-card-label">Stacked Light — Vertical Lockup</div>
+            <div class="logo-preview logo-preview--dark">
+              <img
+                src="Assets/Brave Books logo - 1.png"
+                alt="BRAVE Books stacked logo"
+                class="logo-img logo-img--stacked"
+              />
+            </div>
+            <div class="logo-meta">
+              <span class="logo-meta-tag"
+                >Square formats: social avatars, app icons</span
+              >
+              <span class="logo-meta-tag"
+                >Use when vertical space is preferred</span
+              >
+            </div>
+            <button
+              class="download-btn"
+              onclick="
+                downloadAsset(
+                  'Assets/Brave Books logo - 1.png',
+                  'brave-logo-stacked-light.png',
+                )
+              "
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Download
+            </button>
+          </div>
+
+          <!-- Lion Mark -->
+          <div class="logo-card">
+            <div class="logo-card-label">Icon — Lion Mark</div>
+            <div class="logo-preview logo-preview--light">
+              <img
+                src="Assets/250px logo (lion only).png"
+                alt="BRAVE Books origami lion mark"
+                class="logo-img logo-img--lion"
+              />
+            </div>
+            <div class="logo-meta">
+              <span class="logo-meta-tag"
+                >Standalone icon for compact spaces</span
+              >
+              <span class="logo-meta-tag"
+                >Watermarks, badges, favicons, loading states</span
+              >
+            </div>
+            <button
+              class="download-btn"
+              onclick="
+                downloadAsset(
+                  'Assets/250px logo (lion only).png',
+                  'brave-lion-mark.png',
+                )
+              "
+            >
+              <svg
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                <polyline points="7 10 12 15 17 10" />
+                <line x1="12" y1="15" x2="12" y2="3" />
+              </svg>
+              Download
+            </button>
+          </div>
+        </div>
+
+        <!-- Color on Background -->
+        <h2 class="subsection-title">Color on Background</h2>
+        <p class="logo-intro">
+          The logo must always maintain sufficient contrast against its
+          background. Below are the four approved background treatments.
+        </p>
+
+        <div class="bg-grid">
+          <div>
+            <div class="bg-cell-label">On Navy</div>
+            <div class="bg-cell-preview" style="background-color: var(--navy)">
+              <img
+                src="Assets/Brave Books logo - white.png"
+                alt="Logo on navy"
+              />
+            </div>
+            <div class="bg-cell-check approved">Primary usage — default</div>
+          </div>
+          <div>
+            <div class="bg-cell-label">On Warm White</div>
+            <div
+              class="bg-cell-preview"
+              style="
+                background-color: var(--warm-white);
+                border: 1px solid var(--light-gray);
+              "
+            >
+              <img
+                src="Assets/Brave Books logo (horizontal - 600px).png"
+                alt="Logo on warm white"
+                style="max-height: 60px"
+              />
+            </div>
+            <div class="bg-cell-check approved">Light backgrounds</div>
+          </div>
+          <div>
+            <div class="bg-cell-label">On BRAVE Red</div>
+            <div
+              class="bg-cell-preview"
+              style="background-color: var(--brave-red)"
+            >
+              <img src="Assets/BRAVE Books Logo White.png" alt="Logo on red" />
+            </div>
+            <div class="bg-cell-check approved">Use all-white version only</div>
+          </div>
+          <div>
+            <div class="bg-cell-label">On Photography</div>
+            <div
+              class="bg-cell-preview"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  #8a9a7b 0%,
+                  #b5a68c 50%,
+                  #7a8b9a 100%
+                );
+              "
+            >
+              <img
+                src="Assets/BRAVE Books Logo White.png"
+                alt="Logo on photography"
+                style="opacity: 0.85"
+              />
+            </div>
+            <div class="bg-cell-check avoid">
+              Avoid — use solid overlay first
+            </div>
+          </div>
+        </div>
+
+        <!-- Clear Space & Minimum Size -->
+        <h2 class="subsection-title">Clear Space &amp; Minimum Size</h2>
+
+        <div class="spec-row">
+          <div>
+            <div class="spec-block-title">Clear Space</div>
+            <div class="spec-visual">
+              <div class="clear-space-demo">
+                <div class="clear-space-box"></div>
+                <span class="clear-space-label clear-space-label--top"
+                  >Height of "B"</span
+                >
+                <span class="clear-space-label clear-space-label--right"
+                  >Height of "B"</span
+                >
+                <img
+                  src="Assets/Brave Books logo (horizontal - 600px).png"
+                  alt="Clear space demonstration"
+                  style="max-height: 56px"
+                />
+              </div>
+            </div>
+            <p class="spec-desc">
+              Minimum clear space around the logo equals the cap-height of the
+              "B" in BRAVE. No text, imagery, or other graphic elements may
+              enter this zone.
+            </p>
+          </div>
+          <div>
+            <div class="spec-block-title">Minimum Sizes</div>
+            <div class="min-size-row">
+              <div class="min-size-item">
+                <img
+                  src="Assets/Brave Books logo - white.png"
+                  alt="Horizontal minimum"
+                  style="
+                    height: 28px;
+                    background: var(--navy);
+                    border-radius: 3px;
+                    padding: 6px 10px;
+                  "
+                />
+                <span class="min-size-label">Horizontal: 120px wide</span>
+              </div>
+              <div class="min-size-item">
+                <img
+                  src="Assets/250px logo (lion only).png"
+                  alt="Lion minimum"
+                  style="
+                    height: 32px;
+                    background: var(--navy);
+                    border-radius: 3px;
+                    padding: 6px;
+                  "
+                />
+                <span class="min-size-label">Lion mark: 24px</span>
+              </div>
+            </div>
+            <p class="spec-desc">
+              Below these sizes, details in the origami lion become illegible.
+              For very small applications (under 24px), use the lion mark only.
+            </p>
+          </div>
+        </div>
+
+        <!-- Do / Don't -->
+        <h2 class="subsection-title">Usage Rules</h2>
+
+        <div class="rules-grid">
+          <div class="rule-card rule-card--do">
+            <div class="rule-card-label do-label">Do</div>
+            <ul class="rule-list">
+              <li>
+                Use only the approved logo files. Never recreate or retype
+              </li>
+              <li>Maintain clear space around the logo at all times</li>
+              <li>Use the white version on dark or colored backgrounds</li>
+              <li>Use the full-color version on light or white backgrounds</li>
+              <li>Scale proportionally. Always lock the aspect ratio</li>
+              <li>
+                Place on solid or near-solid backgrounds for maximum legibility
+              </li>
+            </ul>
+          </div>
+          <div class="rule-card rule-card--dont">
+            <div class="rule-card-label dont-label">Don't</div>
+            <ul class="rule-list">
+              <li>Stretch, skew, or distort the logo in any direction</li>
+              <li>Change the logo colors or apply gradients</li>
+              <li>Add drop shadows, outlines, or effects</li>
+              <li>Place on busy photography without a solid backing</li>
+              <li>Rotate or flip the logo or lion mark</li>
+              <li>Rearrange the lion and wordmark relationship</li>
+              <li>Crop or partially obscure the logo</li>
+              <li>Use low-resolution or pixelated versions</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="guide-footer">
+      BRAVE Books Brand Style Guide &middot; v1.0 &middot; Confidential &middot;
+      March 2026
+    </footer>
+
+    <script>
+      function downloadAsset(src, filename) {
+        const a = document.createElement("a");
+        a.href = src;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
+    </script>
+  </body>
+</html>
