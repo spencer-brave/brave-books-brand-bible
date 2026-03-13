@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BRAVE Books — Brand Style Guide</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="https://use.typekit.net/tbe5lnb.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
@@ -44,7 +41,7 @@
         --error-light: #fef2f2;
 
         /* --- Typography --- */
-        --font-heading: "Lora", Georgia, "Times New Roman", serif;
+        --font-heading: "mingler", Georgia, "Times New Roman", serif;
         --font-body: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
 
         /* --- Spacing --- */
@@ -74,6 +71,15 @@
         color: var(--charcoal);
         background-color: var(--warm-white);
         line-height: 1.65;
+      }
+
+      @font-face {
+        font-family: "mingler";
+        src: url("https://use.typekit.net/af/5e8230/000000000000000077359aaf/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3")
+          format("woff2");
+        font-weight: 700;
+        font-style: normal;
+        font-display: swap;
       }
 
       /* =============================================
@@ -1471,7 +1477,8 @@
 
       /* =============================================
          SECTION 4: TYPOGRAPHY
-      ============================================= */
+         ============================================= */
+
       /* --- Font Stack Cards --- */
       .type-stack-grid {
         display: grid;
@@ -1558,6 +1565,15 @@
         word-break: break-all;
       }
 
+      .type-stack-card__note {
+        font-family: var(--font-body);
+        font-size: 0.75rem;
+        color: var(--brave-red);
+        margin-top: 8px;
+        line-height: 1.45;
+        opacity: 0.85;
+      }
+
       /* --- Heading Scale Table --- */
       .type-scale-table {
         width: 100%;
@@ -1601,9 +1617,10 @@
       }
 
       .type-scale-table .scale-specimen {
-        font-family: "Lora", Georgia, serif;
+        font-family: mingler, Arial, Helvetica, sans-serif;
+        font-weight: 700;
         color: var(--navy);
-        line-height: 1.25;
+        line-height: 1.15;
         min-width: 200px;
       }
 
@@ -1709,15 +1726,15 @@
       }
 
       .type-specimen-block__heading {
-        font-family: "Lora", Georgia, serif;
+        font-family: mingler, Arial, Helvetica, sans-serif;
         font-weight: 700;
         color: #fff;
-        line-height: 1.2;
+        line-height: 1.15;
         margin-bottom: 16px;
       }
 
       .type-specimen-block__body {
-        font-family: "DM Sans", sans-serif;
+        font-family: var(--font-body);
         font-size: 1.0625rem;
         color: rgba(255, 255, 255, 0.72);
         line-height: 1.7;
@@ -1727,10 +1744,10 @@
 
       .type-specimen-block__cta {
         display: inline-block;
-        font-family: "DM Sans", sans-serif;
-        font-size: 0.8125rem;
+        font-family: mingler, Arial, Helvetica, sans-serif;
+        font-size: 0.875rem;
         font-weight: 700;
-        letter-spacing: 0.1em;
+        letter-spacing: 0.06em;
         text-transform: uppercase;
         background: var(--brave-red);
         color: #fff;
@@ -1738,6 +1755,7 @@
         border-radius: 8px;
         text-decoration: none;
         margin-right: 12px;
+        margin-bottom: 8px;
       }
 
       .type-specimen-block__cta--outline {
@@ -1746,7 +1764,7 @@
         color: #fff;
       }
 
-      /* --- Utility Classes Table --- */
+      /* --- Special Text Styles Table --- */
       .type-utilities-table {
         width: 100%;
         border-collapse: collapse;
@@ -1795,65 +1813,60 @@
         line-height: 1.6;
       }
 
-      /* --- Weight Sampler --- */
-      .weight-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 0;
-        border: 1px solid var(--light-gray);
+      /* --- Font Pairing Demo --- */
+      .type-pairing-block {
+        background: var(--cream);
         border-radius: var(--radius);
-        overflow: hidden;
+        padding: 44px 48px;
         margin-bottom: var(--section-gap);
+        position: relative;
+        overflow: hidden;
       }
 
-      @media (min-width: 640px) {
-        .weight-grid {
-          grid-template-columns: 1fr 1fr;
-        }
+      .type-pairing-block::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 48px;
+        right: 48px;
+        height: 2px;
+        background: linear-gradient(
+          to right,
+          var(--brave-red),
+          var(--gold),
+          transparent
+        );
       }
 
-      .weight-row {
-        display: flex;
-        align-items: baseline;
-        gap: 16px;
-        padding: 20px 24px;
-        border-bottom: 1px solid var(--light-gray);
-        background: var(--white);
-      }
-
-      .weight-row:last-child,
-      .weight-grid .weight-row:nth-last-child(1),
-      .weight-grid .weight-row:nth-last-child(2) {
-        border-bottom: none;
-      }
-
-      @media (max-width: 639px) {
-        .weight-row:last-child {
-          border-bottom: none;
-        }
-        .weight-row:nth-last-child(2) {
-          border-bottom: 1px solid var(--light-gray);
-        }
-      }
-
-      .weight-row__sample {
-        font-size: 1.5rem;
-        color: var(--navy);
-        flex: 1;
-        min-width: 0;
-      }
-
-      .weight-row__meta {
+      .type-pairing-label {
         font-family: var(--font-body);
-        font-size: 0.75rem;
-        color: var(--charcoal);
-        opacity: 0.5;
-        white-space: nowrap;
-        text-align: right;
-        flex-shrink: 0;
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--brave-red);
+        margin-bottom: 16px;
       }
 
-      /* --- Responsive type scale adjustments --- */
+      .type-pairing-heading {
+        font-family: mingler, Arial, Helvetica, sans-serif;
+        font-weight: 700;
+        font-size: 1.75rem;
+        color: var(--navy);
+        line-height: 1.2;
+        margin-bottom: 12px;
+      }
+
+      .type-pairing-body {
+        font-family: var(--font-body);
+        font-size: 1.0625rem;
+        color: var(--charcoal);
+        line-height: 1.7;
+        max-width: 640px;
+        opacity: 0.78;
+      }
+
+      /* --- Responsive type adjustments --- */
       @media (max-width: 639px) {
         .type-scale-table {
           display: block;
@@ -1888,6 +1901,9 @@
         }
         .type-specimen-block {
           padding: 36px 24px;
+        }
+        .type-pairing-block {
+          padding: 32px 24px;
         }
       }
 
@@ -3074,76 +3090,48 @@
         <div class="section-label">Section 04</div>
         <h1 class="section-title">Typography</h1>
         <p class="section-desc">
-          Two fonts. Clear roles. Lora carries the editorial authority of
-          headings; DM Sans handles everything else with clean legibility. This
-          pairing creates a warm, bookish feel while keeping UI elements sharp
-          and modern.
+          Two fonts. Clear roles. Mingler carries the bold, friendly energy of
+          headings and CTAs; DM Sans handles everything else with clean
+          legibility. This pairing gives the site a distinctive, hand-crafted
+          personality while keeping UI elements sharp and modern.
         </p>
-
+ 
         <!-- ── Font Stacks ── -->
         <h2 class="subsection-title">Font Stacks</h2>
         <p class="logo-intro">
-          Two typeface families cover every use case across the site, email,
-          ads, and print. The heading font creates editorial warmth; the body
+          Two typeface families cover every use case across the site, email, ads,
+          and print. The heading font creates bold, approachable energy; the body
           font provides clean, highly legible UI text at every size.
         </p>
-
+ 
         <div class="type-stack-grid">
           <!-- Heading Font -->
           <div class="type-stack-card">
-            <div
-              class="type-stack-card__preview type-stack-card__preview--heading"
-            >
-              <div
-                class="type-stack-card__specimen"
-                style="
-                  font-family: &quot;Lora&quot;, Georgia, serif;
-                  font-size: 2.25rem;
-                  font-weight: 700;
-                "
-              >
+            <div class="type-stack-card__preview type-stack-card__preview--heading">
+              <div class="type-stack-card__specimen" style="font-family: mingler, Arial, Helvetica, sans-serif; font-size: 2.25rem; font-weight: 700;">
                 Aa Bb Cc
               </div>
-              <div
-                class="type-stack-card__alphabet"
-                style="font-family: &quot;Lora&quot;, Georgia, serif"
-              >
+              <div class="type-stack-card__alphabet" style="font-family: mingler, Arial, Helvetica, sans-serif; font-weight: 700;">
                 ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
                 abcdefghijklmnopqrstuvwxyz<br />
                 0123456789 &amp; !? @ # $ %
               </div>
             </div>
             <div class="type-stack-card__info">
-              <div class="type-stack-card__name">Lora</div>
-              <div class="type-stack-card__role">
-                Heading font — H1 through H6, hero text, editorial titles, pull
-                quotes
-              </div>
-              <div class="type-stack-card__stack">
-                --font-heading: "Lora", Georgia, "Times New Roman", serif
-              </div>
+              <div class="type-stack-card__name">Mingler Bold</div>
+              <div class="type-stack-card__role">Heading &amp; CTA font — H1 through H6, hero text, button labels, promotional headlines</div>
+              <div class="type-stack-card__stack">font-family: mingler, Arial, Helvetica, sans-serif</div>
+              <div class="type-stack-card__note">Adobe Font — loaded via Typekit project embed. Single weight: Bold (700).</div>
             </div>
           </div>
-
+ 
           <!-- Body Font -->
           <div class="type-stack-card">
-            <div
-              class="type-stack-card__preview type-stack-card__preview--body"
-            >
-              <div
-                class="type-stack-card__specimen"
-                style="
-                  font-family: &quot;DM Sans&quot;, sans-serif;
-                  font-size: 2.25rem;
-                  font-weight: 500;
-                "
-              >
+            <div class="type-stack-card__preview type-stack-card__preview--body">
+              <div class="type-stack-card__specimen" style="font-family: 'DM Sans', sans-serif; font-size: 2.25rem; font-weight: 500;">
                 Aa Bb Cc
               </div>
-              <div
-                class="type-stack-card__alphabet"
-                style="font-family: &quot;DM Sans&quot;, sans-serif"
-              >
+              <div class="type-stack-card__alphabet" style="font-family: 'DM Sans', sans-serif;">
                 ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
                 abcdefghijklmnopqrstuvwxyz<br />
                 0123456789 &amp; !? @ # $ %
@@ -3151,138 +3139,44 @@
             </div>
             <div class="type-stack-card__info">
               <div class="type-stack-card__name">DM Sans</div>
-              <div class="type-stack-card__role">
-                Body font — paragraphs, navigation, UI elements, buttons,
-                labels, captions
-              </div>
-              <div class="type-stack-card__stack">
-                --font-body: "DM Sans", -apple-system, BlinkMacSystemFont,
-                sans-serif
-              </div>
+              <div class="type-stack-card__role">Body &amp; UI font — paragraphs, navigation links, product specs, labels, captions, form inputs</div>
+              <div class="type-stack-card__stack">font-family: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif</div>
+              <div class="type-stack-card__note" style="color: var(--charcoal); opacity: 0.55;">Google Font — weights loaded: 400, 500, 600, 700 + Italic 400.</div>
             </div>
           </div>
         </div>
-
-        <!-- ── Weight Sampler ── -->
-        <h2 class="subsection-title">Available Weights</h2>
+ 
+        <!-- ── Font Pairing Demo ── -->
+        <h2 class="subsection-title">Font Pairing</h2>
         <p class="logo-intro">
-          Only the weights listed below are loaded via Google Fonts. Using
-          unlisted weights triggers browser synthesis, which degrades rendering.
-          Stick to these.
+          Mingler's warm, hand-painted character pairs with DM Sans' geometric
+          clarity. The contrast creates a clear visual hierarchy — Mingler
+          commands attention for headlines and actions, DM Sans disappears into
+          comfortable reading for everything else.
         </p>
-
-        <div class="weight-grid">
-          <div class="weight-row">
-            <span
-              class="weight-row__sample"
-              style="font-family: &quot;Lora&quot;, serif; font-weight: 400"
-              >Books your kids will love</span
-            >
-            <span class="weight-row__meta">Lora Regular · 400</span>
+ 
+        <div class="type-pairing-block">
+          <div class="type-pairing-label">Heading + Body Pairing</div>
+          <div class="type-pairing-heading">
+            Books Your Kids Will Love
           </div>
-          <div class="weight-row">
-            <span
-              class="weight-row__sample"
-              style="font-family: &quot;Lora&quot;, serif; font-weight: 500"
-              >Books your kids will love</span
-            >
-            <span class="weight-row__meta">Lora Medium · 500</span>
-          </div>
-          <div class="weight-row">
-            <span
-              class="weight-row__sample"
-              style="font-family: &quot;Lora&quot;, serif; font-weight: 600"
-              >Books your kids will love</span
-            >
-            <span class="weight-row__meta">Lora SemiBold · 600</span>
-          </div>
-          <div class="weight-row">
-            <span
-              class="weight-row__sample"
-              style="font-family: &quot;Lora&quot;, serif; font-weight: 700"
-              >Books your kids will love</span
-            >
-            <span class="weight-row__meta">Lora Bold · 700</span>
-          </div>
-          <div class="weight-row">
-            <span
-              class="weight-row__sample"
-              style="
-                font-family: &quot;Lora&quot;, serif;
-                font-weight: 400;
-                font-style: italic;
-              "
-              >Books your kids will love</span
-            >
-            <span class="weight-row__meta">Lora Italic · 400</span>
-          </div>
-          <div class="weight-row">
-            <span
-              class="weight-row__sample"
-              style="
-                font-family: &quot;Lora&quot;, serif;
-                font-weight: 700;
-                font-style: italic;
-              "
-              >Books your kids will love</span
-            >
-            <span class="weight-row__meta">Lora Bold Italic · 700</span>
-          </div>
-          <div class="weight-row">
-            <span
-              class="weight-row__sample"
-              style="
-                font-family: &quot;DM Sans&quot;, sans-serif;
-                font-weight: 400;
-              "
-              >Trusted by 250,000+ families</span
-            >
-            <span class="weight-row__meta">DM Sans Regular · 400</span>
-          </div>
-          <div class="weight-row">
-            <span
-              class="weight-row__sample"
-              style="
-                font-family: &quot;DM Sans&quot;, sans-serif;
-                font-weight: 500;
-              "
-              >Trusted by 250,000+ families</span
-            >
-            <span class="weight-row__meta">DM Sans Medium · 500</span>
-          </div>
-          <div class="weight-row">
-            <span
-              class="weight-row__sample"
-              style="
-                font-family: &quot;DM Sans&quot;, sans-serif;
-                font-weight: 600;
-              "
-              >Trusted by 250,000+ families</span
-            >
-            <span class="weight-row__meta">DM Sans SemiBold · 600</span>
-          </div>
-          <div class="weight-row">
-            <span
-              class="weight-row__sample"
-              style="
-                font-family: &quot;DM Sans&quot;, sans-serif;
-                font-weight: 700;
-              "
-              >Trusted by 250,000+ families</span
-            >
-            <span class="weight-row__meta">DM Sans Bold · 700</span>
-          </div>
+          <p class="type-pairing-body">
+            BRAVE Books brings together trusted authors and beloved voices to
+            create children's books that teach real values — courage, honesty,
+            kindness, and faith — through stories kids actually want to read.
+            Discover your family's next favorite book.
+          </p>
         </div>
-
+ 
         <!-- ── Heading Scale ── -->
         <h2 class="subsection-title">Heading Scale</h2>
         <p class="logo-intro">
-          All headings use Lora Bold (700). Sizes are defined at desktop
-          breakpoints (≥1024px). On mobile (< 640px), headings scale down by
-          roughly 20% using the fluid sizes noted below. Line heights are tight
-          to keep headings compact and authoritative.
+          All headings use Mingler Bold (700) — the only loaded weight. Sizes
+          are defined at desktop breakpoints (≥1024px). On mobile (&lt;640px),
+          headings scale down by roughly 20%. Line heights are kept tight to
+          maintain the bold, punchy character of the typeface.
         </p>
-
+ 
         <table class="type-scale-table">
           <thead>
             <tr>
@@ -3295,142 +3189,87 @@
           <tbody>
             <tr>
               <td class="scale-label">H1</td>
-              <td
-                class="scale-specimen"
-                style="font-size: 2.5rem; font-weight: 700"
-              >
-                Books Your Kids Will Love
-              </td>
+              <td class="scale-specimen" style="font-size: 2.5rem;">Books Your Kids Will Love</td>
               <td class="scale-specs">
                 <span>40px / 2.5rem</span>
                 <span>Bold 700</span>
                 <span>Line-height: 1.15</span>
                 <span>Mobile: 30px</span>
               </td>
-              <td class="scale-usage">
-                Page titles, hero headlines, launch page main heading
-              </td>
+              <td class="scale-usage">Page titles, hero headlines, launch page main heading</td>
             </tr>
             <tr>
               <td class="scale-label">H2</td>
-              <td
-                class="scale-specimen"
-                style="font-size: 2rem; font-weight: 700"
-              >
-                Shop by Author
-              </td>
+              <td class="scale-specimen" style="font-size: 2rem;">Shop by Author</td>
               <td class="scale-specs">
                 <span>32px / 2rem</span>
                 <span>Bold 700</span>
                 <span>Line-height: 1.2</span>
                 <span>Mobile: 26px</span>
               </td>
-              <td class="scale-usage">
-                Homepage section titles, collection headings, major page
-                divisions
-              </td>
+              <td class="scale-usage">Homepage section titles, collection headings, major page divisions</td>
             </tr>
             <tr>
               <td class="scale-label">H3</td>
-              <td
-                class="scale-specimen"
-                style="font-size: 1.5rem; font-weight: 700"
-              >
-                New &amp; Trending
-              </td>
+              <td class="scale-specimen" style="font-size: 1.5rem;">New &amp; Trending</td>
               <td class="scale-specs">
                 <span>24px / 1.5rem</span>
                 <span>Bold 700</span>
-                <span>Line-height: 1.25</span>
+                <span>Line-height: 1.2</span>
                 <span>Mobile: 20px</span>
               </td>
-              <td class="scale-usage">
-                Subsection titles, PDP section headings, card group titles
-              </td>
+              <td class="scale-usage">Subsection titles, PDP section headings, card group titles</td>
             </tr>
             <tr>
               <td class="scale-label">H4</td>
-              <td
-                class="scale-specimen"
-                style="font-size: 1.25rem; font-weight: 700"
-              >
-                Complete the Set
-              </td>
+              <td class="scale-specimen" style="font-size: 1.25rem;">Complete the Set</td>
               <td class="scale-specs">
                 <span>20px / 1.25rem</span>
                 <span>Bold 700</span>
-                <span>Line-height: 1.3</span>
+                <span>Line-height: 1.25</span>
                 <span>Mobile: 18px</span>
               </td>
-              <td class="scale-usage">
-                Module headings, bundle titles, author page subsections, sidebar
-                headings
-              </td>
+              <td class="scale-usage">Module headings, bundle titles, author page subsections, sidebar headings</td>
             </tr>
             <tr>
               <td class="scale-label">H5</td>
-              <td
-                class="scale-specimen"
-                style="font-size: 1.0625rem; font-weight: 700"
-              >
-                Related Products
-              </td>
+              <td class="scale-specimen" style="font-size: 1.0625rem;">Related Products</td>
               <td class="scale-specs">
                 <span>17px / 1.0625rem</span>
                 <span>Bold 700</span>
-                <span>Line-height: 1.35</span>
+                <span>Line-height: 1.3</span>
                 <span>Mobile: 16px</span>
               </td>
-              <td class="scale-usage">
-                Product card titles, inline headings within content blocks
-              </td>
+              <td class="scale-usage">Product card titles, inline headings within content blocks</td>
             </tr>
             <tr>
               <td class="scale-label">H6</td>
-              <td
-                class="scale-specimen"
-                style="
-                  font-size: 0.875rem;
-                  font-weight: 700;
-                  letter-spacing: 0.02em;
-                "
-              >
-                More from BRAVE
-              </td>
+              <td class="scale-specimen" style="font-size: 0.875rem; letter-spacing: 0.02em;">More from BRAVE</td>
               <td class="scale-specs">
                 <span>14px / 0.875rem</span>
                 <span>Bold 700</span>
-                <span>Line-height: 1.4</span>
+                <span>Line-height: 1.35</span>
                 <span>Mobile: 14px</span>
               </td>
-              <td class="scale-usage">
-                Small headings, footer column titles, mega menu group labels
-              </td>
+              <td class="scale-usage">Small headings, footer column titles, mega menu group labels</td>
             </tr>
           </tbody>
         </table>
-
+ 
         <!-- ── Body & UI Text ── -->
         <h2 class="subsection-title">Body &amp; UI Text Styles</h2>
         <p class="logo-intro">
-          All body and UI text uses DM Sans. The three core sizes below cover
-          every non-heading use case — paragraphs, product descriptions,
-          navigation, labels, captions, and fine print.
+          All body and UI text uses DM Sans. Three core sizes cover every
+          non-heading use case — paragraphs, product descriptions, navigation,
+          labels, captions, and fine print.
         </p>
-
+ 
         <div class="body-spec-grid">
           <div class="body-spec-card">
             <div class="body-spec-card__label">Body — Large</div>
-            <div
-              class="body-spec-card__specimen"
-              style="
-                font-family: &quot;DM Sans&quot;, sans-serif;
-                font-size: 1.0625rem;
-                font-weight: 400;
-              "
-            >
-              For families who care about character. Discover stories that teach
-              courage, honesty, and kindness.
+            <div class="body-spec-card__specimen" style="font-family: 'DM Sans', sans-serif; font-size: 1.0625rem; font-weight: 400;">
+              For families who care about character. Discover stories that teach courage,
+              honesty, and kindness.
             </div>
             <div class="body-spec-card__meta">
               <span>DM Sans Regular 400 · 17px / 1.0625rem</span>
@@ -3438,61 +3277,43 @@
               <span>Use: Long-form descriptions, about page, author bios</span>
             </div>
           </div>
-
+ 
           <div class="body-spec-card">
             <div class="body-spec-card__label">Body — Default</div>
-            <div
-              class="body-spec-card__specimen"
-              style="
-                font-family: &quot;DM Sans&quot;, sans-serif;
-                font-size: 0.9375rem;
-                font-weight: 400;
-              "
-            >
+            <div class="body-spec-card__specimen" style="font-family: 'DM Sans', sans-serif; font-size: 0.9375rem; font-weight: 400;">
               Trusted by 250,000+ families. Books that teach real values through
               real storytelling.
             </div>
             <div class="body-spec-card__meta">
               <span>DM Sans Regular 400 · 15px / 0.9375rem</span>
               <span>Line-height: 1.65 · Color: Charcoal</span>
-              <span
-                >Use: Product descriptions, PDP content, general body copy</span
-              >
+              <span>Use: Product descriptions, PDP content, general body copy</span>
             </div>
           </div>
-
+ 
           <div class="body-spec-card">
             <div class="body-spec-card__label">Body — Small</div>
-            <div
-              class="body-spec-card__specimen"
-              style="
-                font-family: &quot;DM Sans&quot;, sans-serif;
-                font-size: 0.8125rem;
-                font-weight: 400;
-              "
-            >
+            <div class="body-spec-card__specimen" style="font-family: 'DM Sans', sans-serif; font-size: 0.8125rem; font-weight: 400;">
               Ages 3–5 · Hardcover · 32 pages. Free shipping on orders over $35.
               In stock — ships within 2 business days.
             </div>
             <div class="body-spec-card__meta">
               <span>DM Sans Regular 400 · 13px / 0.8125rem</span>
               <span>Line-height: 1.6 · Color: Charcoal @ 0.72 opacity</span>
-              <span
-                >Use: Captions, meta info, product specs, fine print, helper
-                text</span
-              >
+              <span>Use: Captions, meta info, product specs, fine print, helper text</span>
             </div>
           </div>
         </div>
-
+ 
         <!-- ── Special Text Styles ── -->
         <h2 class="subsection-title">Special Text Styles</h2>
         <p class="logo-intro">
           Beyond headings and body copy, these standardized styles handle
-          navigation, labels, buttons, prices, and other UI-specific typography
-          that appears repeatedly across the site.
+          buttons, navigation, labels, prices, badges, and other repeating UI
+          typography. Mingler appears in CTAs and badges; DM Sans handles
+          everything else.
         </p>
-
+ 
         <table class="type-utilities-table">
           <thead>
             <tr>
@@ -3505,340 +3326,119 @@
             <tr>
               <td class="element-name">Section Eyebrow</td>
               <td class="element-specimen">
-                <span
-                  style="
-                    font-family: &quot;DM Sans&quot;, sans-serif;
-                    font-size: 0.6875rem;
-                    font-weight: 600;
-                    letter-spacing: 0.14em;
-                    text-transform: uppercase;
-                    color: var(--brave-red);
-                  "
-                  >New Release</span
-                >
+                <span style="font-family: 'DM Sans', sans-serif; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--brave-red);">New Release</span>
               </td>
-              <td class="element-specs">
-                DM Sans SemiBold 600 · 11px · All-caps · Letter-spacing: 0.14em
-                · Color: BRAVE Red
-              </td>
+              <td class="element-specs">DM Sans SemiBold 600 · 11px · All-caps · Letter-spacing: 0.14em · Color: BRAVE Red</td>
             </tr>
             <tr>
               <td class="element-name">Navigation Link</td>
               <td class="element-specimen">
-                <span
-                  style="
-                    font-family: &quot;DM Sans&quot;, sans-serif;
-                    font-size: 0.9375rem;
-                    font-weight: 600;
-                    color: var(--navy);
-                  "
-                  >Shop</span
-                >&ensp;
-                <span
-                  style="
-                    font-family: &quot;DM Sans&quot;, sans-serif;
-                    font-size: 0.9375rem;
-                    font-weight: 600;
-                    color: var(--navy);
-                  "
-                  >Authors</span
-                >&ensp;
-                <span
-                  style="
-                    font-family: &quot;DM Sans&quot;, sans-serif;
-                    font-size: 0.9375rem;
-                    font-weight: 600;
-                    color: var(--brave-red);
-                  "
-                  >BRAVE+</span
-                >
+                <span style="font-family: 'DM Sans', sans-serif; font-size: 0.9375rem; font-weight: 600; color: var(--navy);">Shop</span>&ensp;
+                <span style="font-family: 'DM Sans', sans-serif; font-size: 0.9375rem; font-weight: 600; color: var(--navy);">Authors</span>&ensp;
+                <span style="font-family: 'DM Sans', sans-serif; font-size: 0.9375rem; font-weight: 600; color: var(--brave-red);">BRAVE+</span>
               </td>
-              <td class="element-specs">
-                DM Sans SemiBold 600 · 15px · Sentence case · Active state:
-                BRAVE Red
-              </td>
+              <td class="element-specs">DM Sans SemiBold 600 · 15px · Sentence case · Active state: BRAVE Red</td>
             </tr>
             <tr>
               <td class="element-name">Primary CTA Button</td>
               <td class="element-specimen">
-                <span
-                  style="
-                    display: inline-block;
-                    font-family: &quot;DM Sans&quot;, sans-serif;
-                    font-size: 0.8125rem;
-                    font-weight: 700;
-                    letter-spacing: 0.1em;
-                    text-transform: uppercase;
-                    background: var(--brave-red);
-                    color: #fff;
-                    padding: 10px 24px;
-                    border-radius: 8px;
-                  "
-                  >Shop Now</span
-                >
+                <span style="display: inline-block; font-family: mingler, Arial, Helvetica, sans-serif; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: var(--brave-red); color: #fff; padding: 10px 24px; border-radius: 8px;">Shop Now</span>
               </td>
-              <td class="element-specs">
-                DM Sans Bold 700 · 13px · All-caps · Letter-spacing: 0.1em ·
-                BRAVE Red bg, white text · 8px radius
-              </td>
+              <td class="element-specs">Mingler Bold 700 · 14px · All-caps · Letter-spacing: 0.06em · BRAVE Red bg, white text · 8px radius</td>
             </tr>
             <tr>
               <td class="element-name">Secondary CTA Button</td>
               <td class="element-specimen">
-                <span
-                  style="
-                    display: inline-block;
-                    font-family: &quot;DM Sans&quot;, sans-serif;
-                    font-size: 0.8125rem;
-                    font-weight: 700;
-                    letter-spacing: 0.1em;
-                    text-transform: uppercase;
-                    border: 2px solid var(--navy);
-                    color: var(--navy);
-                    padding: 8px 24px;
-                    border-radius: 8px;
-                  "
-                  >Learn More</span
-                >
+                <span style="display: inline-block; font-family: mingler, Arial, Helvetica, sans-serif; font-size: 0.875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; border: 2px solid var(--navy); color: var(--navy); padding: 8px 24px; border-radius: 8px;">Learn More</span>
               </td>
-              <td class="element-specs">
-                DM Sans Bold 700 · 13px · All-caps · Letter-spacing: 0.1em ·
-                Navy outline + text · 8px radius
-              </td>
+              <td class="element-specs">Mingler Bold 700 · 14px · All-caps · Letter-spacing: 0.06em · Navy outline + text · 8px radius</td>
             </tr>
             <tr>
               <td class="element-name">Product Price</td>
               <td class="element-specimen">
-                <span
-                  style="
-                    font-family: &quot;DM Sans&quot;, sans-serif;
-                    font-size: 1.25rem;
-                    font-weight: 700;
-                    color: var(--navy);
-                    font-variant-numeric: tabular-nums;
-                  "
-                  >$24.99</span
-                >&ensp;
-                <span
-                  style="
-                    font-family: &quot;DM Sans&quot;, sans-serif;
-                    font-size: 0.9375rem;
-                    font-weight: 500;
-                    color: var(--charcoal);
-                    opacity: 0.45;
-                    text-decoration: line-through;
-                    font-variant-numeric: tabular-nums;
-                  "
-                  >$29.99</span
-                >
+                <span style="font-family: 'DM Sans', sans-serif; font-size: 1.25rem; font-weight: 700; color: var(--navy); font-variant-numeric: tabular-nums;">$24.99</span>&ensp;
+                <span style="font-family: 'DM Sans', sans-serif; font-size: 0.9375rem; font-weight: 500; color: var(--charcoal); opacity: 0.45; text-decoration: line-through; font-variant-numeric: tabular-nums;">$29.99</span>
               </td>
-              <td class="element-specs">
-                DM Sans Bold 700 · 20px · Tabular nums · Compare-at: Medium 500,
-                15px, strikethrough @ 0.45 opacity
-              </td>
+              <td class="element-specs">DM Sans Bold 700 · 20px · Tabular nums · Compare-at: Medium 500, 15px, strikethrough @ 0.45 opacity</td>
             </tr>
             <tr>
               <td class="element-name">Badge / Tag</td>
               <td class="element-specimen">
-                <span
-                  style="
-                    display: inline-block;
-                    font-family: &quot;DM Sans&quot;, sans-serif;
-                    font-size: 0.6875rem;
-                    font-weight: 700;
-                    letter-spacing: 0.06em;
-                    text-transform: uppercase;
-                    background: var(--brave-red);
-                    color: #fff;
-                    padding: 4px 10px;
-                    border-radius: 4px;
-                  "
-                  >Pre-Order</span
-                >&ensp;
-                <span
-                  style="
-                    display: inline-block;
-                    font-family: &quot;DM Sans&quot;, sans-serif;
-                    font-size: 0.6875rem;
-                    font-weight: 700;
-                    letter-spacing: 0.06em;
-                    text-transform: uppercase;
-                    background: var(--gold);
-                    color: #fff;
-                    padding: 4px 10px;
-                    border-radius: 4px;
-                  "
-                  >Bestseller</span
-                >
+                <span style="display: inline-block; font-family: mingler, Arial, Helvetica, sans-serif; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: var(--brave-red); color: #fff; padding: 4px 10px; border-radius: 4px;">Pre-Order</span>&ensp;
+                <span style="display: inline-block; font-family: mingler, Arial, Helvetica, sans-serif; font-size: 0.6875rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; background: var(--gold); color: #fff; padding: 4px 10px; border-radius: 4px;">Bestseller</span>
               </td>
-              <td class="element-specs">
-                DM Sans Bold 700 · 11px · All-caps · Letter-spacing: 0.06em ·
-                4px radius · BRAVE Red or Gold bg
-              </td>
+              <td class="element-specs">Mingler Bold 700 · 11px · All-caps · Letter-spacing: 0.06em · 4px radius · BRAVE Red or Gold bg</td>
             </tr>
             <tr>
               <td class="element-name">Filter / Tag Chip</td>
               <td class="element-specimen">
-                <span
-                  style="
-                    display: inline-block;
-                    font-family: &quot;DM Sans&quot;, sans-serif;
-                    font-size: 0.8125rem;
-                    font-weight: 500;
-                    background: var(--cream);
-                    color: var(--charcoal);
-                    padding: 6px 14px;
-                    border-radius: 20px;
-                  "
-                  >Ages 3–5</span
-                >&ensp;
-                <span
-                  style="
-                    display: inline-block;
-                    font-family: &quot;DM Sans&quot;, sans-serif;
-                    font-size: 0.8125rem;
-                    font-weight: 500;
-                    background: var(--cream);
-                    color: var(--charcoal);
-                    padding: 6px 14px;
-                    border-radius: 20px;
-                  "
-                  >Courage</span
-                >
+                <span style="display: inline-block; font-family: 'DM Sans', sans-serif; font-size: 0.8125rem; font-weight: 500; background: var(--cream); color: var(--charcoal); padding: 6px 14px; border-radius: 20px;">Ages 3–5</span>&ensp;
+                <span style="display: inline-block; font-family: 'DM Sans', sans-serif; font-size: 0.8125rem; font-weight: 500; background: var(--cream); color: var(--charcoal); padding: 6px 14px; border-radius: 20px;">Courage</span>
               </td>
-              <td class="element-specs">
-                DM Sans Medium 500 · 13px · Sentence case · Cream bg · 20px
-                radius (pill shape)
-              </td>
+              <td class="element-specs">DM Sans Medium 500 · 13px · Sentence case · Cream bg · 20px radius (pill shape)</td>
             </tr>
             <tr>
               <td class="element-name">Breadcrumb / Meta</td>
               <td class="element-specimen">
-                <span
-                  style="
-                    font-family: &quot;DM Sans&quot;, sans-serif;
-                    font-size: 0.75rem;
-                    font-weight: 500;
-                    color: var(--charcoal);
-                    opacity: 0.5;
-                  "
-                  >Home &nbsp;/&nbsp; Authors &nbsp;/&nbsp; Kirk Cameron</span
-                >
+                <span style="font-family: 'DM Sans', sans-serif; font-size: 0.75rem; font-weight: 500; color: var(--charcoal); opacity: 0.5;">Home &nbsp;/&nbsp; Authors &nbsp;/&nbsp; Kirk Cameron</span>
               </td>
-              <td class="element-specs">
-                DM Sans Medium 500 · 12px · Charcoal @ 0.5 opacity · Separator:
-                " / "
-              </td>
+              <td class="element-specs">DM Sans Medium 500 · 12px · Charcoal @ 0.5 opacity · Separator: " / "</td>
             </tr>
           </tbody>
         </table>
-
-        <!-- ── Specimen Block ── -->
+ 
+        <!-- ── Specimen In Context ── -->
         <h2 class="subsection-title">Specimen — In Context</h2>
         <p class="logo-intro">
-          How the heading + body pairing looks in a real layout context. This
-          preview demonstrates the visual hierarchy from eyebrow to heading to
-          body to CTA.
+          The full hierarchy from eyebrow to heading to body to CTA, rendered on
+          a Navy background as it would appear in a hero banner or launch page
+          section.
         </p>
-
+ 
         <div class="type-specimen-block">
-          <div class="type-specimen-block__label">Specimen Preview</div>
-          <div class="type-specimen-block__heading" style="font-size: 2.5rem">
+          <div class="type-specimen-block__label">Launch Page Hero</div>
+          <div class="type-specimen-block__heading" style="font-size: 2.5rem;">
             Stories That Build Character
           </div>
           <div class="type-specimen-block__body">
-            BRAVE Books brings together trusted authors and beloved voices to
-            create children's books that teach real values — courage, honesty,
-            kindness, and faith — through stories kids actually want to read.
-            Discover your family's next favorite book.
+            BRAVE Books brings together trusted authors and beloved voices
+            to create children's books that teach real values — courage,
+            honesty, kindness, and faith — through stories kids actually
+            want to read. Discover your family's next favorite book.
           </div>
-          <span class="type-specimen-block__cta">Shop Now</span>
-          <span
-            class="type-specimen-block__cta type-specimen-block__cta--outline"
-            >Browse Authors</span
-          >
+          <span class="type-specimen-block__cta">Pre-Order Now</span>
+          <span class="type-specimen-block__cta type-specimen-block__cta--outline">Browse Authors</span>
         </div>
-
+ 
         <!-- ── Usage Rules ── -->
         <h2 class="subsection-title">Typography Rules</h2>
         <div class="rules-grid">
           <div class="rule-card rule-card--do">
             <div class="rule-card-label do-label">Do</div>
             <ul class="rule-list">
-              <li>
-                Use Lora exclusively for headings (H1–H6) and editorial pull
-                quotes
-              </li>
-              <li>
-                Use DM Sans for all body text, navigation, buttons, labels, and
-                UI elements
-              </li>
-              <li>
-                Set body text at 15–17px for comfortable reading on all devices
-              </li>
-              <li>
-                Maintain line-heights of 1.15–1.35 for headings and 1.6–1.7 for
-                body text
-              </li>
-              <li>
-                Use tabular numerals (font-variant-numeric: tabular-nums) for
-                prices and data
-              </li>
-              <li>
-                Scale headings down ~20% on mobile viewports (below 640px)
-              </li>
-              <li>
-                Keep CTA buttons in all-caps DM Sans Bold with generous
-                letter-spacing (0.1em)
-              </li>
-              <li>
-                Use the Gold accent color sparingly for star ratings — never for
-                body text
-              </li>
+              <li>Use Mingler Bold for all headings (H1–H6), CTA button labels, and product badges</li>
+              <li>Use DM Sans for all body text, navigation links, form inputs, product specs, and captions</li>
+              <li>Set body text at 15–17px for comfortable reading on all devices</li>
+              <li>Keep heading line-heights tight (1.15–1.35) — Mingler's character shines when compact</li>
+              <li>Use tabular numerals (font-variant-numeric: tabular-nums) for prices and data in DM Sans</li>
+              <li>Scale headings down ~20% on mobile viewports (below 640px)</li>
+              <li>Set CTA buttons in all-caps Mingler Bold with 0.06em letter-spacing</li>
+              <li>Use DM Sans SemiBold (600) for eyebrows and section labels in all-caps</li>
             </ul>
           </div>
           <div class="rule-card rule-card--dont">
             <div class="rule-card-label dont-label">Don't</div>
             <ul class="rule-list">
-              <li>
-                Use Lora for body text, navigation, or UI labels — it's headings
-                only
-              </li>
-              <li>
-                Use DM Sans for page titles or hero headlines — that's Lora's
-                role
-              </li>
-              <li>Set body text below 13px — it becomes illegible on mobile</li>
-              <li>
-                Use font weights not loaded in Google Fonts (e.g., Lora 300, DM
-                Sans 800)
-              </li>
-              <li>Mix in additional typefaces — two fonts is the limit</li>
-              <li>
-                Use all-caps on headings — reserve all-caps for eyebrows,
-                buttons, and badges
-              </li>
-              <li>
-                Set line-height below 1.5 for body text — readability suffers
-              </li>
-              <li>
-                Use italic Lora for headings — reserve italic for editorial
-                emphasis within body text
-              </li>
+              <li>Use Mingler for body text or paragraphs — it's a display face, not a reading font</li>
+              <li>Use DM Sans for page titles or hero headlines — that's Mingler's role</li>
+              <li>Attempt to use Mingler in Regular, Italic, or any weight other than Bold — only Bold is loaded</li>
+              <li>Set body text below 13px — legibility suffers on mobile screens</li>
+              <li>Mix in additional typefaces — two fonts is the system, three is a mess</li>
+              <li>Use Mingler at very small sizes (below 12px) — the character details get lost</li>
+              <li>Set line-height below 1.5 for DM Sans body text — readability drops fast</li>
+              <li>Use DM Sans Bold for CTA buttons — Mingler is the action font</li>
             </ul>
           </div>
-        </div>
-
-        <div class="usage-note">
-          <p>
-            <strong>Shopify implementation:</strong> Set Lora as the heading
-            font and DM Sans as the body font in Theme Settings → Typography.
-            Dawn and most modern themes support separate heading/body font
-            assignments. Apply the heading scale sizes via custom CSS overrides
-            if the theme's built-in scale doesn't match the specs above. Load
-            only the weights listed in this guide to keep page speed optimized —
-            each additional weight adds ~15–25KB.
-          </p>
         </div>
       </section>
     </main>
