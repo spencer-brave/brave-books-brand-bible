@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>BRAVE Books — Brand Style Guide</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
@@ -12,21 +15,43 @@
     />
     <style>
       /* =============================================
-   BRAVE BOOKS BRAND STYLE GUIDE
-   Section 1: Brand Foundation
-   ============================================= */
+         BRAVE BOOKS BRAND STYLE GUIDE
+         Consolidated Stylesheet — v1.1
+         ============================================= */
 
       :root {
-        --brave-red: #c41a1a;
+        /* --- Core Palette --- */
+        --brave-red: #cd3636;
+        --brave-red-dark: #a31515;
+        --brave-red-light: #fef2f2;
         --navy: #1b2a4a;
+        --navy-dark: #0f1a2e;
         --warm-white: #faf8f5;
         --cream: #f5f0e8;
         --gold: #d4a853;
         --charcoal: #2d3748;
+        --white: #ffffff;
+
+        /* --- Extended UI Palette --- */
         --soft-red: #fef2f2;
         --light-gray: #e5e7eb;
-        --font-heading: "Libre Baskerville", Georgia, "Times New Roman", serif;
+        --mid-gray: #9ca3af;
+        --success: #16a34a;
+        --success-light: #f0fdf4;
+        --warning: #d97706;
+        --warning-light: #fffbeb;
+        --error: #dc2626;
+        --error-light: #fef2f2;
+
+        /* --- Typography --- */
+        --font-heading: "Lora", Georgia, "Times New Roman", serif;
         --font-body: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+
+        /* --- Spacing --- */
+        --section-gap: 56px;
+        --radius: 6px;
+        --radius-sm: 4px;
+        --radius-xs: 3px;
       }
 
       *,
@@ -51,7 +76,9 @@
         line-height: 1.65;
       }
 
-      /* --- Guide Header --- */
+      /* =============================================
+         GUIDE HEADER
+         ============================================= */
       .guide-header {
         background-color: var(--navy);
         color: #fff;
@@ -84,7 +111,9 @@
         text-transform: uppercase;
       }
 
-      /* --- Section Nav --- */
+      /* =============================================
+         SECTION NAV
+         ============================================= */
       .section-nav {
         background-color: var(--cream);
         border-bottom: 1px solid var(--light-gray);
@@ -118,16 +147,18 @@
           border-color 0.2s;
       }
 
-      .section-nav a:hover {
+      .section-nav a:hover,
+      .section-nav a.active {
         color: var(--brave-red);
       }
 
       .section-nav a.active {
-        color: var(--brave-red);
         border-bottom-color: var(--brave-red);
       }
 
-      /* --- Main --- */
+      /* =============================================
+         MAIN LAYOUT
+         ============================================= */
       .guide-main {
         max-width: 960px;
         margin: 0 auto;
@@ -172,14 +203,28 @@
         margin-bottom: 48px;
       }
 
-      /* --- Mission Block --- */
+      /* --- Subsection Title --- */
+      .subsection-title {
+        font-family: var(--font-heading);
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 32px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--light-gray);
+      }
+
+      /* =============================================
+         SECTION 1: BRAND FOUNDATION
+         ============================================= */
+
       .mission-block {
         background-color: var(--navy);
         color: #fff;
         padding: 48px 56px;
-        border-radius: 6px;
+        border-radius: var(--radius);
         position: relative;
-        margin-bottom: 56px;
+        margin-bottom: var(--section-gap);
       }
 
       .mission-block::before {
@@ -190,7 +235,7 @@
         right: 0;
         height: 4px;
         background: var(--brave-red);
-        border-radius: 6px 6px 0 0;
+        border-radius: var(--radius) var(--radius) 0 0;
       }
 
       .mission-eyebrow {
@@ -216,23 +261,12 @@
         color: #fff;
       }
 
-      /* --- Subsection Title --- */
-      .subsection-title {
-        font-family: var(--font-heading);
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: var(--navy);
-        margin-bottom: 32px;
-        padding-bottom: 12px;
-        border-bottom: 1px solid var(--light-gray);
-      }
-
       /* --- Values Grid --- */
       .values-grid {
         display: grid;
         grid-template-columns: 1fr;
         gap: 24px;
-        margin-bottom: 56px;
+        margin-bottom: var(--section-gap);
       }
 
       @media (min-width: 640px) {
@@ -244,7 +278,7 @@
       .value-card {
         padding: 32px 28px;
         background: var(--cream);
-        border-radius: 4px;
+        border-radius: var(--radius-sm);
         border-left: 3px solid var(--brave-red);
       }
 
@@ -277,7 +311,7 @@
       /* --- Personality Table --- */
       .personality-table {
         width: 100%;
-        margin-bottom: 56px;
+        margin-bottom: var(--section-gap);
         border-collapse: collapse;
       }
 
@@ -324,40 +358,35 @@
         line-height: 1.6;
       }
 
-      .pill-we-are {
+      .pill {
         display: inline-block;
-        background: rgba(196, 26, 26, 0.08);
-        color: var(--brave-red);
         font-family: var(--font-body);
         font-size: 0.75rem;
         font-weight: 600;
         letter-spacing: 0.04em;
         padding: 3px 10px;
-        border-radius: 3px;
+        border-radius: var(--radius-xs);
         margin-bottom: 6px;
       }
 
-      .pill-not {
-        display: inline-block;
+      .pill--positive {
+        background: rgba(196, 26, 26, 0.08);
+        color: var(--brave-red);
+      }
+
+      .pill--negative {
         background: rgba(45, 55, 72, 0.06);
         color: var(--charcoal);
-        font-family: var(--font-body);
-        font-size: 0.75rem;
-        font-weight: 600;
-        letter-spacing: 0.04em;
-        padding: 3px 10px;
-        border-radius: 3px;
-        margin-bottom: 6px;
         opacity: 0.6;
       }
 
       /* --- Positioning Block --- */
       .positioning-block {
         background: var(--cream);
-        border-radius: 6px;
+        border-radius: var(--radius);
         padding: 44px 48px;
         position: relative;
-        margin-bottom: 56px;
+        margin-bottom: var(--section-gap);
         overflow: hidden;
       }
 
@@ -408,13 +437,11 @@
       .priority-stack {
         display: flex;
         flex-direction: column;
-        gap: 0;
       }
 
       .priority-row {
         display: grid;
         grid-template-columns: 48px 1fr 1.4fr;
-        gap: 0;
         align-items: stretch;
         border-bottom: 1px solid var(--light-gray);
       }
@@ -452,19 +479,18 @@
         display: flex;
         align-items: center;
         padding: 20px 16px;
-        font-family: var(--font-body);
         font-size: 0.9375rem;
         color: var(--charcoal);
         opacity: 0.72;
         line-height: 1.5;
       }
 
-      /* --- Usage Note --- */
+      /* --- Usage Note (shared component) --- */
       .usage-note {
         background: var(--soft-red);
         border-left: 3px solid var(--brave-red);
         padding: 20px 24px;
-        border-radius: 0 4px 4px 0;
+        border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
         margin-top: 32px;
       }
 
@@ -480,8 +506,8 @@
       }
 
       /* =============================================
-   Section 2: Logo & Logo Usage
-   ============================================= */
+         SECTION 2: LOGO & LOGO USAGE
+         ============================================= */
 
       .logo-intro {
         font-size: 0.9375rem;
@@ -496,7 +522,7 @@
         display: grid;
         grid-template-columns: 1fr;
         gap: 32px;
-        margin-bottom: 56px;
+        margin-bottom: var(--section-gap);
       }
 
       @media (min-width: 640px) {
@@ -524,7 +550,7 @@
         align-items: center;
         justify-content: center;
         padding: 40px 32px;
-        border-radius: 6px;
+        border-radius: var(--radius);
         min-height: 180px;
       }
 
@@ -536,7 +562,7 @@
         border: 1px solid var(--light-gray);
       }
       .logo-preview--white {
-        background-color: #fff;
+        background-color: var(--white);
         border: 1px solid var(--light-gray);
       }
       .logo-preview--red {
@@ -584,7 +610,7 @@
         background: none;
         border: 1px solid var(--brave-red);
         padding: 8px 16px;
-        border-radius: 4px;
+        border-radius: var(--radius-sm);
         cursor: pointer;
         transition:
           background 0.2s,
@@ -601,7 +627,7 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 24px;
-        margin-bottom: 56px;
+        margin-bottom: var(--section-gap);
       }
 
       @media (min-width: 640px) {
@@ -626,7 +652,7 @@
         align-items: center;
         justify-content: center;
         padding: 28px 20px;
-        border-radius: 6px;
+        border-radius: var(--radius);
         min-height: 120px;
       }
 
@@ -646,7 +672,7 @@
 
       .bg-cell-check.approved::before {
         content: "✓  ";
-        color: #16a34a;
+        color: var(--success);
         font-weight: 700;
       }
       .bg-cell-check.avoid::before {
@@ -655,11 +681,12 @@
         font-weight: 700;
       }
 
+      /* --- Shared Rules Grid (Logo + Color) --- */
       .rules-grid {
         display: grid;
         grid-template-columns: 1fr;
         gap: 24px;
-        margin-bottom: 56px;
+        margin-bottom: var(--section-gap);
       }
 
       @media (min-width: 640px) {
@@ -670,13 +697,13 @@
 
       .rule-card {
         padding: 28px 24px;
-        border-radius: 6px;
+        border-radius: var(--radius);
         border: 1px solid var(--light-gray);
-        background: #fff;
+        background: var(--white);
       }
 
       .rule-card--do {
-        border-left: 3px solid #16a34a;
+        border-left: 3px solid var(--success);
       }
       .rule-card--dont {
         border-left: 3px solid var(--brave-red);
@@ -692,7 +719,7 @@
       }
 
       .rule-card-label.do-label {
-        color: #16a34a;
+        color: var(--success);
       }
       .rule-card-label.dont-label {
         color: var(--brave-red);
@@ -700,8 +727,6 @@
 
       .rule-list {
         list-style: none;
-        padding: 0;
-        margin: 0;
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -724,18 +749,19 @@
 
       .rule-card--do .rule-list li::before {
         content: "✓";
-        color: #16a34a;
+        color: var(--success);
       }
       .rule-card--dont .rule-list li::before {
         content: "✕";
         color: var(--brave-red);
       }
 
+      /* --- Spec Row (Logo clearspace / min size) --- */
       .spec-row {
         display: grid;
         grid-template-columns: 1fr;
         gap: 32px;
-        margin-bottom: 56px;
+        margin-bottom: var(--section-gap);
       }
 
       @media (min-width: 640px) {
@@ -755,7 +781,7 @@
 
       .spec-visual {
         background: var(--cream);
-        border-radius: 6px;
+        border-radius: var(--radius);
         padding: 40px;
         display: flex;
         align-items: center;
@@ -823,7 +849,7 @@
         gap: 40px;
         padding: 32px 40px;
         background: var(--cream);
-        border-radius: 6px;
+        border-radius: var(--radius);
         margin-bottom: 12px;
       }
 
@@ -848,13 +874,186 @@
         white-space: nowrap;
       }
 
-      .file-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin-bottom: 32px;
+      /* =============================================
+         SECTION 3: COLOR PALETTE
+         ============================================= */
+
+      /* --- Copyable hex codes --- */
+      .copyable {
+        cursor: pointer;
+        position: relative;
+        transition: opacity 0.15s;
+        -webkit-user-select: none;
+        user-select: none;
       }
 
-      .file-table thead th {
+      .copyable:hover {
+        opacity: 0.7;
+      }
+
+      .copyable::after {
+        content: "";
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        margin-left: 5px;
+        vertical-align: middle;
+        opacity: 0.35;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%232D3748' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='9' y='9' width='13' height='13' rx='2' ry='2'/%3E%3Cpath d='M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1'/%3E%3C/svg%3E");
+        background-size: contain;
+        background-repeat: no-repeat;
+        transition: opacity 0.15s;
+      }
+
+      .copyable:hover::after {
+        opacity: 0.7;
+      }
+
+      /* Toast notification */
+      .copy-toast {
+        position: fixed;
+        bottom: 28px;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+        background: var(--navy);
+        color: #fff;
+        font-family: var(--font-body);
+        font-size: 0.8125rem;
+        font-weight: 600;
+        padding: 10px 20px;
+        border-radius: 8px;
+        box-shadow: 0 8px 32px rgba(27, 42, 74, 0.3);
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.25s,
+          transform 0.25s;
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .copy-toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      .copy-toast__swatch {
+        width: 16px;
+        height: 16px;
+        border-radius: 4px;
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        flex-shrink: 0;
+      }
+
+      .copy-toast__check {
+        color: #4ade80;
+        font-weight: 700;
+      }
+
+      /* --- Color swatch preview — click anywhere on preview to copy --- */
+      .color-swatch__preview {
+        cursor: pointer;
+        transition: box-shadow 0.2s;
+      }
+      .color-swatch__preview:hover {
+        box-shadow: inset 0 0 0 3px rgba(255, 255, 255, 0.3);
+      }
+
+      /* --- Core Swatch Grid --- */
+      .color-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        margin-bottom: var(--section-gap);
+      }
+
+      @media (min-width: 640px) {
+        .color-grid {
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+        }
+      }
+
+      .color-swatch {
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--light-gray);
+        background: var(--white);
+      }
+
+      .color-swatch__preview {
+        height: 96px;
+        position: relative;
+      }
+
+      .color-swatch__preview--large {
+        height: 120px;
+      }
+
+      .color-swatch__contrast-badge {
+        position: absolute;
+        bottom: 8px;
+        right: 8px;
+        font-family: var(--font-body);
+        font-size: 0.5625rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 3px 7px;
+        border-radius: var(--radius-xs);
+        line-height: 1;
+      }
+
+      .color-swatch__info {
+        padding: 14px 16px;
+      }
+
+      .color-swatch__name {
+        font-family: var(--font-body);
+        font-size: 0.875rem;
+        font-weight: 600;
+        color: var(--navy);
+        margin-bottom: 2px;
+      }
+
+      .color-swatch__hex {
+        font-family: var(--font-body);
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: var(--charcoal);
+        opacity: 0.6;
+        margin-bottom: 6px;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .color-swatch__role {
+        font-size: 0.75rem;
+        color: var(--charcoal);
+        opacity: 0.55;
+        line-height: 1.45;
+      }
+
+      .color-swatch__var {
+        display: inline-block;
+        font-family: var(--font-body);
+        font-size: 0.6875rem;
+        font-weight: 500;
+        color: var(--navy);
+        background: var(--cream);
+        padding: 2px 7px;
+        border-radius: var(--radius-xs);
+        margin-top: 6px;
+      }
+
+      /* --- Color Roles Table --- */
+      .roles-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: var(--section-gap);
+      }
+
+      .roles-table thead th {
         font-family: var(--font-body);
         font-size: 0.6875rem;
         font-weight: 600;
@@ -866,28 +1065,835 @@
         padding: 0 0 14px 0;
       }
 
-      .file-table tbody tr {
+      .roles-table tbody tr {
         border-top: 1px solid var(--light-gray);
       }
 
-      .file-table tbody td {
-        padding: 14px 16px 14px 0;
+      .roles-table tbody td {
+        padding: 16px 16px 16px 0;
         font-size: 0.9375rem;
         color: var(--charcoal);
         vertical-align: middle;
+        line-height: 1.5;
       }
 
-      .file-table .filename {
-        font-family: "DM Sans", monospace;
-        font-size: 0.8125rem;
-        font-weight: 500;
+      .roles-table .color-dot {
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: inline-block;
+        vertical-align: middle;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        margin-right: 10px;
+        cursor: pointer;
+        transition:
+          transform 0.15s,
+          box-shadow 0.15s;
+      }
+
+      .roles-table .color-dot:hover {
+        transform: scale(1.25);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+      }
+
+      .roles-table .role-element {
+        font-weight: 600;
         color: var(--navy);
-        background: var(--cream);
-        padding: 3px 8px;
-        border-radius: 3px;
       }
 
-      /* --- Footer --- */
+      /* --- Contrast Table --- */
+      .contrast-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 12px;
+        margin-bottom: var(--section-gap);
+      }
+
+      @media (min-width: 640px) {
+        .contrast-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .contrast-pair {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 16px 20px;
+        border-radius: var(--radius);
+        border: 1px solid var(--light-gray);
+        background: var(--white);
+      }
+
+      .contrast-pair__sample {
+        width: 56px;
+        height: 40px;
+        border-radius: var(--radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-body);
+        font-size: 0.8125rem;
+        font-weight: 700;
+        flex-shrink: 0;
+      }
+
+      .contrast-pair__info {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .contrast-pair__label {
+        font-size: 0.8125rem;
+        font-weight: 600;
+        color: var(--navy);
+        margin-bottom: 2px;
+      }
+
+      .contrast-pair__ratio {
+        font-size: 0.75rem;
+        color: var(--charcoal);
+        opacity: 0.6;
+      }
+
+      .contrast-pair__badge {
+        font-family: var(--font-body);
+        font-size: 0.6875rem;
+        font-weight: 700;
+        padding: 3px 8px;
+        border-radius: var(--radius-xs);
+        flex-shrink: 0;
+      }
+
+      .badge--pass {
+        background: var(--success-light);
+        color: var(--success);
+      }
+
+      .badge--large-only {
+        background: var(--warning-light);
+        color: var(--warning);
+      }
+
+      /* --- Dawn Scheme Cards --- */
+      .dawn-intro {
+        font-size: 0.9375rem;
+        color: var(--charcoal);
+        opacity: 0.72;
+        max-width: 640px;
+        line-height: 1.6;
+        margin-bottom: 12px;
+      }
+
+      .dawn-path {
+        display: inline-block;
+        background: var(--cream);
+        border: 1px solid var(--light-gray);
+        border-radius: var(--radius);
+        padding: 6px 12px;
+        font-size: 0.75rem;
+        color: var(--charcoal);
+        margin-bottom: 28px;
+        font-weight: 500;
+      }
+
+      .dawn-path code {
+        background: var(--white);
+        padding: 2px 5px;
+        border-radius: var(--radius-xs);
+        font-size: 0.6875rem;
+      }
+
+      .dawn-scheme {
+        border: 1px solid var(--light-gray);
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 16px;
+        background: var(--white);
+        transition: box-shadow 0.2s;
+      }
+
+      .dawn-scheme:hover {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      }
+
+      .dawn-scheme__header {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 16px 20px;
+        cursor: pointer;
+        user-select: none;
+      }
+
+      .dawn-scheme__number {
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 14px;
+        flex-shrink: 0;
+      }
+
+      .dawn-scheme__title-group {
+        flex: 1;
+        min-width: 0;
+      }
+
+      .dawn-scheme__name {
+        font-family: var(--font-heading);
+        font-size: 0.9375rem;
+        font-weight: 700;
+        color: var(--navy);
+      }
+
+      .dawn-scheme__tagline {
+        font-size: 0.75rem;
+        color: var(--mid-gray);
+        margin-top: 1px;
+      }
+
+      .dawn-scheme__mini-swatches {
+        display: flex;
+        gap: 3px;
+        flex-shrink: 0;
+      }
+
+      .dawn-scheme__mini-swatch {
+        width: 18px;
+        height: 18px;
+        border-radius: 4px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .dawn-scheme__toggle {
+        width: 28px;
+        height: 28px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--cream);
+        color: var(--charcoal);
+        font-size: 16px;
+        font-weight: 700;
+        flex-shrink: 0;
+        transition: all 0.2s;
+      }
+
+      .dawn-scheme.open .dawn-scheme__toggle {
+        background: var(--navy);
+        color: #fff;
+      }
+
+      .dawn-scheme__body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+        border-top: 0 solid transparent;
+      }
+
+      .dawn-scheme.open .dawn-scheme__body {
+        border-top: 1px solid var(--light-gray);
+      }
+
+      .dawn-scheme__body-inner {
+        padding: 20px;
+      }
+
+      .dawn-preview {
+        display: flex;
+        border-radius: 8px;
+        overflow: hidden;
+        margin-bottom: 16px;
+        border: 1px solid var(--light-gray);
+        min-height: 64px;
+      }
+
+      .dawn-preview__area {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 12px;
+        gap: 8px;
+      }
+
+      .dawn-preview__text {
+        font-size: 0.8125rem;
+        font-weight: 600;
+      }
+
+      .dawn-preview__btns {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .dawn-preview__btn {
+        display: flex;
+        align-items: center;
+        padding: 5px 14px;
+        border-radius: 6px;
+        font-size: 0.6875rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .dawn-fields {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 16px;
+      }
+
+      .dawn-fields th {
+        text-align: left;
+        font-size: 0.625rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--mid-gray);
+        padding: 8px 10px;
+        border-bottom: 2px solid var(--light-gray);
+      }
+
+      .dawn-fields td {
+        padding: 9px 10px;
+        border-bottom: 1px solid #f3f4f6;
+        font-size: 0.8125rem;
+        vertical-align: middle;
+      }
+
+      .dawn-fields tr:last-child td {
+        border-bottom: none;
+      }
+
+      .dawn-fields .field-name {
+        font-weight: 600;
+        color: var(--charcoal);
+        white-space: nowrap;
+      }
+
+      .dawn-fields .swatch-cell {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .dawn-fields .swatch-dot {
+        width: 22px;
+        height: 22px;
+        border-radius: 5px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        flex-shrink: 0;
+      }
+
+      .dawn-fields .hex-code {
+        font-variant-numeric: tabular-nums;
+        font-weight: 600;
+        font-size: 0.75rem;
+        color: var(--charcoal);
+      }
+
+      .dawn-fields .field-note {
+        font-size: 0.75rem;
+        color: var(--mid-gray);
+      }
+
+      .dawn-usage__label {
+        font-size: 0.6875rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--mid-gray);
+        margin-bottom: 8px;
+      }
+
+      .dawn-usage__tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-bottom: 12px;
+      }
+
+      .dawn-tag {
+        font-size: 0.6875rem;
+        font-weight: 600;
+        padding: 4px 10px;
+        border-radius: var(--radius);
+        background: var(--cream);
+        color: var(--charcoal);
+      }
+
+      .dawn-tag--caution {
+        background: var(--soft-red);
+        color: var(--brave-red);
+      }
+
+      .scheme-badge {
+        display: inline-block;
+        font-size: 0.6875rem;
+        font-weight: 700;
+        padding: 3px 8px;
+        border-radius: 5px;
+        white-space: nowrap;
+      }
+
+      .scheme-badge--1 {
+        background: var(--warm-white);
+        color: var(--charcoal);
+        border: 1px solid var(--light-gray);
+      }
+      .scheme-badge--2 {
+        background: var(--cream);
+        color: var(--charcoal);
+        border: 1px solid #ddd5c5;
+      }
+      .scheme-badge--3 {
+        background: var(--navy);
+        color: #fff;
+      }
+      .scheme-badge--4 {
+        background: var(--brave-red);
+        color: #fff;
+      }
+      .scheme-badge--5 {
+        background: var(--white);
+        color: var(--charcoal);
+        border: 1px solid var(--light-gray);
+      }
+
+      /* =============================================
+         SECTION 4: TYPOGRAPHY
+      ============================================= */
+      /* --- Font Stack Cards --- */
+      .type-stack-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-bottom: var(--section-gap);
+      }
+
+      @media (min-width: 640px) {
+        .type-stack-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .type-stack-card {
+        border: 1px solid var(--light-gray);
+        border-radius: var(--radius);
+        overflow: hidden;
+        background: var(--white);
+      }
+
+      .type-stack-card__preview {
+        padding: 36px 28px;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .type-stack-card__preview--heading {
+        background: var(--cream);
+      }
+
+      .type-stack-card__preview--body {
+        background: var(--warm-white);
+        border-top: 1px solid var(--light-gray);
+      }
+
+      .type-stack-card__specimen {
+        color: var(--navy);
+        line-height: 1.2;
+        margin-bottom: 4px;
+      }
+
+      .type-stack-card__alphabet {
+        font-size: 0.875rem;
+        color: var(--charcoal);
+        opacity: 0.5;
+        line-height: 1.5;
+        letter-spacing: 0.02em;
+      }
+
+      .type-stack-card__info {
+        padding: 20px 28px;
+        border-top: 1px solid var(--light-gray);
+      }
+
+      .type-stack-card__name {
+        font-family: var(--font-body);
+        font-size: 0.875rem;
+        font-weight: 700;
+        color: var(--navy);
+        margin-bottom: 2px;
+      }
+
+      .type-stack-card__role {
+        font-family: var(--font-body);
+        font-size: 0.8125rem;
+        color: var(--charcoal);
+        opacity: 0.6;
+        margin-bottom: 10px;
+        line-height: 1.5;
+      }
+
+      .type-stack-card__stack {
+        font-family: var(--font-body);
+        font-size: 0.6875rem;
+        font-weight: 500;
+        color: var(--charcoal);
+        background: var(--cream);
+        padding: 5px 10px;
+        border-radius: var(--radius-xs);
+        display: inline-block;
+        line-height: 1.4;
+        word-break: break-all;
+      }
+
+      /* --- Heading Scale Table --- */
+      .type-scale-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: var(--section-gap);
+      }
+
+      .type-scale-table thead th {
+        font-family: var(--font-body);
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--charcoal);
+        opacity: 0.5;
+        text-align: left;
+        padding: 0 0 14px 0;
+      }
+
+      .type-scale-table tbody tr {
+        border-top: 1px solid var(--light-gray);
+      }
+
+      .type-scale-table tbody td {
+        padding: 24px 16px 24px 0;
+        vertical-align: baseline;
+        font-size: 0.9375rem;
+        color: var(--charcoal);
+        line-height: 1.5;
+      }
+
+      .type-scale-table .scale-label {
+        font-family: var(--font-body);
+        font-size: 0.6875rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--brave-red);
+        white-space: nowrap;
+        width: 60px;
+      }
+
+      .type-scale-table .scale-specimen {
+        font-family: "Lora", Georgia, serif;
+        color: var(--navy);
+        line-height: 1.25;
+        min-width: 200px;
+      }
+
+      .type-scale-table .scale-specs {
+        font-family: var(--font-body);
+        font-size: 0.8125rem;
+        color: var(--charcoal);
+        opacity: 0.65;
+        line-height: 1.6;
+        white-space: nowrap;
+      }
+
+      .type-scale-table .scale-specs span {
+        display: block;
+      }
+
+      .type-scale-table .scale-usage {
+        font-size: 0.8125rem;
+        color: var(--charcoal);
+        opacity: 0.55;
+        line-height: 1.5;
+        min-width: 160px;
+      }
+
+      /* --- Body Text Specs --- */
+      .body-spec-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+        margin-bottom: var(--section-gap);
+      }
+
+      @media (min-width: 640px) {
+        .body-spec-grid {
+          grid-template-columns: 1fr 1fr 1fr;
+        }
+      }
+
+      .body-spec-card {
+        padding: 28px 24px;
+        background: var(--cream);
+        border-radius: var(--radius-sm);
+        border-left: 3px solid var(--navy);
+      }
+
+      .body-spec-card__label {
+        font-family: var(--font-body);
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--brave-red);
+        margin-bottom: 12px;
+      }
+
+      .body-spec-card__specimen {
+        color: var(--navy);
+        margin-bottom: 12px;
+        line-height: 1.65;
+      }
+
+      .body-spec-card__meta {
+        font-family: var(--font-body);
+        font-size: 0.75rem;
+        color: var(--charcoal);
+        opacity: 0.55;
+        line-height: 1.6;
+      }
+
+      .body-spec-card__meta span {
+        display: block;
+      }
+
+      /* --- Type Specimen Block --- */
+      .type-specimen-block {
+        background: var(--navy);
+        border-radius: var(--radius);
+        padding: 48px 48px;
+        margin-bottom: var(--section-gap);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .type-specimen-block::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: var(--brave-red);
+        border-radius: var(--radius) var(--radius) 0 0;
+      }
+
+      .type-specimen-block__label {
+        font-family: var(--font-body);
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 24px;
+      }
+
+      .type-specimen-block__heading {
+        font-family: "Lora", Georgia, serif;
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.2;
+        margin-bottom: 16px;
+      }
+
+      .type-specimen-block__body {
+        font-family: "DM Sans", sans-serif;
+        font-size: 1.0625rem;
+        color: rgba(255, 255, 255, 0.72);
+        line-height: 1.7;
+        max-width: 640px;
+        margin-bottom: 24px;
+      }
+
+      .type-specimen-block__cta {
+        display: inline-block;
+        font-family: "DM Sans", sans-serif;
+        font-size: 0.8125rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        background: var(--brave-red);
+        color: #fff;
+        padding: 12px 28px;
+        border-radius: 8px;
+        text-decoration: none;
+        margin-right: 12px;
+      }
+
+      .type-specimen-block__cta--outline {
+        background: transparent;
+        border: 2px solid #fff;
+        color: #fff;
+      }
+
+      /* --- Utility Classes Table --- */
+      .type-utilities-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: var(--section-gap);
+      }
+
+      .type-utilities-table thead th {
+        font-family: var(--font-body);
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--charcoal);
+        opacity: 0.5;
+        text-align: left;
+        padding: 0 0 14px 0;
+      }
+
+      .type-utilities-table tbody tr {
+        border-top: 1px solid var(--light-gray);
+      }
+
+      .type-utilities-table tbody td {
+        padding: 16px 16px 16px 0;
+        font-size: 0.9375rem;
+        color: var(--charcoal);
+        vertical-align: middle;
+        line-height: 1.5;
+      }
+
+      .type-utilities-table .element-name {
+        font-weight: 600;
+        color: var(--navy);
+        white-space: nowrap;
+      }
+
+      .type-utilities-table .element-specimen {
+        min-width: 160px;
+      }
+
+      .type-utilities-table .element-specs {
+        font-family: var(--font-body);
+        font-size: 0.8125rem;
+        color: var(--charcoal);
+        opacity: 0.6;
+        line-height: 1.6;
+      }
+
+      /* --- Weight Sampler --- */
+      .weight-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0;
+        border: 1px solid var(--light-gray);
+        border-radius: var(--radius);
+        overflow: hidden;
+        margin-bottom: var(--section-gap);
+      }
+
+      @media (min-width: 640px) {
+        .weight-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      .weight-row {
+        display: flex;
+        align-items: baseline;
+        gap: 16px;
+        padding: 20px 24px;
+        border-bottom: 1px solid var(--light-gray);
+        background: var(--white);
+      }
+
+      .weight-row:last-child,
+      .weight-grid .weight-row:nth-last-child(1),
+      .weight-grid .weight-row:nth-last-child(2) {
+        border-bottom: none;
+      }
+
+      @media (max-width: 639px) {
+        .weight-row:last-child {
+          border-bottom: none;
+        }
+        .weight-row:nth-last-child(2) {
+          border-bottom: 1px solid var(--light-gray);
+        }
+      }
+
+      .weight-row__sample {
+        font-size: 1.5rem;
+        color: var(--navy);
+        flex: 1;
+        min-width: 0;
+      }
+
+      .weight-row__meta {
+        font-family: var(--font-body);
+        font-size: 0.75rem;
+        color: var(--charcoal);
+        opacity: 0.5;
+        white-space: nowrap;
+        text-align: right;
+        flex-shrink: 0;
+      }
+
+      /* --- Responsive type scale adjustments --- */
+      @media (max-width: 639px) {
+        .type-scale-table {
+          display: block;
+        }
+        .type-scale-table thead {
+          display: none;
+        }
+        .type-scale-table tbody {
+          display: flex;
+          flex-direction: column;
+          gap: 0;
+        }
+        .type-scale-table tbody tr {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+          padding: 20px 0;
+        }
+        .type-scale-table tbody td {
+          padding: 0;
+          width: auto !important;
+          min-width: 0 !important;
+        }
+        .type-scale-table .scale-specs span {
+          display: inline;
+        }
+        .type-scale-table .scale-specs span::after {
+          content: " · ";
+        }
+        .type-scale-table .scale-specs span:last-child::after {
+          content: "";
+        }
+        .type-specimen-block {
+          padding: 36px 24px;
+        }
+      }
+
+      /* =============================================
+         FOOTER
+         ============================================= */
       .guide-footer {
         text-align: center;
         padding: 48px 32px;
@@ -896,7 +1902,9 @@
         opacity: 0.4;
       }
 
-      /* --- Responsive --- */
+      /* =============================================
+         RESPONSIVE
+         ============================================= */
       @media (max-width: 639px) {
         .guide-header-inner {
           flex-direction: column;
@@ -906,7 +1914,6 @@
         .section-title {
           font-size: 1.625rem;
         }
-
         .mission-block {
           padding: 36px 28px;
         }
@@ -948,14 +1955,34 @@
           padding: 0 16px 16px 56px;
           margin-top: -8px;
         }
+
+        .dawn-scheme__mini-swatches {
+          display: none;
+        }
+        .dawn-preview {
+          flex-direction: column;
+        }
       }
     </style>
   </head>
   <body>
+    <!-- COPY TOAST -->
+    <div class="copy-toast" id="copy-toast">
+      <div class="copy-toast__swatch" id="copy-toast-swatch"></div>
+      <span class="copy-toast__check">✓</span>
+      <span id="copy-toast-text">Copied!</span>
+    </div>
+
     <!-- GUIDE HEADER -->
     <header class="guide-header">
       <div class="guide-header-inner">
-        <img class="guide-logo" src="Assets/Brave Books logo - white.png" alt="BRAVE Books Logo" width="200" height="40" />
+        <img
+          class="guide-logo"
+          src="Assets/Brave Books logo - white.png"
+          alt="BRAVE Books Logo"
+          width="200"
+          height="40"
+        />
         <div class="guide-subtitle">
           Brand Style Guide &mdash; v1.0 &mdash; March 2026
         </div>
@@ -965,15 +1992,18 @@
     <!-- SECTION NAV -->
     <nav class="section-nav">
       <div class="section-nav-inner">
-        <a href="#brand-foundation" class="active">Brand Foundation</a>
-        <a href="#logo-usage">Logo & Usage</a>
-        <!-- Future sections added here as we build them -->
+        <a href="#brand-foundation">Brand Foundation</a>
+        <a href="#logo-usage">Logo &amp; Usage</a>
+        <a href="#color-palette">Color Palette</a>
+        <a href="#typography">Typography</a>
       </div>
     </nav>
 
     <!-- MAIN -->
     <main class="guide-main">
-      <!-- SECTION 1: BRAND FOUNDATION -->
+      <!-- =========================================== -->
+      <!-- SECTION 1: BRAND FOUNDATION                 -->
+      <!-- =========================================== -->
       <section id="brand-foundation" class="guide-section">
         <div class="section-label">Section 01</div>
         <h1 class="section-title">Brand Foundation</h1>
@@ -984,7 +2014,6 @@
           feels like it came from the same team.
         </p>
 
-        <!-- Mission -->
         <div class="mission-block">
           <div class="mission-eyebrow">Site Mission</div>
           <p class="mission-text">
@@ -997,7 +2026,6 @@
           </p>
         </div>
 
-        <!-- Core Values -->
         <h2 class="subsection-title">Core Values</h2>
         <div class="values-grid">
           <div class="value-card">
@@ -1029,7 +2057,6 @@
           </div>
         </div>
 
-        <!-- Brand Personality -->
         <h2 class="subsection-title">Brand Personality</h2>
         <table class="personality-table">
           <thead>
@@ -1043,74 +2070,73 @@
             <tr>
               <td>Confident</td>
               <td>
-                <span class="pill-we-are">We are</span><br />
-                "Books your kids will love." Bold assertions backed by 250,000+
-                families. We know what we're selling and why it matters.
+                <span class="pill pill--positive">We are</span><br />"Books your
+                kids will love." Bold assertions backed by 250,000+ families. We
+                know what we're selling and why it matters.
               </td>
               <td>
-                <span class="pill-not">Not</span><br />
-                Aggressive or combative. We don't define ourselves by what we're
-                against. No culture-war framing in customer-facing copy.
+                <span class="pill pill--negative">Not</span><br />Aggressive or
+                combative. We don't define ourselves by what we're against. No
+                culture-war framing in customer-facing copy.
               </td>
             </tr>
             <tr>
               <td>Warm</td>
               <td>
-                <span class="pill-we-are">We are</span><br />
-                "For families who care about character." Approachable and
-                genuine — the kind of brand you'd recommend to a friend.
+                <span class="pill pill--positive">We are</span><br />"For
+                families who care about character." Approachable and genuine —
+                the kind of brand you'd recommend to a friend.
               </td>
               <td>
-                <span class="pill-not">Not</span><br />
-                Saccharine or performative. No "For the most amazing parents
-                ever!" We respect our audience, we don't flatter them.
+                <span class="pill pill--negative">Not</span><br />Saccharine or
+                performative. No "For the most amazing parents ever!" We respect
+                our audience, we don't flatter them.
               </td>
             </tr>
             <tr>
               <td>Clear</td>
               <td>
-                <span class="pill-we-are">We are</span><br />
-                "Free book when you subscribe." Direct, scannable, no jargon.
-                Every headline and CTA earns its space.
+                <span class="pill pill--positive">We are</span><br />"Free book
+                when you subscribe." Direct, scannable, no jargon. Every
+                headline and CTA earns its space.
               </td>
               <td>
-                <span class="pill-not">Not</span><br />
-                Clever for clever's sake. No "Unlock your complimentary literary
+                <span class="pill pill--negative">Not</span><br />Clever for
+                clever's sake. No "Unlock your complimentary literary
                 companion." Clarity always beats creativity.
               </td>
             </tr>
             <tr>
               <td>Trustworthy</td>
               <td>
-                <span class="pill-we-are">We are</span><br />
-                Quality and storytelling come first. We let the books and the
-                authors speak for themselves. Values come through naturally.
+                <span class="pill pill--positive">We are</span><br />Quality and
+                storytelling come first. We let the books and the authors speak
+                for themselves. Values come through naturally.
               </td>
               <td>
-                <span class="pill-not">Not</span><br />
-                Preachy or didactic. We never lecture parents. The values are in
-                the stories, not in the marketing copy.
+                <span class="pill pill--negative">Not</span><br />Preachy or
+                didactic. We never lecture parents. The values are in the
+                stories, not in the marketing copy.
               </td>
             </tr>
             <tr>
               <td>Author-Celebratory</td>
               <td>
-                <span class="pill-we-are">We are</span><br />
-                Proud of the voices behind our books. We spotlight authors
-                because families deserve to know who's shaping the stories their
-                kids read.
+                <span class="pill pill--positive">We are</span><br />Proud of
+                the voices behind our books. We spotlight authors because
+                families deserve to know who's shaping the stories their kids
+                read.
               </td>
               <td>
-                <span class="pill-not">Not</span><br />
-                A faceless publisher. We don't hide the people behind the pages.
-                But we also don't let any single name overshadow the BRAVE Books
+                <span class="pill pill--negative">Not</span><br />A faceless
+                publisher. We don't hide the people behind the pages. But we
+                also don't let any single name overshadow the BRAVE Books
                 mission.
               </td>
             </tr>
           </tbody>
         </table>
 
-        <!-- Positioning -->
         <h2 class="subsection-title">Positioning Statement</h2>
         <div class="positioning-block">
           <div class="positioning-label">Market Positioning</div>
@@ -1123,7 +2149,6 @@
           </p>
         </div>
 
-        <!-- Priority Stack -->
         <h2 class="subsection-title">Business Priority Stack</h2>
         <p class="priority-intro">
           Every design decision on the site should be filtered through this
@@ -1187,7 +2212,6 @@
           with the care and consistency the brand deserves.
         </p>
 
-        <!-- Logo Variations -->
         <h2 class="subsection-title">Logo Variations</h2>
         <p class="logo-intro">
           Use the version that best fits the layout and context. Never recreate,
@@ -1195,21 +2219,19 @@
         </p>
 
         <div class="logo-grid">
-          <!-- Primary Light: Horizontal -->
           <div class="logo-card">
             <div class="logo-card-label">Primary Light — Horizontal Lockup</div>
             <div class="logo-preview logo-preview--dark">
               <img
                 src="Assets/Brave Books logo - white.png"
-                alt="BRAVE Books horizontal logo, white on light"
+                alt="BRAVE Books horizontal logo, white on dark"
                 class="logo-img logo-img--horizontal"
               />
             </div>
             <div class="logo-meta">
               <span class="logo-meta-tag"
                 >Default for navigation, headers, partnerships</span
-              >
-              <span class="logo-meta-tag"
+              ><span class="logo-meta-tag"
                 >Use when horizontal space is available</span
               >
             </div>
@@ -1239,22 +2261,19 @@
               Download
             </button>
           </div>
-
-          <!-- Primary Dark: Horizontal -->
           <div class="logo-card">
             <div class="logo-card-label">Primary Dark — Horizontal Lockup</div>
             <div class="logo-preview logo-preview--light">
               <img
                 src="Assets/Brave Books logo (horizontal - 600px).png"
-                alt="BRAVE Books horizontal logo, white on dark"
+                alt="BRAVE Books horizontal logo, dark on light"
                 class="logo-img logo-img--horizontal"
               />
             </div>
             <div class="logo-meta">
               <span class="logo-meta-tag"
                 >Default for navigation, headers, partnerships</span
-              >
-              <span class="logo-meta-tag"
+              ><span class="logo-meta-tag"
                 >Use when horizontal space is available</span
               >
             </div>
@@ -1284,22 +2303,19 @@
               Download
             </button>
           </div>
-
-          <!-- Primary White: Horizontal -->
           <div class="logo-card">
             <div class="logo-card-label">Primary White — Horizontal Lockup</div>
             <div class="logo-preview logo-preview--red">
               <img
                 src="Assets/BRAVE Books Logo White.png"
-                alt="BRAVE Books horizontal logo, white on dark"
+                alt="BRAVE Books horizontal logo, white on red"
                 class="logo-img logo-img--horizontal"
               />
             </div>
             <div class="logo-meta">
               <span class="logo-meta-tag"
                 >Default for navigation, headers, partnerships</span
-              >
-              <span class="logo-meta-tag"
+              ><span class="logo-meta-tag"
                 >Use when horizontal space is available</span
               >
             </div>
@@ -1329,8 +2345,6 @@
               Download
             </button>
           </div>
-
-          <!-- Stacked - Dark / Vertical -->
           <div class="logo-card">
             <div class="logo-card-label">Stacked Dark — Vertical Lockup</div>
             <div class="logo-preview logo-preview--light">
@@ -1343,8 +2357,7 @@
             <div class="logo-meta">
               <span class="logo-meta-tag"
                 >Square formats: social avatars, app icons</span
-              >
-              <span class="logo-meta-tag"
+              ><span class="logo-meta-tag"
                 >Use when vertical space is preferred</span
               >
             </div>
@@ -1374,22 +2387,19 @@
               Download
             </button>
           </div>
-
-          <!-- Stacked - Light / Vertical -->
           <div class="logo-card">
             <div class="logo-card-label">Stacked Light — Vertical Lockup</div>
             <div class="logo-preview logo-preview--dark">
               <img
                 src="Assets/Brave Books logo - 1.png"
-                alt="BRAVE Books stacked logo"
+                alt="BRAVE Books stacked logo, light"
                 class="logo-img logo-img--stacked"
               />
             </div>
             <div class="logo-meta">
               <span class="logo-meta-tag"
                 >Square formats: social avatars, app icons</span
-              >
-              <span class="logo-meta-tag"
+              ><span class="logo-meta-tag"
                 >Use when vertical space is preferred</span
               >
             </div>
@@ -1419,8 +2429,6 @@
               Download
             </button>
           </div>
-
-          <!-- Lion Mark -->
           <div class="logo-card">
             <div class="logo-card-label">Icon — Lion Mark</div>
             <div class="logo-preview logo-preview--light">
@@ -1433,8 +2441,7 @@
             <div class="logo-meta">
               <span class="logo-meta-tag"
                 >Standalone icon for compact spaces</span
-              >
-              <span class="logo-meta-tag"
+              ><span class="logo-meta-tag"
                 >Watermarks, badges, favicons, loading states</span
               >
             </div>
@@ -1466,7 +2473,6 @@
           </div>
         </div>
 
-        <!-- Color on Background -->
         <h2 class="subsection-title">Color on Background</h2>
         <p class="logo-intro">
           The logo must always maintain sufficient contrast against its
@@ -1536,9 +2542,7 @@
           </div>
         </div>
 
-        <!-- Clear Space & Minimum Size -->
         <h2 class="subsection-title">Clear Space &amp; Minimum Size</h2>
-
         <div class="spec-row">
           <div>
             <div class="spec-block-title">Clear Space</div>
@@ -1601,9 +2605,7 @@
           </div>
         </div>
 
-        <!-- Do / Don't -->
         <h2 class="subsection-title">Usage Rules</h2>
-
         <div class="rules-grid">
           <div class="rule-card rule-card--do">
             <div class="rule-card-label do-label">Do</div>
@@ -1635,6 +2637,1210 @@
           </div>
         </div>
       </section>
+
+      <!-- =========================================== -->
+      <!-- SECTION 3: COLOR PALETTE                    -->
+      <!-- =========================================== -->
+      <section id="color-palette" class="guide-section">
+        <div class="section-label">Section 03</div>
+        <h1 class="section-title">Color Palette</h1>
+        <p class="section-desc">
+          Every color has a defined role. Use them consistently across the site,
+          email, ads, and social to build instant recognition.
+          <strong style="font-weight: 600; color: var(--navy); opacity: 1"
+            >Click any swatch or hex code to copy it to your clipboard.</strong
+          >
+        </p>
+
+        <!-- ── Core Palette ── -->
+        <h2 class="subsection-title">Core Palette</h2>
+        <p class="logo-intro">
+          Eight foundational colors that govern every page on the site. The
+          primary pair (BRAVE Red + Navy) carries the brand identity; the
+          backgrounds (Warm White + Cream) create the bookstore atmosphere; the
+          supporting colors handle accents, text, and UI details.
+        </p>
+
+        <div class="color-grid" id="core-palette"></div>
+
+        <!-- ── Extended / State Colors ── -->
+        <h2 class="subsection-title">Extended &amp; State Colors</h2>
+        <p class="logo-intro">
+          Derived colors for interactive states, UI feedback, and dark-mode
+          variants. These extend the core palette without introducing new brand
+          colors.
+        </p>
+
+        <div class="color-grid" id="extended-palette"></div>
+
+        <!-- ── Color Roles ── -->
+        <h2 class="subsection-title">Color Roles &amp; Application</h2>
+        <p class="logo-intro">
+          Every color has a job. This table defines where each color appears
+          across the site so that any designer or developer can make consistent
+          decisions without guessing.
+        </p>
+
+        <table class="roles-table">
+          <thead>
+            <tr>
+              <th style="width: 180px">Element</th>
+              <th style="width: 100px">Color</th>
+              <th>Usage Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="role-element">Primary CTA Buttons</td>
+              <td>
+                <span
+                  class="color-dot"
+                  style="background: #cd3636"
+                  onclick="copyColor('#cd3636')"
+                  title="Click to copy #cd3636"
+                ></span>
+              </td>
+              <td>
+                BRAVE Red background, white text. 8px border-radius, bold
+                sans-serif, all-caps. Hover state darkens to #A31515.
+              </td>
+            </tr>
+            <tr>
+              <td class="role-element">Secondary Buttons</td>
+              <td>
+                <span
+                  class="color-dot"
+                  style="background: #1b2a4a"
+                  onclick="copyColor('#1B2A4A')"
+                  title="Click to copy #1B2A4A"
+                ></span>
+              </td>
+              <td>
+                Navy outline, Navy text. On dark backgrounds, switch to white
+                outline + white text.
+              </td>
+            </tr>
+            <tr>
+              <td class="role-element">Headings (H1–H3)</td>
+              <td>
+                <span
+                  class="color-dot"
+                  style="background: #1b2a4a"
+                  onclick="copyColor('#1B2A4A')"
+                  title="Click to copy #1B2A4A"
+                ></span>
+              </td>
+              <td>Navy. On dark (Navy) backgrounds, switch to white.</td>
+            </tr>
+            <tr>
+              <td class="role-element">Body Text</td>
+              <td>
+                <span
+                  class="color-dot"
+                  style="background: #2d3748"
+                  onclick="copyColor('#2D3748')"
+                  title="Click to copy #2D3748"
+                ></span>
+              </td>
+              <td>
+                Charcoal. On dark backgrounds, switch to white or
+                rgba(255,255,255,0.92).
+              </td>
+            </tr>
+            <tr>
+              <td class="role-element">Page Backgrounds</td>
+              <td>
+                <span
+                  class="color-dot"
+                  style="background: #faf8f5; border: 1px solid #ddd"
+                  onclick="copyColor('#FAF8F5')"
+                  title="Click to copy #FAF8F5"
+                ></span>
+              </td>
+              <td>
+                Warm White as default. Alternate with Cream between sections to
+                create visual rhythm.
+              </td>
+            </tr>
+            <tr>
+              <td class="role-element">Navigation &amp; Footer</td>
+              <td>
+                <span
+                  class="color-dot"
+                  style="background: #1b2a4a"
+                  onclick="copyColor('#1B2A4A')"
+                  title="Click to copy #1B2A4A"
+                ></span>
+              </td>
+              <td>
+                Navy background, white text. BRAVE Red for active link
+                underline.
+              </td>
+            </tr>
+            <tr>
+              <td class="role-element">Star Ratings</td>
+              <td>
+                <span
+                  class="color-dot"
+                  style="background: #d4a853"
+                  onclick="copyColor('#D4A853')"
+                  title="Click to copy #D4A853"
+                ></span>
+              </td>
+              <td>
+                Gold Accent. Filled stars are solid Gold; empty stars use Light
+                Gray.
+              </td>
+            </tr>
+            <tr>
+              <td class="role-element">Badges (New, Pre-Order)</td>
+              <td>
+                <span
+                  class="color-dot"
+                  style="background: #cd3636"
+                  onclick="copyColor('#cd3636')"
+                  title="Click to copy #cd3636"
+                ></span>
+              </td>
+              <td>
+                BRAVE Red background, white text. "Bestseller" and "Free with
+                Sub" use Gold background.
+              </td>
+            </tr>
+            <tr>
+              <td class="role-element">Sale / Alert Banners</td>
+              <td>
+                <span
+                  class="color-dot"
+                  style="background: #fef2f2; border: 1px solid #fca5a5"
+                  onclick="copyColor('#FEF2F2')"
+                  title="Click to copy #FEF2F2"
+                ></span>
+              </td>
+              <td>
+                Soft Red background with BRAVE Red text. For full-bleed urgency,
+                use BRAVE Red background with white text.
+              </td>
+            </tr>
+            <tr>
+              <td class="role-element">Borders &amp; Dividers</td>
+              <td>
+                <span
+                  class="color-dot"
+                  style="background: #e5e7eb"
+                  onclick="copyColor('#E5E7EB')"
+                  title="Click to copy #E5E7EB"
+                ></span>
+              </td>
+              <td>
+                Light Gray. 1px solid. Used between sections, table rows, card
+                edges.
+              </td>
+            </tr>
+            <tr>
+              <td class="role-element">Section Eyebrows</td>
+              <td>
+                <span
+                  class="color-dot"
+                  style="background: #cd3636"
+                  onclick="copyColor('#cd3636')"
+                  title="Click to copy #cd3636"
+                ></span>
+              </td>
+              <td>
+                BRAVE Red, all-caps, 11px, 600 weight, 0.14em letter-spacing.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ── Accessibility / Contrast ── -->
+        <h2 class="subsection-title">Accessibility &amp; Contrast</h2>
+        <p class="logo-intro">
+          All text/background pairings must meet WCAG AA at minimum (4.5:1 for
+          body text, 3:1 for large text and UI components). These are the
+          approved pairings with their calculated contrast ratios.
+        </p>
+
+        <div class="contrast-grid">
+          <div class="contrast-pair">
+            <div
+              class="contrast-pair__sample"
+              style="
+                background: #faf8f5;
+                color: #2d3748;
+                border: 1px solid #e5e7eb;
+              "
+            >
+              Aa
+            </div>
+            <div class="contrast-pair__info">
+              <div class="contrast-pair__label">Charcoal on Warm White</div>
+              <div class="contrast-pair__ratio">10.5 : 1</div>
+            </div>
+            <span class="contrast-pair__badge badge--pass">AAA</span>
+          </div>
+          <div class="contrast-pair">
+            <div
+              class="contrast-pair__sample"
+              style="
+                background: #f5f0e8;
+                color: #2d3748;
+                border: 1px solid #e5e7eb;
+              "
+            >
+              Aa
+            </div>
+            <div class="contrast-pair__info">
+              <div class="contrast-pair__label">Charcoal on Cream</div>
+              <div class="contrast-pair__ratio">9.4 : 1</div>
+            </div>
+            <span class="contrast-pair__badge badge--pass">AAA</span>
+          </div>
+          <div class="contrast-pair">
+            <div
+              class="contrast-pair__sample"
+              style="background: #1b2a4a; color: #ffffff"
+            >
+              Aa
+            </div>
+            <div class="contrast-pair__info">
+              <div class="contrast-pair__label">White on Navy</div>
+              <div class="contrast-pair__ratio">13.2 : 1</div>
+            </div>
+            <span class="contrast-pair__badge badge--pass">AAA</span>
+          </div>
+          <div class="contrast-pair">
+            <div
+              class="contrast-pair__sample"
+              style="background: #cd3636; color: #ffffff"
+            >
+              Aa
+            </div>
+            <div class="contrast-pair__info">
+              <div class="contrast-pair__label">White on BRAVE Red</div>
+              <div class="contrast-pair__ratio">5.9 : 1</div>
+            </div>
+            <span class="contrast-pair__badge badge--pass">AA</span>
+          </div>
+          <div class="contrast-pair">
+            <div
+              class="contrast-pair__sample"
+              style="
+                background: #faf8f5;
+                color: #cd3636;
+                border: 1px solid #e5e7eb;
+              "
+            >
+              Aa
+            </div>
+            <div class="contrast-pair__info">
+              <div class="contrast-pair__label">BRAVE Red on Warm White</div>
+              <div class="contrast-pair__ratio">5.5 : 1</div>
+            </div>
+            <span class="contrast-pair__badge badge--pass">AA</span>
+          </div>
+          <div class="contrast-pair">
+            <div
+              class="contrast-pair__sample"
+              style="
+                background: #faf8f5;
+                color: #d4a853;
+                border: 1px solid #e5e7eb;
+              "
+            >
+              Aa
+            </div>
+            <div class="contrast-pair__info">
+              <div class="contrast-pair__label">Gold on Warm White</div>
+              <div class="contrast-pair__ratio">2.7 : 1</div>
+            </div>
+            <span class="contrast-pair__badge badge--large-only"
+              >Large only</span
+            >
+          </div>
+        </div>
+
+        <div class="usage-note" style="margin-bottom: var(--section-gap)">
+          <p>
+            <strong>Gold on light backgrounds:</strong> Gold Accent (#D4A853)
+            does not meet AA contrast for body text on Warm White or Cream. Use
+            it only for decorative elements (star icons, badge fills, decorative
+            accents) — never for standalone text that must be readable. When
+            gold text is needed, pair it with a Navy or Charcoal background
+            instead.
+          </p>
+        </div>
+
+        <!-- ── Color Do / Don't ── -->
+        <h2 class="subsection-title">Color Usage Rules</h2>
+        <div class="rules-grid">
+          <div class="rule-card rule-card--do">
+            <div class="rule-card-label do-label">Do</div>
+            <ul class="rule-list">
+              <li>
+                Use BRAVE Red for primary CTAs site-wide — never Navy or Gold on
+                buttons
+              </li>
+              <li>
+                Alternate Warm White and Cream backgrounds between sections for
+                visual rhythm
+              </li>
+              <li>
+                Use Navy for all headings and navigation on light backgrounds
+              </li>
+              <li>Use Charcoal (not black) for all body text</li>
+              <li>
+                Reserve Gold Accent for star ratings, premium badges, and subtle
+                highlights
+              </li>
+              <li>
+                Apply Soft Red for callout boxes, alert backgrounds, and
+                sale-tag tints
+              </li>
+              <li>
+                Switch to white text/buttons when placed on Navy or BRAVE Red
+                backgrounds
+              </li>
+              <li>
+                Verify contrast ratios when creating any new color combination
+              </li>
+            </ul>
+          </div>
+          <div class="rule-card rule-card--dont">
+            <div class="rule-card-label dont-label">Don't</div>
+            <ul class="rule-list">
+              <li>Use pure black (#000000) for text — always use Charcoal</li>
+              <li>
+                Use the old blue-gray (#D6E4EC) background anywhere on the new
+                site
+              </li>
+              <li>Place BRAVE Red text on Navy backgrounds (poor contrast)</li>
+              <li>
+                Use Gold for body text on light backgrounds (fails WCAG AA)
+              </li>
+              <li>
+                Stack two Cream sections in a row — always alternate with Warm
+                White
+              </li>
+              <li>
+                Use more than one BRAVE Red full-bleed section per page (dilutes
+                urgency)
+              </li>
+              <li>
+                Introduce new brand colors outside this palette without approval
+              </li>
+              <li>
+                Use Navy full-bleed sections more than twice per page (loses
+                impact)
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- ── Dawn Color Schemes ── -->
+        <h2 class="subsection-title">Shopify Dawn Theme Schemes</h2>
+        <p class="dawn-intro">
+          Five pre-configured color schemes mapped to the Dawn theme's seven
+          color fields. Assign these per-section in the Shopify theme editor via
+          the "Color scheme" dropdown. This eliminates guesswork and keeps every
+          section on-brand.
+        </p>
+        <div class="dawn-path">
+          Shopify path:
+          <code
+            >Online Store &rarr; Themes &rarr; Customize &rarr; Theme Settings
+            &rarr; Colors</code
+          >
+        </div>
+
+        <div id="dawn-schemes"></div>
+
+        <div class="usage-note">
+          <p>
+            <strong>Why these five schemes?</strong> Dawn supports up to 21
+            schemes, but restraint creates consistency. These five cover every
+            foreground/background combination the site needs. If you need a new
+            scheme, validate it against this style guide first — chances are one
+            of the existing five already handles your use case.
+          </p>
+        </div>
+      </section>
+
+      <!-- =========================================== -->
+      <!-- SECTION 4: TYPOGRAPHY                       -->
+      <!-- =========================================== -->
+      <section id="typography" class="guide-section">
+        <div class="section-label">Section 04</div>
+        <h1 class="section-title">Typography</h1>
+        <p class="section-desc">
+          Two fonts. Clear roles. Lora carries the editorial authority of
+          headings; DM Sans handles everything else with clean legibility. This
+          pairing creates a warm, bookish feel while keeping UI elements sharp
+          and modern.
+        </p>
+
+        <!-- ── Font Stacks ── -->
+        <h2 class="subsection-title">Font Stacks</h2>
+        <p class="logo-intro">
+          Two typeface families cover every use case across the site, email,
+          ads, and print. The heading font creates editorial warmth; the body
+          font provides clean, highly legible UI text at every size.
+        </p>
+
+        <div class="type-stack-grid">
+          <!-- Heading Font -->
+          <div class="type-stack-card">
+            <div
+              class="type-stack-card__preview type-stack-card__preview--heading"
+            >
+              <div
+                class="type-stack-card__specimen"
+                style="
+                  font-family: &quot;Lora&quot;, Georgia, serif;
+                  font-size: 2.25rem;
+                  font-weight: 700;
+                "
+              >
+                Aa Bb Cc
+              </div>
+              <div
+                class="type-stack-card__alphabet"
+                style="font-family: &quot;Lora&quot;, Georgia, serif"
+              >
+                ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
+                abcdefghijklmnopqrstuvwxyz<br />
+                0123456789 &amp; !? @ # $ %
+              </div>
+            </div>
+            <div class="type-stack-card__info">
+              <div class="type-stack-card__name">Lora</div>
+              <div class="type-stack-card__role">
+                Heading font — H1 through H6, hero text, editorial titles, pull
+                quotes
+              </div>
+              <div class="type-stack-card__stack">
+                --font-heading: "Lora", Georgia, "Times New Roman", serif
+              </div>
+            </div>
+          </div>
+
+          <!-- Body Font -->
+          <div class="type-stack-card">
+            <div
+              class="type-stack-card__preview type-stack-card__preview--body"
+            >
+              <div
+                class="type-stack-card__specimen"
+                style="
+                  font-family: &quot;DM Sans&quot;, sans-serif;
+                  font-size: 2.25rem;
+                  font-weight: 500;
+                "
+              >
+                Aa Bb Cc
+              </div>
+              <div
+                class="type-stack-card__alphabet"
+                style="font-family: &quot;DM Sans&quot;, sans-serif"
+              >
+                ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />
+                abcdefghijklmnopqrstuvwxyz<br />
+                0123456789 &amp; !? @ # $ %
+              </div>
+            </div>
+            <div class="type-stack-card__info">
+              <div class="type-stack-card__name">DM Sans</div>
+              <div class="type-stack-card__role">
+                Body font — paragraphs, navigation, UI elements, buttons,
+                labels, captions
+              </div>
+              <div class="type-stack-card__stack">
+                --font-body: "DM Sans", -apple-system, BlinkMacSystemFont,
+                sans-serif
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Weight Sampler ── -->
+        <h2 class="subsection-title">Available Weights</h2>
+        <p class="logo-intro">
+          Only the weights listed below are loaded via Google Fonts. Using
+          unlisted weights triggers browser synthesis, which degrades rendering.
+          Stick to these.
+        </p>
+
+        <div class="weight-grid">
+          <div class="weight-row">
+            <span
+              class="weight-row__sample"
+              style="font-family: &quot;Lora&quot;, serif; font-weight: 400"
+              >Books your kids will love</span
+            >
+            <span class="weight-row__meta">Lora Regular · 400</span>
+          </div>
+          <div class="weight-row">
+            <span
+              class="weight-row__sample"
+              style="font-family: &quot;Lora&quot;, serif; font-weight: 500"
+              >Books your kids will love</span
+            >
+            <span class="weight-row__meta">Lora Medium · 500</span>
+          </div>
+          <div class="weight-row">
+            <span
+              class="weight-row__sample"
+              style="font-family: &quot;Lora&quot;, serif; font-weight: 600"
+              >Books your kids will love</span
+            >
+            <span class="weight-row__meta">Lora SemiBold · 600</span>
+          </div>
+          <div class="weight-row">
+            <span
+              class="weight-row__sample"
+              style="font-family: &quot;Lora&quot;, serif; font-weight: 700"
+              >Books your kids will love</span
+            >
+            <span class="weight-row__meta">Lora Bold · 700</span>
+          </div>
+          <div class="weight-row">
+            <span
+              class="weight-row__sample"
+              style="
+                font-family: &quot;Lora&quot;, serif;
+                font-weight: 400;
+                font-style: italic;
+              "
+              >Books your kids will love</span
+            >
+            <span class="weight-row__meta">Lora Italic · 400</span>
+          </div>
+          <div class="weight-row">
+            <span
+              class="weight-row__sample"
+              style="
+                font-family: &quot;Lora&quot;, serif;
+                font-weight: 700;
+                font-style: italic;
+              "
+              >Books your kids will love</span
+            >
+            <span class="weight-row__meta">Lora Bold Italic · 700</span>
+          </div>
+          <div class="weight-row">
+            <span
+              class="weight-row__sample"
+              style="
+                font-family: &quot;DM Sans&quot;, sans-serif;
+                font-weight: 400;
+              "
+              >Trusted by 250,000+ families</span
+            >
+            <span class="weight-row__meta">DM Sans Regular · 400</span>
+          </div>
+          <div class="weight-row">
+            <span
+              class="weight-row__sample"
+              style="
+                font-family: &quot;DM Sans&quot;, sans-serif;
+                font-weight: 500;
+              "
+              >Trusted by 250,000+ families</span
+            >
+            <span class="weight-row__meta">DM Sans Medium · 500</span>
+          </div>
+          <div class="weight-row">
+            <span
+              class="weight-row__sample"
+              style="
+                font-family: &quot;DM Sans&quot;, sans-serif;
+                font-weight: 600;
+              "
+              >Trusted by 250,000+ families</span
+            >
+            <span class="weight-row__meta">DM Sans SemiBold · 600</span>
+          </div>
+          <div class="weight-row">
+            <span
+              class="weight-row__sample"
+              style="
+                font-family: &quot;DM Sans&quot;, sans-serif;
+                font-weight: 700;
+              "
+              >Trusted by 250,000+ families</span
+            >
+            <span class="weight-row__meta">DM Sans Bold · 700</span>
+          </div>
+        </div>
+
+        <!-- ── Heading Scale ── -->
+        <h2 class="subsection-title">Heading Scale</h2>
+        <p class="logo-intro">
+          All headings use Lora Bold (700). Sizes are defined at desktop
+          breakpoints (≥1024px). On mobile (< 640px), headings scale down by
+          roughly 20% using the fluid sizes noted below. Line heights are tight
+          to keep headings compact and authoritative.
+        </p>
+
+        <table class="type-scale-table">
+          <thead>
+            <tr>
+              <th style="width: 60px">Level</th>
+              <th>Specimen</th>
+              <th style="width: 150px">Specs</th>
+              <th style="width: 180px">Usage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="scale-label">H1</td>
+              <td
+                class="scale-specimen"
+                style="font-size: 2.5rem; font-weight: 700"
+              >
+                Books Your Kids Will Love
+              </td>
+              <td class="scale-specs">
+                <span>40px / 2.5rem</span>
+                <span>Bold 700</span>
+                <span>Line-height: 1.15</span>
+                <span>Mobile: 30px</span>
+              </td>
+              <td class="scale-usage">
+                Page titles, hero headlines, launch page main heading
+              </td>
+            </tr>
+            <tr>
+              <td class="scale-label">H2</td>
+              <td
+                class="scale-specimen"
+                style="font-size: 2rem; font-weight: 700"
+              >
+                Shop by Author
+              </td>
+              <td class="scale-specs">
+                <span>32px / 2rem</span>
+                <span>Bold 700</span>
+                <span>Line-height: 1.2</span>
+                <span>Mobile: 26px</span>
+              </td>
+              <td class="scale-usage">
+                Homepage section titles, collection headings, major page
+                divisions
+              </td>
+            </tr>
+            <tr>
+              <td class="scale-label">H3</td>
+              <td
+                class="scale-specimen"
+                style="font-size: 1.5rem; font-weight: 700"
+              >
+                New &amp; Trending
+              </td>
+              <td class="scale-specs">
+                <span>24px / 1.5rem</span>
+                <span>Bold 700</span>
+                <span>Line-height: 1.25</span>
+                <span>Mobile: 20px</span>
+              </td>
+              <td class="scale-usage">
+                Subsection titles, PDP section headings, card group titles
+              </td>
+            </tr>
+            <tr>
+              <td class="scale-label">H4</td>
+              <td
+                class="scale-specimen"
+                style="font-size: 1.25rem; font-weight: 700"
+              >
+                Complete the Set
+              </td>
+              <td class="scale-specs">
+                <span>20px / 1.25rem</span>
+                <span>Bold 700</span>
+                <span>Line-height: 1.3</span>
+                <span>Mobile: 18px</span>
+              </td>
+              <td class="scale-usage">
+                Module headings, bundle titles, author page subsections, sidebar
+                headings
+              </td>
+            </tr>
+            <tr>
+              <td class="scale-label">H5</td>
+              <td
+                class="scale-specimen"
+                style="font-size: 1.0625rem; font-weight: 700"
+              >
+                Related Products
+              </td>
+              <td class="scale-specs">
+                <span>17px / 1.0625rem</span>
+                <span>Bold 700</span>
+                <span>Line-height: 1.35</span>
+                <span>Mobile: 16px</span>
+              </td>
+              <td class="scale-usage">
+                Product card titles, inline headings within content blocks
+              </td>
+            </tr>
+            <tr>
+              <td class="scale-label">H6</td>
+              <td
+                class="scale-specimen"
+                style="
+                  font-size: 0.875rem;
+                  font-weight: 700;
+                  letter-spacing: 0.02em;
+                "
+              >
+                More from BRAVE
+              </td>
+              <td class="scale-specs">
+                <span>14px / 0.875rem</span>
+                <span>Bold 700</span>
+                <span>Line-height: 1.4</span>
+                <span>Mobile: 14px</span>
+              </td>
+              <td class="scale-usage">
+                Small headings, footer column titles, mega menu group labels
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ── Body & UI Text ── -->
+        <h2 class="subsection-title">Body &amp; UI Text Styles</h2>
+        <p class="logo-intro">
+          All body and UI text uses DM Sans. The three core sizes below cover
+          every non-heading use case — paragraphs, product descriptions,
+          navigation, labels, captions, and fine print.
+        </p>
+
+        <div class="body-spec-grid">
+          <div class="body-spec-card">
+            <div class="body-spec-card__label">Body — Large</div>
+            <div
+              class="body-spec-card__specimen"
+              style="
+                font-family: &quot;DM Sans&quot;, sans-serif;
+                font-size: 1.0625rem;
+                font-weight: 400;
+              "
+            >
+              For families who care about character. Discover stories that teach
+              courage, honesty, and kindness.
+            </div>
+            <div class="body-spec-card__meta">
+              <span>DM Sans Regular 400 · 17px / 1.0625rem</span>
+              <span>Line-height: 1.7 · Color: Charcoal</span>
+              <span>Use: Long-form descriptions, about page, author bios</span>
+            </div>
+          </div>
+
+          <div class="body-spec-card">
+            <div class="body-spec-card__label">Body — Default</div>
+            <div
+              class="body-spec-card__specimen"
+              style="
+                font-family: &quot;DM Sans&quot;, sans-serif;
+                font-size: 0.9375rem;
+                font-weight: 400;
+              "
+            >
+              Trusted by 250,000+ families. Books that teach real values through
+              real storytelling.
+            </div>
+            <div class="body-spec-card__meta">
+              <span>DM Sans Regular 400 · 15px / 0.9375rem</span>
+              <span>Line-height: 1.65 · Color: Charcoal</span>
+              <span
+                >Use: Product descriptions, PDP content, general body copy</span
+              >
+            </div>
+          </div>
+
+          <div class="body-spec-card">
+            <div class="body-spec-card__label">Body — Small</div>
+            <div
+              class="body-spec-card__specimen"
+              style="
+                font-family: &quot;DM Sans&quot;, sans-serif;
+                font-size: 0.8125rem;
+                font-weight: 400;
+              "
+            >
+              Ages 3–5 · Hardcover · 32 pages. Free shipping on orders over $35.
+              In stock — ships within 2 business days.
+            </div>
+            <div class="body-spec-card__meta">
+              <span>DM Sans Regular 400 · 13px / 0.8125rem</span>
+              <span>Line-height: 1.6 · Color: Charcoal @ 0.72 opacity</span>
+              <span
+                >Use: Captions, meta info, product specs, fine print, helper
+                text</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- ── Special Text Styles ── -->
+        <h2 class="subsection-title">Special Text Styles</h2>
+        <p class="logo-intro">
+          Beyond headings and body copy, these standardized styles handle
+          navigation, labels, buttons, prices, and other UI-specific typography
+          that appears repeatedly across the site.
+        </p>
+
+        <table class="type-utilities-table">
+          <thead>
+            <tr>
+              <th style="width: 160px">Element</th>
+              <th style="width: 260px">Specimen</th>
+              <th>Specs</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="element-name">Section Eyebrow</td>
+              <td class="element-specimen">
+                <span
+                  style="
+                    font-family: &quot;DM Sans&quot;, sans-serif;
+                    font-size: 0.6875rem;
+                    font-weight: 600;
+                    letter-spacing: 0.14em;
+                    text-transform: uppercase;
+                    color: var(--brave-red);
+                  "
+                  >New Release</span
+                >
+              </td>
+              <td class="element-specs">
+                DM Sans SemiBold 600 · 11px · All-caps · Letter-spacing: 0.14em
+                · Color: BRAVE Red
+              </td>
+            </tr>
+            <tr>
+              <td class="element-name">Navigation Link</td>
+              <td class="element-specimen">
+                <span
+                  style="
+                    font-family: &quot;DM Sans&quot;, sans-serif;
+                    font-size: 0.9375rem;
+                    font-weight: 600;
+                    color: var(--navy);
+                  "
+                  >Shop</span
+                >&ensp;
+                <span
+                  style="
+                    font-family: &quot;DM Sans&quot;, sans-serif;
+                    font-size: 0.9375rem;
+                    font-weight: 600;
+                    color: var(--navy);
+                  "
+                  >Authors</span
+                >&ensp;
+                <span
+                  style="
+                    font-family: &quot;DM Sans&quot;, sans-serif;
+                    font-size: 0.9375rem;
+                    font-weight: 600;
+                    color: var(--brave-red);
+                  "
+                  >BRAVE+</span
+                >
+              </td>
+              <td class="element-specs">
+                DM Sans SemiBold 600 · 15px · Sentence case · Active state:
+                BRAVE Red
+              </td>
+            </tr>
+            <tr>
+              <td class="element-name">Primary CTA Button</td>
+              <td class="element-specimen">
+                <span
+                  style="
+                    display: inline-block;
+                    font-family: &quot;DM Sans&quot;, sans-serif;
+                    font-size: 0.8125rem;
+                    font-weight: 700;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    background: var(--brave-red);
+                    color: #fff;
+                    padding: 10px 24px;
+                    border-radius: 8px;
+                  "
+                  >Shop Now</span
+                >
+              </td>
+              <td class="element-specs">
+                DM Sans Bold 700 · 13px · All-caps · Letter-spacing: 0.1em ·
+                BRAVE Red bg, white text · 8px radius
+              </td>
+            </tr>
+            <tr>
+              <td class="element-name">Secondary CTA Button</td>
+              <td class="element-specimen">
+                <span
+                  style="
+                    display: inline-block;
+                    font-family: &quot;DM Sans&quot;, sans-serif;
+                    font-size: 0.8125rem;
+                    font-weight: 700;
+                    letter-spacing: 0.1em;
+                    text-transform: uppercase;
+                    border: 2px solid var(--navy);
+                    color: var(--navy);
+                    padding: 8px 24px;
+                    border-radius: 8px;
+                  "
+                  >Learn More</span
+                >
+              </td>
+              <td class="element-specs">
+                DM Sans Bold 700 · 13px · All-caps · Letter-spacing: 0.1em ·
+                Navy outline + text · 8px radius
+              </td>
+            </tr>
+            <tr>
+              <td class="element-name">Product Price</td>
+              <td class="element-specimen">
+                <span
+                  style="
+                    font-family: &quot;DM Sans&quot;, sans-serif;
+                    font-size: 1.25rem;
+                    font-weight: 700;
+                    color: var(--navy);
+                    font-variant-numeric: tabular-nums;
+                  "
+                  >$24.99</span
+                >&ensp;
+                <span
+                  style="
+                    font-family: &quot;DM Sans&quot;, sans-serif;
+                    font-size: 0.9375rem;
+                    font-weight: 500;
+                    color: var(--charcoal);
+                    opacity: 0.45;
+                    text-decoration: line-through;
+                    font-variant-numeric: tabular-nums;
+                  "
+                  >$29.99</span
+                >
+              </td>
+              <td class="element-specs">
+                DM Sans Bold 700 · 20px · Tabular nums · Compare-at: Medium 500,
+                15px, strikethrough @ 0.45 opacity
+              </td>
+            </tr>
+            <tr>
+              <td class="element-name">Badge / Tag</td>
+              <td class="element-specimen">
+                <span
+                  style="
+                    display: inline-block;
+                    font-family: &quot;DM Sans&quot;, sans-serif;
+                    font-size: 0.6875rem;
+                    font-weight: 700;
+                    letter-spacing: 0.06em;
+                    text-transform: uppercase;
+                    background: var(--brave-red);
+                    color: #fff;
+                    padding: 4px 10px;
+                    border-radius: 4px;
+                  "
+                  >Pre-Order</span
+                >&ensp;
+                <span
+                  style="
+                    display: inline-block;
+                    font-family: &quot;DM Sans&quot;, sans-serif;
+                    font-size: 0.6875rem;
+                    font-weight: 700;
+                    letter-spacing: 0.06em;
+                    text-transform: uppercase;
+                    background: var(--gold);
+                    color: #fff;
+                    padding: 4px 10px;
+                    border-radius: 4px;
+                  "
+                  >Bestseller</span
+                >
+              </td>
+              <td class="element-specs">
+                DM Sans Bold 700 · 11px · All-caps · Letter-spacing: 0.06em ·
+                4px radius · BRAVE Red or Gold bg
+              </td>
+            </tr>
+            <tr>
+              <td class="element-name">Filter / Tag Chip</td>
+              <td class="element-specimen">
+                <span
+                  style="
+                    display: inline-block;
+                    font-family: &quot;DM Sans&quot;, sans-serif;
+                    font-size: 0.8125rem;
+                    font-weight: 500;
+                    background: var(--cream);
+                    color: var(--charcoal);
+                    padding: 6px 14px;
+                    border-radius: 20px;
+                  "
+                  >Ages 3–5</span
+                >&ensp;
+                <span
+                  style="
+                    display: inline-block;
+                    font-family: &quot;DM Sans&quot;, sans-serif;
+                    font-size: 0.8125rem;
+                    font-weight: 500;
+                    background: var(--cream);
+                    color: var(--charcoal);
+                    padding: 6px 14px;
+                    border-radius: 20px;
+                  "
+                  >Courage</span
+                >
+              </td>
+              <td class="element-specs">
+                DM Sans Medium 500 · 13px · Sentence case · Cream bg · 20px
+                radius (pill shape)
+              </td>
+            </tr>
+            <tr>
+              <td class="element-name">Breadcrumb / Meta</td>
+              <td class="element-specimen">
+                <span
+                  style="
+                    font-family: &quot;DM Sans&quot;, sans-serif;
+                    font-size: 0.75rem;
+                    font-weight: 500;
+                    color: var(--charcoal);
+                    opacity: 0.5;
+                  "
+                  >Home &nbsp;/&nbsp; Authors &nbsp;/&nbsp; Kirk Cameron</span
+                >
+              </td>
+              <td class="element-specs">
+                DM Sans Medium 500 · 12px · Charcoal @ 0.5 opacity · Separator:
+                " / "
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- ── Specimen Block ── -->
+        <h2 class="subsection-title">Specimen — In Context</h2>
+        <p class="logo-intro">
+          How the heading + body pairing looks in a real layout context. This
+          preview demonstrates the visual hierarchy from eyebrow to heading to
+          body to CTA.
+        </p>
+
+        <div class="type-specimen-block">
+          <div class="type-specimen-block__label">Specimen Preview</div>
+          <div class="type-specimen-block__heading" style="font-size: 2.5rem">
+            Stories That Build Character
+          </div>
+          <div class="type-specimen-block__body">
+            BRAVE Books brings together trusted authors and beloved voices to
+            create children's books that teach real values — courage, honesty,
+            kindness, and faith — through stories kids actually want to read.
+            Discover your family's next favorite book.
+          </div>
+          <span class="type-specimen-block__cta">Shop Now</span>
+          <span
+            class="type-specimen-block__cta type-specimen-block__cta--outline"
+            >Browse Authors</span
+          >
+        </div>
+
+        <!-- ── Usage Rules ── -->
+        <h2 class="subsection-title">Typography Rules</h2>
+        <div class="rules-grid">
+          <div class="rule-card rule-card--do">
+            <div class="rule-card-label do-label">Do</div>
+            <ul class="rule-list">
+              <li>
+                Use Lora exclusively for headings (H1–H6) and editorial pull
+                quotes
+              </li>
+              <li>
+                Use DM Sans for all body text, navigation, buttons, labels, and
+                UI elements
+              </li>
+              <li>
+                Set body text at 15–17px for comfortable reading on all devices
+              </li>
+              <li>
+                Maintain line-heights of 1.15–1.35 for headings and 1.6–1.7 for
+                body text
+              </li>
+              <li>
+                Use tabular numerals (font-variant-numeric: tabular-nums) for
+                prices and data
+              </li>
+              <li>
+                Scale headings down ~20% on mobile viewports (below 640px)
+              </li>
+              <li>
+                Keep CTA buttons in all-caps DM Sans Bold with generous
+                letter-spacing (0.1em)
+              </li>
+              <li>
+                Use the Gold accent color sparingly for star ratings — never for
+                body text
+              </li>
+            </ul>
+          </div>
+          <div class="rule-card rule-card--dont">
+            <div class="rule-card-label dont-label">Don't</div>
+            <ul class="rule-list">
+              <li>
+                Use Lora for body text, navigation, or UI labels — it's headings
+                only
+              </li>
+              <li>
+                Use DM Sans for page titles or hero headlines — that's Lora's
+                role
+              </li>
+              <li>Set body text below 13px — it becomes illegible on mobile</li>
+              <li>
+                Use font weights not loaded in Google Fonts (e.g., Lora 300, DM
+                Sans 800)
+              </li>
+              <li>Mix in additional typefaces — two fonts is the limit</li>
+              <li>
+                Use all-caps on headings — reserve all-caps for eyebrows,
+                buttons, and badges
+              </li>
+              <li>
+                Set line-height below 1.5 for body text — readability suffers
+              </li>
+              <li>
+                Use italic Lora for headings — reserve italic for editorial
+                emphasis within body text
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="usage-note">
+          <p>
+            <strong>Shopify implementation:</strong> Set Lora as the heading
+            font and DM Sans as the body font in Theme Settings → Typography.
+            Dawn and most modern themes support separate heading/body font
+            assignments. Apply the heading scale sizes via custom CSS overrides
+            if the theme's built-in scale doesn't match the specs above. Load
+            only the weights listed in this guide to keep page speed optimized —
+            each additional weight adds ~15–25KB.
+          </p>
+        </div>
+      </section>
     </main>
 
     <!-- FOOTER -->
@@ -1644,14 +3850,731 @@
     </footer>
 
     <script>
+      /* =============================================
+         COPY TO CLIPBOARD SYSTEM
+         ============================================= */
+      var toastTimer = null;
+
+      function copyColor(hex) {
+        navigator.clipboard
+          .writeText(hex)
+          .then(function () {
+            showToast(hex);
+          })
+          .catch(function () {
+            // Fallback for older browsers
+            var ta = document.createElement("textarea");
+            ta.value = hex;
+            ta.style.position = "fixed";
+            ta.style.opacity = "0";
+            document.body.appendChild(ta);
+            ta.select();
+            document.execCommand("copy");
+            document.body.removeChild(ta);
+            showToast(hex);
+          });
+      }
+
+      function showToast(hex) {
+        var toast = document.getElementById("copy-toast");
+        var swatch = document.getElementById("copy-toast-swatch");
+        var text = document.getElementById("copy-toast-text");
+
+        swatch.style.background = hex;
+        text.textContent = hex + " copied";
+
+        // Reset animation
+        toast.classList.remove("show");
+        clearTimeout(toastTimer);
+
+        // Small delay to allow CSS reset
+        requestAnimationFrame(function () {
+          toast.classList.add("show");
+          toastTimer = setTimeout(function () {
+            toast.classList.remove("show");
+          }, 2000);
+        });
+      }
+
+      /* =============================================
+         COLOR SWATCH RENDERING (with click-to-copy)
+         ============================================= */
+      var coreColors = [
+        {
+          name: "BRAVE Red",
+          hex: "#CD3636",
+          cssVar: "--brave-red",
+          role: "Primary brand color. CTAs, headers, logo accents. Use boldly but not overwhelmingly.",
+          large: true,
+          contrast: "AA ✓",
+          contrastStyle: "background:rgba(255,255,255,0.2);color:#fff",
+        },
+        {
+          name: "Navy",
+          hex: "#1B2A4A",
+          cssVar: "--navy",
+          role: "Secondary brand color. Navigation, footer, headings. Conveys trust and authority.",
+          large: true,
+          contrast: "AAA ✓",
+          contrastStyle: "background:rgba(255,255,255,0.15);color:#fff",
+        },
+        {
+          name: "Warm White",
+          hex: "#FAF8F5",
+          cssVar: "--warm-white",
+          role: "Primary background. Replaces the cold blue-gray (#D6E4EC). Warm and inviting.",
+          large: true,
+          border: true,
+        },
+        {
+          name: "Cream",
+          hex: "#F5F0E8",
+          cssVar: "--cream",
+          role: "Secondary background for alternating sections. Adds visual rhythm without harsh contrast.",
+          large: true,
+          border: true,
+        },
+        {
+          name: "Gold Accent",
+          hex: "#D4A853",
+          cssVar: "--gold",
+          role: "Premium accent. Badges, star ratings, special offers. Use sparingly.",
+        },
+        {
+          name: "Charcoal",
+          hex: "#2D3748",
+          cssVar: "--charcoal",
+          role: "Body text. Softer than pure black, easier to read on warm backgrounds.",
+        },
+        {
+          name: "Soft Red",
+          hex: "#FEF2F2",
+          cssVar: "--soft-red",
+          role: "Callout boxes, alert backgrounds, sale badge tint.",
+          border: true,
+        },
+        {
+          name: "Light Gray",
+          hex: "#E5E7EB",
+          cssVar: "--light-gray",
+          role: "Borders, dividers, subtle UI elements.",
+          border: true,
+        },
+      ];
+
+      var extendedColors = [
+        {
+          name: "BRAVE Red Dark",
+          hex: "#A31515",
+          cssVar: "--brave-red-dark",
+          role: "Hover/active state for BRAVE Red buttons and links.",
+        },
+        {
+          name: "Navy Dark",
+          hex: "#0F1A2E",
+          cssVar: "--navy-dark",
+          role: "Shadows on Navy backgrounds. Subtle gradient end-point.",
+        },
+        {
+          name: "Success",
+          hex: "#16A34A",
+          cssVar: "--success",
+          role: "In-stock badges, success messages, form validation.",
+        },
+        {
+          name: "Warning",
+          hex: "#D97706",
+          cssVar: "--warning",
+          role: "Low-stock alerts, pre-order notices.",
+        },
+      ];
+
+      function renderSwatchGrid(containerId, colors) {
+        var container = document.getElementById(containerId);
+        var html = "";
+
+        colors.forEach(function (c) {
+          html += '<div class="color-swatch">';
+          html +=
+            '<div class="color-swatch__preview' +
+            (c.large ? " color-swatch__preview--large" : "") +
+            '" ';
+          html +=
+            'style="background:' +
+            c.hex +
+            (c.border ? ";border-bottom:1px solid #E5E7EB" : "") +
+            '" ';
+          html +=
+            "onclick=\"copyColor('" +
+            c.hex +
+            '\')" title="Click to copy ' +
+            c.hex +
+            '">';
+          if (c.contrast) {
+            html +=
+              '<span class="color-swatch__contrast-badge" style="' +
+              c.contrastStyle +
+              '">' +
+              c.contrast +
+              "</span>";
+          }
+          html += "</div>";
+          html += '<div class="color-swatch__info">';
+          html += '<div class="color-swatch__name">' + c.name + "</div>";
+          html +=
+            '<div class="color-swatch__hex copyable" onclick="copyColor(\'' +
+            c.hex +
+            '\')" title="Click to copy ' +
+            c.hex +
+            '">' +
+            c.hex +
+            "</div>";
+          html += '<div class="color-swatch__role">' + c.role + "</div>";
+          html += '<span class="color-swatch__var">' + c.cssVar + "</span>";
+          html += "</div></div>";
+        });
+
+        container.innerHTML = html;
+      }
+
+      renderSwatchGrid("core-palette", coreColors);
+      renderSwatchGrid("extended-palette", extendedColors);
+
+      /* =============================================
+         DOWNLOAD ASSET
+         ============================================= */
       function downloadAsset(src, filename) {
-        const a = document.createElement("a");
+        var a = document.createElement("a");
         a.href = src;
         a.download = filename;
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
       }
+
+      /* =============================================
+         ACTIVE NAV TRACKING
+         ============================================= */
+      (function () {
+        var sections = document.querySelectorAll(".guide-section");
+        var navLinks = document.querySelectorAll(".section-nav a");
+
+        function updateActiveNav() {
+          var current = "";
+          sections.forEach(function (s) {
+            if (window.scrollY >= s.offsetTop - 80) current = s.id;
+          });
+          navLinks.forEach(function (a) {
+            a.classList.toggle(
+              "active",
+              a.getAttribute("href") === "#" + current,
+            );
+          });
+        }
+
+        window.addEventListener("scroll", updateActiveNav, { passive: true });
+        updateActiveNav();
+      })();
+
+      /* =============================================
+         DAWN SCHEME DATA & RENDERING
+         ============================================= */
+      var dawnSchemes = [
+        {
+          number: 1,
+          name: "Default (Warm White)",
+          tagline:
+            "Workhorse scheme. Used on the majority of content sections across the site.",
+          numBg: "#FAF8F5",
+          numColor: "#2D3748",
+          numBorder: "#E5E7EB",
+          fields: [
+            {
+              field: "Background",
+              hex: "#FAF8F5",
+              notes: "Warm off-white — replaces the cold blue-gray (#D6E4EC)",
+            },
+            {
+              field: "Background Gradient",
+              hex: "#FAF8F5",
+              notes: "Match background — no gradient needed",
+            },
+            {
+              field: "Text",
+              hex: "#2D3748",
+              notes: "Charcoal — softer than pure black",
+            },
+            {
+              field: "Solid Button BG",
+              hex: "#CD3636",
+              notes: "BRAVE Red — primary CTA color",
+            },
+            {
+              field: "Solid Button Label",
+              hex: "#FFFFFF",
+              notes: "White text on BRAVE Red",
+            },
+            {
+              field: "Outline Button",
+              hex: "#1B2A4A",
+              notes: "Navy outline for secondary actions",
+            },
+            {
+              field: "Shadow",
+              hex: "#2D3748",
+              notes: "Charcoal shadow for subtle depth",
+            },
+          ],
+          preview: {
+            bg: "#FAF8F5",
+            text: "#2D3748",
+            solidBg: "#CD3636",
+            solidLabel: "#FFFFFF",
+            outlineColor: "#1B2A4A",
+          },
+          use: [
+            "Product grids",
+            "Collection pages",
+            "Author directory",
+            "Standard content sections",
+            "Default for any new section",
+          ],
+          pair: ["Alternate with Scheme 2 (Cream) for scroll rhythm"],
+          caution: [],
+        },
+        {
+          number: 2,
+          name: "Cream (Alternating)",
+          tagline:
+            "Alternating background for visual rhythm. Keeps the page warm without monotony.",
+          numBg: "#F5F0E8",
+          numColor: "#2D3748",
+          numBorder: "#DDD5C5",
+          fields: [
+            {
+              field: "Background",
+              hex: "#F5F0E8",
+              notes: "Warm cream for alternating contrast",
+            },
+            {
+              field: "Background Gradient",
+              hex: "#F5F0E8",
+              notes: "Match background",
+            },
+            {
+              field: "Text",
+              hex: "#2D3748",
+              notes: "Charcoal — consistent across schemes",
+            },
+            {
+              field: "Solid Button BG",
+              hex: "#CD3636",
+              notes: "BRAVE Red CTA",
+            },
+            {
+              field: "Solid Button Label",
+              hex: "#FFFFFF",
+              notes: "White label",
+            },
+            {
+              field: "Outline Button",
+              hex: "#1B2A4A",
+              notes: "Navy outline — consistent with Default",
+            },
+            { field: "Shadow", hex: "#2D3748", notes: "Charcoal shadow" },
+          ],
+          preview: {
+            bg: "#F5F0E8",
+            text: "#2D3748",
+            solidBg: "#CD3636",
+            solidLabel: "#FFFFFF",
+            outlineColor: "#1B2A4A",
+          },
+          use: [
+            "Alternating homepage sections",
+            "Shop by Author section",
+            "Featured Bundle section",
+            "Reviews / UGC carousel",
+            "Book Club pitch section",
+          ],
+          pair: [
+            "Always alternate with Scheme 1 (Default) — never stack two Cream sections",
+          ],
+          caution: [],
+        },
+        {
+          number: 3,
+          name: "Navy (Bold / Authority)",
+          tagline:
+            "Power scheme for high-authority moments. Conveys trust and gravitas.",
+          numBg: "#1B2A4A",
+          numColor: "#FFFFFF",
+          numBorder: "#1B2A4A",
+          fields: [
+            {
+              field: "Background",
+              hex: "#1B2A4A",
+              notes: "Deep navy — authoritative and premium",
+            },
+            {
+              field: "Background Gradient",
+              hex: "#1B2A4A",
+              notes: "Match background, or subtle darker fade to #0F1A2E",
+            },
+            {
+              field: "Text",
+              hex: "#FFFFFF",
+              notes: "White for readability on dark",
+            },
+            {
+              field: "Solid Button BG",
+              hex: "#CD3636",
+              notes: "BRAVE Red pops strongly against navy",
+            },
+            {
+              field: "Solid Button Label",
+              hex: "#FFFFFF",
+              notes: "White label on red",
+            },
+            {
+              field: "Outline Button",
+              hex: "#FFFFFF",
+              notes: "White outline for secondary actions on dark BG",
+            },
+            {
+              field: "Shadow",
+              hex: "#0F1A2E",
+              notes: "Deep shadow — darker than background",
+            },
+          ],
+          preview: {
+            bg: "#1B2A4A",
+            text: "#FFFFFF",
+            solidBg: "#CD3636",
+            solidLabel: "#FFFFFF",
+            outlineColor: "#FFFFFF",
+          },
+          use: [
+            "Site header / navigation",
+            "Footer",
+            "Hero banners (launch + author pages)",
+            "Trust bar",
+            "BRAVE+ streaming callout",
+          ],
+          pair: [],
+          caution: [
+            "Max 2 sections per page — loses impact if overused",
+            "Don't use on product grids — covers need lighter BGs",
+          ],
+        },
+        {
+          number: 4,
+          name: "BRAVE Red (High Energy)",
+          tagline:
+            "Maximum urgency. Reserve for the single most important CTA on the page.",
+          numBg: "#CD3636",
+          numColor: "#FFFFFF",
+          numBorder: "#CD3636",
+          fields: [
+            {
+              field: "Background",
+              hex: "#CD3636",
+              notes: "Full BRAVE Red — use sparingly",
+            },
+            {
+              field: "Background Gradient",
+              hex: "#CD3636",
+              notes: "Match background, or subtle fade to #A31515",
+            },
+            { field: "Text", hex: "#FFFFFF", notes: "White text on red" },
+            {
+              field: "Solid Button BG",
+              hex: "#FFFFFF",
+              notes: "INVERTED — white button on red background",
+            },
+            {
+              field: "Solid Button Label",
+              hex: "#CD3636",
+              notes: "Red text on white — inverted CTA",
+            },
+            {
+              field: "Outline Button",
+              hex: "#FFFFFF",
+              notes: "White outline for secondary actions",
+            },
+            { field: "Shadow", hex: "#8B1212", notes: "Darker red shadow" },
+          ],
+          preview: {
+            bg: "#CD3636",
+            text: "#FFFFFF",
+            solidBg: "#FFFFFF",
+            solidLabel: "#CD3636",
+            outlineColor: "#FFFFFF",
+          },
+          use: [
+            "Subscribe & Save callout on launch pages",
+            "Sale / limited-time announcements",
+            "Sticky mobile add-to-cart bar",
+            "Promo announcement bar",
+          ],
+          pair: [],
+          caution: [
+            "ONE per page maximum — if everything is urgent, nothing is",
+          ],
+        },
+        {
+          number: 5,
+          name: "White (Clean)",
+          tagline:
+            "Maximum contrast for product photography. Book covers render true to color.",
+          numBg: "#FFFFFF",
+          numColor: "#2D3748",
+          numBorder: "#E5E7EB",
+          fields: [
+            {
+              field: "Background",
+              hex: "#FFFFFF",
+              notes: "Pure white for product image accuracy",
+            },
+            {
+              field: "Background Gradient",
+              hex: "#FFFFFF",
+              notes: "Match background",
+            },
+            { field: "Text", hex: "#2D3748", notes: "Charcoal body text" },
+            {
+              field: "Solid Button BG",
+              hex: "#CD3636",
+              notes: "BRAVE Red CTA",
+            },
+            {
+              field: "Solid Button Label",
+              hex: "#FFFFFF",
+              notes: "White label",
+            },
+            { field: "Outline Button", hex: "#1B2A4A", notes: "Navy outline" },
+            {
+              field: "Shadow",
+              hex: "#E5E7EB",
+              notes: "Light gray shadow — subtle on white",
+            },
+          ],
+          preview: {
+            bg: "#FFFFFF",
+            text: "#2D3748",
+            solidBg: "#CD3636",
+            solidLabel: "#FFFFFF",
+            outlineColor: "#1B2A4A",
+          },
+          use: [
+            "Product Detail Pages (PDPs)",
+            "Mega menu dropdown",
+            "Cart drawer / slide-out",
+            "Modals and overlays",
+            "Book preview sections",
+          ],
+          pair: [
+            "Use instead of Default when product photography needs true-color rendering",
+          ],
+          caution: [],
+        },
+      ];
+
+      var schemeNames = {
+        1: "1: Default",
+        2: "2: Cream",
+        3: "3: Navy",
+        4: "4: BRAVE Red",
+        5: "5: White",
+      };
+
+      function esc(s) {
+        return s
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;");
+      }
+
+      function renderDawnSchemes() {
+        var container = document.getElementById("dawn-schemes");
+        var html = "";
+
+        dawnSchemes.forEach(function (s, idx) {
+          var isOpen = idx === 0;
+          var miniSwatches = s.fields
+            .filter(function (f) {
+              return (
+                f.field === "Background" ||
+                f.field === "Solid Button BG" ||
+                f.field === "Outline Button"
+              );
+            })
+            .map(function (f) {
+              return (
+                '<div class="dawn-scheme__mini-swatch" style="background:' +
+                f.hex +
+                '"></div>'
+              );
+            })
+            .join("");
+
+          html +=
+            '<div class="dawn-scheme' +
+            (isOpen ? " open" : "") +
+            '" id="dawn-' +
+            s.number +
+            '">';
+          html +=
+            '<div class="dawn-scheme__header" onclick="toggleDawn(' +
+            s.number +
+            ')">';
+          html +=
+            '<div class="dawn-scheme__number" style="background:' +
+            s.numBg +
+            ";color:" +
+            s.numColor +
+            ";border:2px solid " +
+            s.numBorder +
+            '">' +
+            s.number +
+            "</div>";
+          html +=
+            '<div class="dawn-scheme__title-group"><div class="dawn-scheme__name">' +
+            esc(s.name) +
+            '</div><div class="dawn-scheme__tagline">' +
+            esc(s.tagline) +
+            "</div></div>";
+          html +=
+            '<div class="dawn-scheme__mini-swatches">' +
+            miniSwatches +
+            "</div>";
+          html +=
+            '<div class="dawn-scheme__toggle" id="dawn-icon-' +
+            s.number +
+            '">' +
+            (isOpen ? "\u2212" : "+") +
+            "</div></div>";
+
+          html +=
+            '<div class="dawn-scheme__body" id="dawn-body-' +
+            s.number +
+            '"><div class="dawn-scheme__body-inner">';
+
+          var p = s.preview;
+          html +=
+            '<div class="dawn-preview"><div class="dawn-preview__area" style="background:' +
+            p.bg +
+            '">';
+          html +=
+            '<span class="dawn-preview__text" style="color:' +
+            p.text +
+            '">Sample body text</span>';
+          html += '<div class="dawn-preview__btns">';
+          html +=
+            '<span class="dawn-preview__btn" style="background:' +
+            p.solidBg +
+            ";color:" +
+            p.solidLabel +
+            '">Shop Now</span>';
+          html +=
+            '<span class="dawn-preview__btn" style="border:2px solid ' +
+            p.outlineColor +
+            ";color:" +
+            p.outlineColor +
+            ';background:transparent">Learn More</span>';
+          html += "</div></div></div>";
+
+          html +=
+            '<table class="dawn-fields"><thead><tr><th style="width:150px">Dawn Field</th><th style="width:80px">Color</th><th style="width:80px">Hex</th><th>Notes</th></tr></thead><tbody>';
+          s.fields.forEach(function (f) {
+            html += '<tr><td class="field-name">' + esc(f.field) + "</td>";
+            html +=
+              '<td><div class="swatch-cell"><div class="swatch-dot" style="background:' +
+              f.hex +
+              '" onclick="copyColor(\'' +
+              f.hex +
+              '\')" title="Click to copy ' +
+              f.hex +
+              '"></div></div></td>';
+            html +=
+              '<td class="hex-code copyable" onclick="copyColor(\'' +
+              f.hex +
+              '\')" title="Click to copy ' +
+              f.hex +
+              '">' +
+              f.hex +
+              "</td>";
+            html += '<td class="field-note">' + esc(f.notes) + "</td></tr>";
+          });
+          html += "</tbody></table>";
+
+          if (s.use.length) {
+            html +=
+              '<div class="dawn-usage__label">Use on</div><div class="dawn-usage__tags">' +
+              s.use
+                .map(function (u) {
+                  return '<span class="dawn-tag">' + esc(u) + "</span>";
+                })
+                .join("") +
+              "</div>";
+          }
+          if (s.pair.length) {
+            html +=
+              '<div class="dawn-usage__label">Pairs with</div><div class="dawn-usage__tags">' +
+              s.pair
+                .map(function (u) {
+                  return '<span class="dawn-tag">' + esc(u) + "</span>";
+                })
+                .join("") +
+              "</div>";
+          }
+          if (s.caution.length) {
+            html +=
+              '<div class="dawn-usage__label">Caution</div><div class="dawn-usage__tags">' +
+              s.caution
+                .map(function (u) {
+                  return (
+                    '<span class="dawn-tag dawn-tag--caution">' +
+                    esc(u) +
+                    "</span>"
+                  );
+                })
+                .join("") +
+              "</div>";
+          }
+
+          html += "</div></div></div>";
+        });
+
+        container.innerHTML = html;
+        var firstBody = document.getElementById("dawn-body-1");
+        if (firstBody)
+          firstBody.style.maxHeight = firstBody.scrollHeight + "px";
+      }
+
+      function toggleDawn(num) {
+        var card = document.getElementById("dawn-" + num);
+        var body = document.getElementById("dawn-body-" + num);
+        var icon = document.getElementById("dawn-icon-" + num);
+        if (!card || !body) return;
+        if (card.classList.contains("open")) {
+          body.style.maxHeight = body.scrollHeight + "px";
+          requestAnimationFrame(function () {
+            body.style.maxHeight = "0px";
+          });
+          card.classList.remove("open");
+          icon.textContent = "+";
+        } else {
+          card.classList.add("open");
+          body.style.maxHeight = body.scrollHeight + "px";
+          icon.textContent = "\u2212";
+          setTimeout(function () {
+            body.style.maxHeight = "none";
+          }, 350);
+        }
+      }
+
+      renderDawnSchemes();
     </script>
   </body>
 </html>
