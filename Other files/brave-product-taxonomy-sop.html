@@ -1,0 +1,1196 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BRAVE Books — Product Taxonomy &amp; Tagging SOP</title>
+<link rel="stylesheet" href="https://use.typekit.net/tbe5lnb.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --brave-red: #cd3636;
+  --brave-red-dark: #a31515;
+  --brave-red-light: #fef2f2;
+  --navy: #1b2a4a;
+  --navy-dark: #0f1a2e;
+  --warm-white: #faf8f5;
+  --cream: #f5f0e8;
+  --gold: #d4a853;
+  --charcoal: #2d3748;
+  --white: #ffffff;
+  --soft-red: #fef2f2;
+  --light-gray: #e5e7eb;
+  --mid-gray: #9ca3af;
+  --success: #16a34a;
+  --success-light: #f0fdf4;
+  --font-heading: "mingler", Georgia, "Times New Roman", serif;
+  --font-body: "DM Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  --section-gap: 56px;
+  --radius: 6px;
+  --radius-sm: 4px;
+  --radius-xs: 3px;
+}
+
+@font-face {
+  font-family: "mingler";
+  src: url("https://use.typekit.net/af/5e8230/000000000000000077359aaf/30/d?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--charcoal);
+  background-color: var(--warm-white);
+  line-height: 1.65;
+}
+
+/* ═══ HEADER ═══ */
+.guide-header {
+  background-color: var(--navy);
+  color: #fff;
+  padding: 40px 0 36px;
+  border-bottom: 4px solid var(--brave-red);
+}
+
+.guide-header-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.guide-header-inner h1 {
+  font-family: var(--font-heading);
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.25;
+}
+
+.guide-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 400;
+  color: rgba(255,255,255,0.5);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ═══ SECTION NAV ═══ */
+.section-nav {
+  background-color: var(--cream);
+  border-bottom: 1px solid var(--light-gray);
+  padding: 0 32px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.section-nav-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.section-nav a {
+  display: block;
+  padding: 14px 16px;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.section-nav a:hover, .section-nav a.active { color: var(--brave-red); }
+.section-nav a.active { border-bottom-color: var(--brave-red); }
+
+/* ═══ MAIN LAYOUT ═══ */
+.guide-main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.guide-section {
+  padding: 72px 0 64px;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.guide-section:last-child { border-bottom: none; }
+
+.section-label {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brave-red);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--navy);
+  line-height: 1.25;
+  margin-bottom: 12px;
+}
+
+.section-desc {
+  font-size: 1.0625rem;
+  color: var(--charcoal);
+  opacity: 0.72;
+  max-width: 640px;
+  line-height: 1.7;
+  margin-bottom: 48px;
+}
+
+.subsection-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.intro-text {
+  font-size: 0.9375rem;
+  color: var(--charcoal);
+  opacity: 0.72;
+  max-width: 640px;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* ═══ TABLES ═══ */
+.sop-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--section-gap);
+  font-size: 0.9375rem;
+}
+
+.sop-table thead th {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--charcoal);
+  opacity: 0.5;
+  text-align: left;
+  padding: 0 0 14px 0;
+}
+
+.sop-table tbody tr {
+  border-top: 1px solid var(--light-gray);
+}
+
+.sop-table tbody td {
+  padding: 16px 20px 16px 0;
+  vertical-align: top;
+  font-size: 0.9375rem;
+  color: var(--charcoal);
+  line-height: 1.55;
+}
+
+.sop-table tbody td:first-child {
+  font-weight: 600;
+  color: var(--navy);
+  white-space: nowrap;
+}
+
+.sop-table .td-tag {
+  font-family: var(--font-body);
+  font-weight: 600;
+  color: var(--navy);
+  white-space: nowrap;
+  font-size: 0.875rem;
+}
+
+.sop-table .td-desc {
+  font-size: 0.9375rem;
+  color: var(--charcoal);
+  line-height: 1.55;
+}
+
+.sop-table .td-count {
+  font-size: 0.875rem;
+  color: var(--mid-gray);
+  white-space: nowrap;
+  text-align: right;
+}
+
+.sop-table .td-action {
+  color: var(--success);
+  font-weight: 500;
+}
+
+.sop-table .td-current {
+  color: var(--brave-red);
+}
+
+/* ═══ USAGE NOTE / CALLOUT ═══ */
+.usage-note {
+  background: var(--soft-red);
+  border-left: 3px solid var(--brave-red);
+  padding: 20px 24px;
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  margin-bottom: 32px;
+}
+
+.usage-note p {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  color: var(--charcoal);
+}
+
+.usage-note strong {
+  font-weight: 600;
+  color: var(--navy);
+}
+
+/* ═══ TAG PREFIX BLOCK ═══ */
+.tag-prefix-header {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 16px;
+  margin-top: 40px;
+}
+
+.tag-prefix-header:first-of-type { margin-top: 0; }
+
+.tag-prefix-name {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--navy);
+  background: var(--cream);
+  padding: 3px 10px;
+  border-radius: var(--radius-xs);
+  letter-spacing: 0.02em;
+}
+
+.tag-prefix-desc {
+  font-size: 0.9375rem;
+  color: var(--charcoal);
+  opacity: 0.72;
+  line-height: 1.5;
+}
+
+.tag-note {
+  font-size: 0.8125rem;
+  color: var(--charcoal);
+  opacity: 0.55;
+  font-style: italic;
+  margin-top: 8px;
+  margin-bottom: 32px;
+  line-height: 1.5;
+}
+
+/* ═══ TAG CLOUD ═══ */
+.tag-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.tag-chip {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--navy);
+  background: var(--cream);
+  padding: 5px 12px;
+  border-radius: 20px;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+
+/* ═══ FOUR-LAYER CARDS ═══ */
+.layer-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: var(--section-gap);
+}
+
+@media (max-width: 639px) {
+  .layer-grid { grid-template-columns: 1fr; }
+}
+
+.layer-card {
+  padding: 28px 24px;
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--light-gray);
+  border-top: 3px solid var(--navy);
+}
+
+.layer-card--1 { border-top-color: var(--mid-gray); }
+.layer-card--2 { border-top-color: var(--navy); }
+.layer-card--3 { border-top-color: var(--brave-red); }
+.layer-card--4 { border-top-color: var(--gold); }
+
+.layer-card__number {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brave-red);
+  margin-bottom: 8px;
+}
+
+.layer-card__title {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--navy);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.layer-card__purpose {
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--brave-red);
+  margin-bottom: 10px;
+}
+
+.layer-card__desc {
+  font-size: 0.9375rem;
+  color: var(--charcoal);
+  line-height: 1.55;
+  opacity: 0.78;
+}
+
+/* ═══ RULES GRID (Do/Don't) ═══ */
+.rules-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-bottom: var(--section-gap);
+}
+
+@media (max-width: 639px) {
+  .rules-grid { grid-template-columns: 1fr; }
+}
+
+.rule-card {
+  padding: 28px 24px;
+  border-radius: var(--radius);
+  border: 1px solid var(--light-gray);
+  background: var(--white);
+}
+
+.rule-card--do { border-left: 3px solid var(--success); }
+.rule-card--dont { border-left: 3px solid var(--brave-red); }
+
+.rule-card-label {
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.rule-card-label.do-label { color: var(--success); }
+.rule-card-label.dont-label { color: var(--brave-red); }
+
+.rule-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rule-list li {
+  font-size: 0.9375rem;
+  color: var(--charcoal);
+  line-height: 1.5;
+  padding-left: 20px;
+  position: relative;
+}
+
+.rule-list li::before {
+  position: absolute;
+  left: 0;
+  font-weight: 700;
+  font-size: 0.875rem;
+}
+
+.rule-card--do .rule-list li::before { content: "✓"; color: var(--success); }
+.rule-card--dont .rule-list li::before { content: "✕"; color: var(--brave-red); }
+
+/* ═══ CHECKLIST ═══ */
+.checklist {
+  counter-reset: step;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: var(--section-gap);
+}
+
+.checklist-step {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  align-items: start;
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.checklist-step:last-child { border-bottom: none; }
+
+.checklist-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--navy);
+  flex-shrink: 0;
+}
+
+.checklist-content {}
+
+.checklist-title {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 4px;
+}
+
+.checklist-desc {
+  font-size: 0.875rem;
+  color: var(--charcoal);
+  opacity: 0.72;
+  line-height: 1.55;
+}
+
+/* ═══ DEPRECATED METAFIELDS ═══ */
+.deprecated-tag {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--soft-red);
+  color: var(--brave-red);
+  padding: 2px 8px;
+  border-radius: var(--radius-xs);
+}
+
+/* ═══ FOOTER ═══ */
+.guide-footer {
+  text-align: center;
+  padding: 48px 32px;
+  font-size: 0.8125rem;
+  color: var(--charcoal);
+  opacity: 0.4;
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 639px) {
+  .guide-header-inner { flex-direction: column; gap: 4px; }
+  .section-title { font-size: 1.625rem; }
+  .section-nav a { padding: 12px 14px; font-size: 0.6875rem; }
+  .sop-table { display: block; overflow-x: auto; }
+  .layer-grid { grid-template-columns: 1fr; }
+  .rules-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="guide-header">
+  <div class="guide-header-inner">
+    <h1>Product Taxonomy &amp; Tagging SOP</h1>
+    <div class="guide-subtitle">v1.0 &mdash; March 2026</div>
+  </div>
+</header>
+
+<!-- SECTION NAV -->
+<nav class="section-nav">
+  <div class="section-nav-inner">
+    <a href="#four-layers">Four Layers</a>
+    <a href="#product-categories">Categories</a>
+    <a href="#product-types">Product Types</a>
+    <a href="#product-tags">Tags</a>
+    <a href="#metafields">Metafields</a>
+    <a href="#checklist">Checklist</a>
+    <a href="#audit">Catalog Audit</a>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="guide-main">
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 1: FOUR LAYERS                 -->
+<!-- ═══════════════════════════════════════ -->
+<section id="four-layers" class="guide-section">
+  <div class="section-label">Section 01</div>
+  <h1 class="section-title">How This System Works</h1>
+  <p class="section-desc">Every product in the BRAVE Books catalog passes through four classification layers. Each layer serves a different purpose and is managed independently. Understanding what each layer does &mdash; and what it doesn&rsquo;t do &mdash; is the foundation of this SOP.</p>
+
+  <div class="layer-grid">
+    <div class="layer-card layer-card--1">
+      <div class="layer-card__number">Layer 1</div>
+      <div class="layer-card__title">Product Category</div>
+      <div class="layer-card__purpose">Tax &amp; channels</div>
+      <p class="layer-card__desc">Shopify&rsquo;s predefined taxonomy. Handles tax rates and Google/Facebook channel sync. Set once per product. Rarely changes.</p>
+    </div>
+    <div class="layer-card layer-card--2">
+      <div class="layer-card__number">Layer 2</div>
+      <div class="layer-card__title">Product Type</div>
+      <div class="layer-card__purpose">What is it?</div>
+      <p class="layer-card__desc">A single canonical label per product. Powers the first tier of automated collections. Choose from the approved list &mdash; one value per product.</p>
+    </div>
+    <div class="layer-card layer-card--3">
+      <div class="layer-card__number">Layer 3</div>
+      <div class="layer-card__title">Product Tags</div>
+      <div class="layer-card__purpose">How do we find it?</div>
+      <p class="layer-card__desc">Multiple labels per product. Powers smart collections, storefront filters, and internal operations. Follow the prefix convention exactly.</p>
+    </div>
+    <div class="layer-card layer-card--4">
+      <div class="layer-card__number">Layer 4</div>
+      <div class="layer-card__title">Metafields</div>
+      <div class="layer-card__purpose">Rich display data</div>
+      <p class="layer-card__desc">Structured key-value fields for frontend display: author names, age ranges, book topics, cross-sell links. Not for filtering &mdash; tags handle that.</p>
+    </div>
+  </div>
+
+  <div class="usage-note">
+    <p><strong>Key principle:</strong> Tags power collections and filters. Metafields power the frontend display. Product Type is the structural backbone. Product Category is for Shopify&rsquo;s systems. Never use one layer to do another layer&rsquo;s job.</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 2: PRODUCT CATEGORIES          -->
+<!-- ═══════════════════════════════════════ -->
+<section id="product-categories" class="guide-section">
+  <div class="section-label">Section 02</div>
+  <h1 class="section-title">Product Categories</h1>
+  <p class="section-desc">Product Categories use Shopify&rsquo;s predefined taxonomy for tax calculation, Google Shopping sync, and cross-channel compliance. Each product gets exactly one category. This is not customer-facing.</p>
+
+  <h2 class="subsection-title">Approved Category Assignments</h2>
+
+  <table class="sop-table">
+    <thead><tr><th>Product Description</th><th>Shopify Category</th><th style="text-align:right">Count</th></tr></thead>
+    <tbody>
+      <tr><td>Children&rsquo;s picture books, board books, chapter books</td><td class="td-tag">Media &gt; Books &gt; Print Books</td><td class="td-count">~70</td></tr>
+      <tr><td>Cookbooks, prayer journals, devotionals</td><td class="td-tag">Media &gt; Books &gt; Print Books</td><td class="td-count">~3</td></tr>
+      <tr><td>Activity books, coloring books, workbooks, joke books</td><td class="td-tag">Media &gt; Books &gt; Print Books</td><td class="td-count">~10</td></tr>
+      <tr><td>Character plushes, Mouse in the House</td><td class="td-tag">Toys &amp; Games &gt; Toys &gt; Stuffed Animals</td><td class="td-count">~5</td></tr>
+      <tr><td>Board games (Beat the Flood)</td><td class="td-tag">Toys &amp; Games &gt; Games &gt; Board Games</td><td class="td-count">1</td></tr>
+      <tr><td>Card games (Brave Battle, Conversation Cards)</td><td class="td-tag">Toys &amp; Games &gt; Games &gt; Card Games</td><td class="td-count">~3</td></tr>
+      <tr><td>Puzzles (Freedom Island Puzzle)</td><td class="td-tag">Toys &amp; Games &gt; Puzzles</td><td class="td-count">1</td></tr>
+      <tr><td>Art supplies (crayons, pens, art journal)</td><td class="td-tag">Toys &amp; Games &gt; Toys &gt; Art &amp; Drawing Toys</td><td class="td-count">~4</td></tr>
+      <tr><td>Blanket</td><td class="td-tag">Home &amp; Garden &gt; Linens &gt; Blankets</td><td class="td-count">1</td></tr>
+      <tr><td>Curriculum (BRAVE Explorers)</td><td class="td-tag">Media &gt; Books &gt; Print Books</td><td class="td-count">1</td></tr>
+      <tr><td>DVD (Iggy and Mr. Kirk)</td><td class="td-tag">Media &gt; Videos &gt; DVDs</td><td class="td-count">1</td></tr>
+      <tr><td>Digital subscriptions (BRAVE+, BRAVE Box)</td><td class="td-tag">Product Add-Ons &gt; Subscription Services</td><td class="td-count">3</td></tr>
+      <tr><td>Gift card</td><td class="td-tag">Gift Cards</td><td class="td-count">1</td></tr>
+      <tr><td>Bundles (multi-product sets)</td><td class="td-tag">Use the PRIMARY product&rsquo;s category</td><td class="td-count">~35</td></tr>
+      <tr><td>Treasure Boxes &amp; Collector&rsquo;s Boxes</td><td class="td-tag">Use the PRIMARY product&rsquo;s category</td><td class="td-count">~14</td></tr>
+    </tbody>
+  </table>
+
+  <div class="usage-note">
+    <p><strong>Bundles:</strong> For bundle products, use the Shopify category of the primary item in the bundle. A book bundle = Media &gt; Books &gt; Print Books. A book + plush bundle = use whichever has higher value. When in doubt, default to Media &gt; Books &gt; Print Books since books are the core product.</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 3: PRODUCT TYPES               -->
+<!-- ═══════════════════════════════════════ -->
+<section id="product-types" class="guide-section">
+  <div class="section-label">Section 03</div>
+  <h1 class="section-title">Product Types</h1>
+  <p class="section-desc">Product Type is the single &ldquo;what is this thing?&rdquo; field. Every product gets exactly one product type from this list. No exceptions, no variations, no freeform entry.</p>
+
+  <h2 class="subsection-title">Approved Product Types</h2>
+  <p class="intro-text">Use these exact values. Capitalization matters. Do not create new product types without updating this document.</p>
+
+  <table class="sop-table">
+    <thead><tr><th style="width:130px">Type</th><th>What Goes Here</th><th style="text-align:right;width:60px">Count</th></tr></thead>
+    <tbody>
+      <tr><td>Book</td><td class="td-desc">All children&rsquo;s picture books, chapter books, and standalone titles. Includes Freedom Island series, Black Heart series, and all influencer one-off books.</td><td class="td-count">~66</td></tr>
+      <tr><td>Board Book</td><td class="td-desc">Smaller format board books for toddlers and babies (Goodnight Iggy, What Color is This Iggy, Brave ABC Book).</td><td class="td-count">3</td></tr>
+      <tr><td>Activity Book</td><td class="td-desc">Coloring books, activity books, workbooks, letter tracing. NOT joke books or Would You Rather.</td><td class="td-count">6</td></tr>
+      <tr><td>Joke Book</td><td class="td-desc">Would You Rather (both volumes), Dad Joke Showdown, Hilarious Joke Book for Kids.</td><td class="td-count">4</td></tr>
+      <tr><td>Cookbook</td><td class="td-desc">Andrew Gruel&rsquo;s Family Cookbook. Any future recipe-based books.</td><td class="td-count">1</td></tr>
+      <tr><td>Journal</td><td class="td-desc">A Mother&rsquo;s Prayer Journal, BRAVE Art Journal. Any devotional or creative journals.</td><td class="td-count">2</td></tr>
+      <tr><td>Curriculum</td><td class="td-desc">BRAVE Books Biblical Worldview Curriculum (BRAVE Explorers). Multi-component educational packages.</td><td class="td-count">1</td></tr>
+      <tr><td>Plush</td><td class="td-desc">Standalone character plushes: Ronnie Easter Plush, Kevin the Elephant. NOT book+plush sets (those are Bundles).</td><td class="td-count">2</td></tr>
+      <tr><td>Game</td><td class="td-desc">Board games, card games, matching games, puzzle games. Beat the Flood, Brave Battle, BRAVE Matching Game.</td><td class="td-count">4</td></tr>
+      <tr><td>Puzzle</td><td class="td-desc">Standalone puzzles. Freedom Island Puzzle.</td><td class="td-count">1</td></tr>
+      <tr><td>Bundle</td><td class="td-desc">Any multi-product set sold as one SKU. Book bundles, gift sets, treasure boxes, book+plush combos, collector&rsquo;s box sets.</td><td class="td-count">~50</td></tr>
+      <tr><td>Accessory</td><td class="td-desc">Slip cases, map &amp; sticker packs, crayons, pens, blankets, Valentine&rsquo;s cards, conversation cards.</td><td class="td-count">~12</td></tr>
+      <tr><td>DVD</td><td class="td-desc">Physical media. Iggy and Mr. Kirk Season 1 DVD.</td><td class="td-count">1</td></tr>
+      <tr><td>Subscription</td><td class="td-desc">Recurring subscription products. BRAVE+ Monthly, BRAVE+ Annual, BRAVE Box Subscription.</td><td class="td-count">3</td></tr>
+      <tr><td>Gift Card</td><td class="td-desc">BRAVE Books Gift Card.</td><td class="td-count">1</td></tr>
+    </tbody>
+  </table>
+
+  <div class="rules-grid">
+    <div class="rule-card rule-card--do">
+      <div class="rule-card-label do-label">Book vs. Bundle Decision</div>
+      <ul class="rule-list">
+        <li>Single title sold as one item = Book (or Board Book, Activity Book, etc.)</li>
+        <li>Multiple separate products combined into one purchasable SKU = Bundle</li>
+        <li>Mouse in the House (plush + book) = Bundle</li>
+        <li>Easter Book Bundle (3 books) = Bundle</li>
+      </ul>
+    </div>
+    <div class="rule-card rule-card--do">
+      <div class="rule-card-label do-label">Treasure Boxes &amp; Collector&rsquo;s Boxes</div>
+      <ul class="rule-list">
+        <li>Product Type = Bundle</li>
+        <li>Differentiate with <code>bundle-type-treasure-box</code> or <code>bundle-type-collectors-box</code> tags</li>
+        <li>These contain multiple books + bonus items packaged together</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 4: PRODUCT TAGS                -->
+<!-- ═══════════════════════════════════════ -->
+<section id="product-tags" class="guide-section">
+  <div class="section-label">Section 04</div>
+  <h1 class="section-title">Product Tags</h1>
+  <p class="section-desc">Tags are the engine that powers smart collections, storefront filters, and internal organization. Every tag follows a strict prefix convention to prevent collisions and keep the system scannable.</p>
+
+  <h2 class="subsection-title">Tag Format Rules</h2>
+  <table class="sop-table">
+    <thead><tr><th style="width:160px">Rule</th><th>Details</th></tr></thead>
+    <tbody>
+      <tr><td>Characters</td><td>Lowercase letters, numbers, and hyphens only. No spaces, no special characters, no uppercase.</td></tr>
+      <tr><td>Structure</td><td><code>prefix-value</code> format. The prefix identifies the tag&rsquo;s purpose. The value is the specific item.</td></tr>
+      <tr><td>Length</td><td>Keep under 40 characters. Shorter is better.</td></tr>
+      <tr><td>Consistency</td><td>Use the exact tag from the master list. Don&rsquo;t paraphrase (<code>age-3to5</code> is wrong, <code>age-3-5</code> is right).</td></tr>
+      <tr><td>One per concept</td><td>Don&rsquo;t tag &ldquo;courage&rdquo; AND &ldquo;bravery&rdquo; for the same concept. Pick the canonical value.</td></tr>
+      <tr><td>Customer visibility</td><td>Some tags surface in storefront filter menus. Use values that make sense to parents, not internal jargon.</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="subsection-title">Tag Prefix Reference</h2>
+  <p class="intro-text">Every tag in the system belongs to one of these prefix groups. When adding a new product, walk through each prefix group and apply all that are relevant.</p>
+
+  <!-- ── author- ── -->
+  <div class="tag-prefix-header">
+    <span class="tag-prefix-name">author-</span>
+    <span class="tag-prefix-desc">The influencer or author associated with a book. Powers &ldquo;By Author&rdquo; collection pages.</span>
+  </div>
+  <div class="tag-cloud">
+    <span class="tag-chip">author-kirk-cameron</span>
+    <span class="tag-chip">author-trent-talbot</span>
+    <span class="tag-chip">author-riley-gaines</span>
+    <span class="tag-chip">author-kevin-sorbo</span>
+    <span class="tag-chip">author-julie-banderas</span>
+    <span class="tag-chip">author-bethany-hamilton</span>
+    <span class="tag-chip">author-dan-crenshaw</span>
+    <span class="tag-chip">author-dana-loesch</span>
+    <span class="tag-chip">author-graham-allen</span>
+    <span class="tag-chip">author-lara-trump</span>
+    <span class="tag-chip">author-leigh-allyn-baker</span>
+    <span class="tag-chip">author-heidi-st-john</span>
+    <span class="tag-chip">author-jack-posobiec</span>
+    <span class="tag-chip">author-hodgetwins</span>
+    <span class="tag-chip">author-elizabeth-johnston</span>
+    <span class="tag-chip">author-missy-robertson</span>
+    <span class="tag-chip">author-jep-jessica-robertson</span>
+    <span class="tag-chip">author-frank-turek</span>
+    <span class="tag-chip">author-michael-franzese</span>
+    <span class="tag-chip">author-david-pollack</span>
+    <span class="tag-chip">author-john-amanchukwu</span>
+    <span class="tag-chip">author-david-harris-jr</span>
+    <span class="tag-chip">author-raelynn</span>
+    <span class="tag-chip">author-john-solomon</span>
+    <span class="tag-chip">author-nicole-saphier</span>
+    <span class="tag-chip">author-sara-carter</span>
+    <span class="tag-chip">author-sean-spicer</span>
+    <span class="tag-chip">author-mark-lamb</span>
+    <span class="tag-chip">author-michael-flynn</span>
+    <span class="tag-chip">author-dinesh-debbie-dsouza</span>
+    <span class="tag-chip">author-zuby</span>
+    <span class="tag-chip">author-dc-draino</span>
+    <span class="tag-chip">author-robby-starbuck</span>
+    <span class="tag-chip">author-mike-waltz</span>
+    <span class="tag-chip">author-jp-sears</span>
+    <span class="tag-chip">author-buddy-brown</span>
+    <span class="tag-chip">author-scott-deshields</span>
+    <span class="tag-chip">author-andrew-gruel</span>
+    <span class="tag-chip">author-brave-books</span>
+  </div>
+  <p class="tag-note">For new authors: lowercase, hyphens between words, no titles (Dr., Gen.), no punctuation.</p>
+
+  <!-- ── age- ── -->
+  <div class="tag-prefix-header">
+    <span class="tag-prefix-name">age-</span>
+    <span class="tag-prefix-desc">Recommended reading age range. Powers the &ldquo;By Age&rdquo; collection pages and browse filters.</span>
+  </div>
+  <table class="sop-table">
+    <thead><tr><th style="width:130px">Tag</th><th>Use For</th></tr></thead>
+    <tbody>
+      <tr><td class="td-tag">age-0-2</td><td>Board books, baby books, infant titles</td></tr>
+      <tr><td class="td-tag">age-3-5</td><td>Most BRAVE picture books (primary audience)</td></tr>
+      <tr><td class="td-tag">age-6-8</td><td>Early readers, more complex stories, activity books</td></tr>
+      <tr><td class="td-tag">age-9-12</td><td>Chapter books, advanced content, curriculum</td></tr>
+      <tr><td class="td-tag">age-all</td><td>Products suitable for all ages (games, family items, bundles)</td></tr>
+    </tbody>
+  </table>
+  <p class="tag-note">A product can have multiple age tags if it spans ranges (e.g., age-3-5 and age-6-8). Most BRAVE picture books are age-3-5.</p>
+
+  <!-- ── value- ── -->
+  <div class="tag-prefix-header">
+    <span class="tag-prefix-name">value-</span>
+    <span class="tag-prefix-desc">The moral value or life lesson the book teaches. Powers &ldquo;By Value&rdquo; collection pages. Derived from existing book_topics metafield data.</span>
+  </div>
+  <table class="sop-table">
+    <thead><tr><th style="width:200px">Tag</th><th>Covers These Themes</th></tr></thead>
+    <tbody>
+      <tr><td class="td-tag">value-courage</td><td>Fear, bravery, standing up, overcoming adversity</td></tr>
+      <tr><td class="td-tag">value-honesty</td><td>Truth-telling, integrity, transparency</td></tr>
+      <tr><td class="td-tag">value-faith</td><td>Biblical themes, prayer, spiritual growth, Gospel messages</td></tr>
+      <tr><td class="td-tag">value-friendship</td><td>Community, teamwork, loyalty, belonging</td></tr>
+      <tr><td class="td-tag">value-perseverance</td><td>Hard work, grit, never giving up, determination</td></tr>
+      <tr><td class="td-tag">value-kindness</td><td>Generosity, selflessness, putting others first, helping others</td></tr>
+      <tr><td class="td-tag">value-humility</td><td>Character, modesty, not being prideful</td></tr>
+      <tr><td class="td-tag">value-responsibility</td><td>Doing what&rsquo;s right, following rules, accountability, self-control</td></tr>
+      <tr><td class="td-tag">value-family</td><td>Family love, fatherhood, motherhood, adoption, unconditional love</td></tr>
+      <tr><td class="td-tag">value-freedom</td><td>Liberty, patriotism, free speech, constitution, free markets</td></tr>
+      <tr><td class="td-tag">value-forgiveness</td><td>Mercy, loving your enemies, reconciliation</td></tr>
+      <tr><td class="td-tag">value-wisdom</td><td>Discernment, good judgment, avoiding peer pressure</td></tr>
+    </tbody>
+  </table>
+  <p class="tag-note">Apply 1&ndash;3 value tags per book. Use the primary lesson as the first tag. These surface as customer-facing filters.</p>
+
+  <!-- ── series- / saga- ── -->
+  <div class="tag-prefix-header">
+    <span class="tag-prefix-name">series-</span>
+    <span class="tag-prefix-desc">Which book series a title belongs to. Powers series-specific collection pages.</span>
+  </div>
+  <table class="sop-table">
+    <thead><tr><th style="width:220px">Tag</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td class="td-tag">series-freedom-island</td><td>All Freedom Island saga books (Sagas 1&ndash;6). Replaces &ldquo;Freedom Island Book Series&rdquo; and &ldquo;freedom island&rdquo; tags.</td></tr>
+      <tr><td class="td-tag">series-black-heart</td><td>The Black Heart storyline (Flamingo Fiasco, Recipe for Revenge, Mirror of Many Choices, Battle of Wonder Well, etc.)</td></tr>
+      <tr><td class="td-tag">series-iggy</td><td>Iggy and Mr. Kirk titles (board books, DVD, season content)</td></tr>
+      <tr><td class="td-tag">series-standalone</td><td>Books NOT part of a series. One-off influencer launches, standalone stories.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="tag-prefix-header">
+    <span class="tag-prefix-name">saga-</span>
+    <span class="tag-prefix-desc">For Freedom Island books only. Identifies which saga (season). Used alongside <code>series-freedom-island</code>.</span>
+  </div>
+  <div class="tag-cloud" style="margin-bottom:32px">
+    <span class="tag-chip">saga-1</span>
+    <span class="tag-chip">saga-2</span>
+    <span class="tag-chip">saga-3</span>
+    <span class="tag-chip">saga-4</span>
+    <span class="tag-chip">saga-5</span>
+    <span class="tag-chip">saga-6</span>
+  </div>
+
+  <!-- ── format- ── -->
+  <div class="tag-prefix-header">
+    <span class="tag-prefix-name">format-</span>
+    <span class="tag-prefix-desc">Physical format of the product. Powers format filters on the browse page.</span>
+  </div>
+  <div class="tag-cloud" style="margin-bottom:8px">
+    <span class="tag-chip">format-hardcover</span>
+    <span class="tag-chip">format-board-book</span>
+    <span class="tag-chip">format-paperback</span>
+  </div>
+  <p class="tag-note">Most BRAVE picture books are format-hardcover. Activity books and joke books are format-paperback.</p>
+
+  <!-- ── bundle-type- ── -->
+  <div class="tag-prefix-header">
+    <span class="tag-prefix-name">bundle-type-</span>
+    <span class="tag-prefix-desc">Only for products with Product Type = Bundle. Identifies the kind of bundle.</span>
+  </div>
+  <table class="sop-table">
+    <thead><tr><th style="width:260px">Tag</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td class="td-tag">bundle-type-book-bundle</td><td>Multiple books sold together at a discount</td></tr>
+      <tr><td class="td-tag">bundle-type-gift-set</td><td>Curated gift packages (may include book + plush, book + game, etc.)</td></tr>
+      <tr><td class="td-tag">bundle-type-treasure-box</td><td>Premium saga treasure box sets with books, slip case, bonuses</td></tr>
+      <tr><td class="td-tag">bundle-type-collectors-box</td><td>Collector&rsquo;s edition box sets and slip case sets</td></tr>
+      <tr><td class="td-tag">bundle-type-activity-bundle</td><td>Activity books, coloring supplies, art materials packaged together</td></tr>
+      <tr><td class="td-tag">bundle-type-starter-kit</td><td>Intro sets for new families (e.g., Little Learners, Cuddle Bundle)</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ── status- ── -->
+  <div class="tag-prefix-header">
+    <span class="tag-prefix-name">status-</span>
+    <span class="tag-prefix-desc">Product availability and merchandising state. Powers New &amp; Trending, pre-order collections, and bestseller lists.</span>
+  </div>
+  <table class="sop-table">
+    <thead><tr><th style="width:200px">Tag</th><th>Description</th></tr></thead>
+    <tbody>
+      <tr><td class="td-tag">status-new-release</td><td>Added when a book launches. Remove after 60 days. Powers the &ldquo;New &amp; Trending&rdquo; page.</td></tr>
+      <tr><td class="td-tag">status-pre-order</td><td>Available for pre-order, not yet shipping. Remove when the product ships.</td></tr>
+      <tr><td class="td-tag">status-bestseller</td><td>Manual tag for top-performing titles. Review quarterly.</td></tr>
+      <tr><td class="td-tag">status-seasonal</td><td>Seasonal products (Easter, Christmas, Valentine&rsquo;s). Used for seasonal collection curation.</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ── line- ── -->
+  <div class="tag-prefix-header">
+    <span class="tag-prefix-name">line-</span>
+    <span class="tag-prefix-desc">Which product line this belongs to, mapping to the mega menu columns. Used for &ldquo;More from BRAVE&rdquo; browsing.</span>
+  </div>
+  <div class="tag-cloud" style="margin-bottom:8px">
+    <span class="tag-chip">line-plush</span>
+    <span class="tag-chip">line-game</span>
+    <span class="tag-chip">line-activity</span>
+  </div>
+  <p class="tag-note">Only for non-book products. Books don&rsquo;t need a line- tag &mdash; they&rsquo;re the default product line.</p>
+
+  <!-- ── ops- ── -->
+  <div class="tag-prefix-header">
+    <span class="tag-prefix-name">ops-</span>
+    <span class="tag-prefix-desc">Internal operational tags. Not customer-facing. Used for backend workflows, upsell logic, and app integrations.</span>
+  </div>
+  <div class="tag-cloud" style="margin-bottom:8px">
+    <span class="tag-chip">ops-upsell-exclude</span>
+    <span class="tag-chip">ops-seo-hidden</span>
+    <span class="tag-chip">ops-subscription-eligible</span>
+    <span class="tag-chip">ops-discontinued</span>
+  </div>
+  <p class="tag-note">ops- tags are never displayed to customers and won&rsquo;t appear in storefront filters.</p>
+
+  <div class="usage-note" style="margin-top:40px">
+    <p><strong>Tags being retired:</strong> The following current tags will be retired and replaced by the new prefix system: BPM, Bendable, BRAVE Books Product, Brave Books, Freedom Island Book Series, freedom island, Saga 1&ndash;6 (unprefixed), all unprefixed author names, all unprefixed values (courage, patience, etc.), Book 1&ndash;10, onetime, otherbooks, bookupsell, Giftset, stand-alone-story, hard cover, book, Books, conservative, Christian (as a tag), and all prepaid-* tags.</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 5: METAFIELDS                  -->
+<!-- ═══════════════════════════════════════ -->
+<section id="metafields" class="guide-section">
+  <div class="section-label">Section 05</div>
+  <h1 class="section-title">Metafields</h1>
+  <p class="section-desc">Metafields store structured product data that displays on the frontend or powers advanced smart collections. Unlike tags, metafields have defined types, validation, and namespacing.</p>
+
+  <h2 class="subsection-title">Active Metafield Definitions</h2>
+  <p class="intro-text">These are the metafield definitions to keep, clean up, and actively maintain. All others should be deprecated.</p>
+
+  <table class="sop-table">
+    <thead><tr><th style="width:140px">Field Name</th><th style="width:190px">Namespace.Key</th><th style="width:120px">Type</th><th>Rules</th></tr></thead>
+    <tbody>
+      <tr><td>Author Name</td><td class="td-tag">custom.author_name</td><td>Single-line text</td><td>Lowercase, hyphenated handle. Must match the author- tag value (e.g., kirk-cameron).</td></tr>
+      <tr><td>Author Display</td><td class="td-tag">my_fields.author</td><td>Single-line text</td><td>Display-formatted name for the frontend (e.g., Kirk Cameron). This is what customers see.</td></tr>
+      <tr><td>Author Bio</td><td class="td-tag">my_fields.author_description</td><td>Multi-line text</td><td>2&ndash;3 sentence influencer description for author pages and PDP author blocks.</td></tr>
+      <tr><td>Book Lesson</td><td class="td-tag">custom.book_lesson</td><td>Single-line text</td><td>One-line lesson summary (e.g., &ldquo;Courage&rdquo;). Used for PDP value badges.</td></tr>
+      <tr><td>Book Topics</td><td class="td-tag">custom.book_topics</td><td>List of text</td><td>Semicolon-separated topic handles from the approved list.</td></tr>
+      <tr><td>Saga Number</td><td class="td-tag">my_fields.saga_number</td><td>Number (int)</td><td>1&ndash;6. Only for Freedom Island series books.</td></tr>
+      <tr><td>Book Number</td><td class="td-tag">my_fields.book_number</td><td>Number</td><td>Position within a saga (0&ndash;10). Only for Freedom Island books.</td></tr>
+      <tr><td>Short Desc</td><td class="td-tag">custom.short_description</td><td>Multi-line text</td><td>Brief product description for collection cards. Under 160 characters.</td></tr>
+      <tr><td>Complementary</td><td class="td-tag">shopify.complementary_products</td><td>Product refs</td><td>Products for &ldquo;Complete the Experience&rdquo; cross-sell module.</td></tr>
+      <tr><td>Related</td><td class="td-tag">shopify.related_products</td><td>Product refs</td><td>Products for &ldquo;You May Also Like&rdquo; recommendations.</td></tr>
+      <tr><td>Cover Type</td><td class="td-tag">shopify.book-cover-type</td><td>Standard</td><td>hardcover, paperback, or board-book.</td></tr>
+      <tr><td>Age Group</td><td class="td-tag">shopify.recommended-age-group</td><td>Standard</td><td>Shopify&rsquo;s standard age group field. Use alongside age- tags.</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="subsection-title">Metafields to Deprecate</h2>
+
+  <table class="sop-table">
+    <thead><tr><th style="width:280px">Metafield Key</th><th>Reason to Deprecate</th></tr></thead>
+    <tbody>
+      <tr><td><span class="deprecated-tag">Deprecate</span>&ensp;campaign.campaign_tags</td><td>Only 4 products have data. Replace with status- tags.</td></tr>
+      <tr><td><span class="deprecated-tag">Deprecate</span>&ensp;campaign.is_campaign_sale</td><td>No products have data. Remove definition.</td></tr>
+      <tr><td><span class="deprecated-tag">Deprecate</span>&ensp;custom.product_tags</td><td>Only 3 products (pre-order). Replace with status-pre-order tag.</td></tr>
+      <tr><td><span class="deprecated-tag">Deprecate</span>&ensp;custom.selling_plan_ids</td><td>Only 1 product. Manage via Shopify&rsquo;s selling plan system directly.</td></tr>
+      <tr><td><span class="deprecated-tag">Deprecate</span>&ensp;custom.units_sold</td><td>Only 2 products. Use Shopify&rsquo;s native analytics instead.</td></tr>
+      <tr><td><span class="deprecated-tag">Deprecate</span>&ensp;my_fields.combo_product_handle</td><td>Legacy. Replace with shopify.complementary_products.</td></tr>
+      <tr><td><span class="deprecated-tag">Deprecate</span>&ensp;my_fields.group_product_handle</td><td>Legacy. Replace with shopify.related_products.</td></tr>
+      <tr><td><span class="deprecated-tag">Deprecate</span>&ensp;my_fields.current_book</td><td>Only 1 product. Remove.</td></tr>
+      <tr><td><span class="deprecated-tag">Deprecate</span>&ensp;my_fields.promotion_title</td><td>Only 3 products. Manage via theme editor section settings.</td></tr>
+      <tr><td><span class="deprecated-tag">Deprecate</span>&ensp;beae.countdown / beae.countdown_from</td><td>Legacy page builder fields. No current data.</td></tr>
+      <tr><td><span class="deprecated-tag">Deprecate</span>&ensp;mm-google-shopping.custom_product</td><td>Legacy Google Shopping app field. Unused.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="usage-note">
+    <p><strong>Author metafield inconsistency found:</strong> The current author_name metafield has a typo &mdash; &ldquo;kirk-cameorn&rdquo; appears on 4 products instead of &ldquo;kirk-cameron.&rdquo; The Author display metafield has both &ldquo;BRAVE Books&rdquo; and &ldquo;Brave Books&rdquo; as separate values. Standardize to lowercase for handles, proper case for display names.</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 6: CHECKLIST                   -->
+<!-- ═══════════════════════════════════════ -->
+<section id="checklist" class="guide-section">
+  <div class="section-label">Section 06</div>
+  <h1 class="section-title">New Product Entry Checklist</h1>
+  <p class="section-desc">Use this checklist every time a new product is added to Shopify. Walk through each step in order. This ensures every product is fully classified before it goes live.</p>
+
+  <div class="checklist">
+    <div class="checklist-step">
+      <div class="checklist-num">1</div>
+      <div class="checklist-content">
+        <div class="checklist-title">Set Product Category</div>
+        <div class="checklist-desc">Choose the correct Shopify Standard Taxonomy category from the approved list in Section 2. If unsure, default to Media &gt; Books &gt; Print Books for any book product.</div>
+      </div>
+    </div>
+    <div class="checklist-step">
+      <div class="checklist-num">2</div>
+      <div class="checklist-content">
+        <div class="checklist-title">Set Product Type</div>
+        <div class="checklist-desc">Choose exactly one Product Type from the approved list in Section 3. Do not create new types without updating this SOP.</div>
+      </div>
+    </div>
+    <div class="checklist-step">
+      <div class="checklist-num">3</div>
+      <div class="checklist-content">
+        <div class="checklist-title">Add author- tag</div>
+        <div class="checklist-desc">Look up the author in the master tag list. New author? Use <code>author-firstname-lastname</code> (lowercase, hyphens, no titles). For BRAVE Books house products, use <code>author-brave-books</code>.</div>
+      </div>
+    </div>
+    <div class="checklist-step">
+      <div class="checklist-num">4</div>
+      <div class="checklist-content">
+        <div class="checklist-title">Add age- tag(s)</div>
+        <div class="checklist-desc">Determine the recommended reading age. Most picture books are <code>age-3-5</code>. Board books are <code>age-0-2</code>. Apply multiple if the book spans ranges.</div>
+      </div>
+    </div>
+    <div class="checklist-step">
+      <div class="checklist-num">5</div>
+      <div class="checklist-content">
+        <div class="checklist-title">Add value- tag(s)</div>
+        <div class="checklist-desc">Identify 1&ndash;3 moral values/lessons from the approved list. The primary lesson should be the first value tag applied.</div>
+      </div>
+    </div>
+    <div class="checklist-step">
+      <div class="checklist-num">6</div>
+      <div class="checklist-content">
+        <div class="checklist-title">Add series- tag</div>
+        <div class="checklist-desc">Freedom Island? <code>series-freedom-island</code> + appropriate <code>saga-</code> tag. Black Heart? <code>series-black-heart</code>. Everything else: <code>series-standalone</code>.</div>
+      </div>
+    </div>
+    <div class="checklist-step">
+      <div class="checklist-num">7</div>
+      <div class="checklist-content">
+        <div class="checklist-title">Add format- tag</div>
+        <div class="checklist-desc"><code>format-hardcover</code>, <code>format-board-book</code>, or <code>format-paperback</code>. Most BRAVE titles are <code>format-hardcover</code>.</div>
+      </div>
+    </div>
+    <div class="checklist-step">
+      <div class="checklist-num">8</div>
+      <div class="checklist-content">
+        <div class="checklist-title">Add status- tag(s)</div>
+        <div class="checklist-desc">New launch? <code>status-new-release</code> (remove after 60 days). Pre-order? <code>status-pre-order</code> (remove when shipping). Seasonal? <code>status-seasonal</code>.</div>
+      </div>
+    </div>
+    <div class="checklist-step">
+      <div class="checklist-num">9</div>
+      <div class="checklist-content">
+        <div class="checklist-title">Add line- tag (non-books only)</div>
+        <div class="checklist-desc">Plushes: <code>line-plush</code>. Games: <code>line-game</code>. Activity products: <code>line-activity</code>. Books don&rsquo;t need a line- tag.</div>
+      </div>
+    </div>
+    <div class="checklist-step">
+      <div class="checklist-num">10</div>
+      <div class="checklist-content">
+        <div class="checklist-title">Add bundle-type- tag (bundles only)</div>
+        <div class="checklist-desc">If Product Type is Bundle, add exactly one <code>bundle-type-</code> tag to classify what kind of bundle.</div>
+      </div>
+    </div>
+    <div class="checklist-step">
+      <div class="checklist-num">11</div>
+      <div class="checklist-content">
+        <div class="checklist-title">Add ops- tags if needed</div>
+        <div class="checklist-desc">Exclude from upsells? <code>ops-upsell-exclude</code>. Hidden from SEO? <code>ops-seo-hidden</code>. Subscription-eligible? <code>ops-subscription-eligible</code>.</div>
+      </div>
+    </div>
+    <div class="checklist-step">
+      <div class="checklist-num">12</div>
+      <div class="checklist-content">
+        <div class="checklist-title">Fill metafields</div>
+        <div class="checklist-desc">Author Name (handle), Author Display Name, Author Bio, Book Lesson, Book Topics, Short Description. For Freedom Island books: Saga Number and Book Number.</div>
+      </div>
+    </div>
+    <div class="checklist-step">
+      <div class="checklist-num">13</div>
+      <div class="checklist-content">
+        <div class="checklist-title">Set Related + Complementary Products</div>
+        <div class="checklist-desc">Add 3&ndash;6 related product handles and 1&ndash;3 complementary product handles via the metafield editor.</div>
+      </div>
+    </div>
+    <div class="checklist-step">
+      <div class="checklist-num">14</div>
+      <div class="checklist-content">
+        <div class="checklist-title">Verify</div>
+        <div class="checklist-desc">Spot-check: Does this product appear in the correct smart collections? Walk the nav tree and confirm it shows up where expected.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="usage-note">
+    <p><strong>Speed matters:</strong> With ~30 launches in 2026, you&rsquo;ll be adding products every 2 weeks. This checklist should take under 10 minutes per product once familiar. The time investment pays off in zero manual collection management &mdash; smart collections handle everything automatically.</p>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════ -->
+<!-- SECTION 7: CATALOG AUDIT               -->
+<!-- ═══════════════════════════════════════ -->
+<section id="audit" class="guide-section">
+  <div class="section-label">Section 07</div>
+  <h1 class="section-title">Current Catalog Audit</h1>
+  <p class="section-desc">The current BRAVE Books catalog has 156 active products. Here&rsquo;s a snapshot of the cleanup work needed to migrate to the new taxonomy system.</p>
+
+  <h2 class="subsection-title">Product Type Cleanup</h2>
+  <table class="sop-table">
+    <thead><tr><th style="width:80px">Count</th><th>Current State</th><th>Action Needed</th></tr></thead>
+    <tbody>
+      <tr><td class="td-tag">92</td><td class="td-current">Missing product type entirely</td><td class="td-action">Assign correct type from the approved list</td></tr>
+      <tr><td class="td-tag">24</td><td class="td-current">Set to generic &ldquo;Product&rdquo;</td><td class="td-action">Replace with specific type (Bundle, Plush, Game, Accessory, etc.)</td></tr>
+      <tr><td class="td-tag">36</td><td class="td-current">Set to &ldquo;Books&rdquo; (plural)</td><td class="td-action">Rename to &ldquo;Book&rdquo; (singular, per convention)</td></tr>
+      <tr><td class="td-tag">1</td><td class="td-current">Set to &ldquo;Book Of The Month&rdquo;</td><td class="td-action">Change to &ldquo;Subscription&rdquo;</td></tr>
+      <tr><td class="td-tag">1</td><td class="td-current">Set to &ldquo;Gift Cards&rdquo; (plural)</td><td class="td-action">Change to &ldquo;Gift Card&rdquo; (singular)</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="subsection-title">Product Category Cleanup</h2>
+  <table class="sop-table">
+    <thead><tr><th style="width:80px">Count</th><th>Current State</th><th>Action Needed</th></tr></thead>
+    <tbody>
+      <tr><td class="td-tag">56</td><td class="td-current">Set to &ldquo;Uncategorized&rdquo;</td><td class="td-action">Assign correct Shopify Standard Taxonomy category</td></tr>
+      <tr><td class="td-tag">7</td><td class="td-current">Category field is empty</td><td class="td-action">Assign correct category</td></tr>
+      <tr><td class="td-tag">47</td><td class="td-current">Set to &ldquo;Media &gt; Books&rdquo; (parent only)</td><td class="td-action">Drill down to &ldquo;Media &gt; Books &gt; Print Books&rdquo;</td></tr>
+    </tbody>
+  </table>
+
+  <h2 class="subsection-title">Tag Migration Plan</h2>
+  <p class="intro-text">The current tag system has 250+ unique tags with no naming convention. Many are redundant, inconsistently cased, or meaningless to customers. The migration plan:</p>
+
+  <div class="checklist">
+    <div class="checklist-step">
+      <div class="checklist-num">1</div>
+      <div class="checklist-content">
+        <div class="checklist-title">Export all products via CSV</div>
+        <div class="checklist-desc">Use Shopify&rsquo;s bulk editor or a CSV export/import cycle.</div>
+      </div>
+    </div>
+    <div class="checklist-step">
+      <div class="checklist-num">2</div>
+      <div class="checklist-content">
+        <div class="checklist-title">Clear all existing tags</div>
+        <div class="checklist-desc">Wipe the slate. The old tags are unsalvageable as a system.</div>
+      </div>
+    </div>
+    <div class="checklist-step">
+      <div class="checklist-num">3</div>
+      <div class="checklist-content">
+        <div class="checklist-title">Re-tag using the new prefix convention</div>
+        <div class="checklist-desc">Walk through each product using the Section 6 checklist.</div>
+      </div>
+    </div>
+    <div class="checklist-step">
+      <div class="checklist-num">4</div>
+      <div class="checklist-content">
+        <div class="checklist-title">Build smart collections</div>
+        <div class="checklist-desc">Create automated collections using the new tag/type conditions.</div>
+      </div>
+    </div>
+    <div class="checklist-step">
+      <div class="checklist-num">5</div>
+      <div class="checklist-content">
+        <div class="checklist-title">Wire up the navigation</div>
+        <div class="checklist-desc">Link the new collections to the mega menu and nav structure.</div>
+      </div>
+    </div>
+    <div class="checklist-step">
+      <div class="checklist-num">6</div>
+      <div class="checklist-content">
+        <div class="checklist-title">Verify</div>
+        <div class="checklist-desc">Spot-check every collection page to confirm correct products appear.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="usage-note">
+    <p><strong>How to use this document:</strong> Print it or keep it open alongside Shopify Admin. Every time a product is added, edited, or audited, reference Sections 2&ndash;6. If a decision doesn&rsquo;t fit neatly into this system, flag it &mdash; don&rsquo;t improvise. Consistency is more valuable than speed.</p>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="guide-footer">
+  BRAVE Books &middot; Product Taxonomy &amp; Tagging SOP &middot; v1.0 &middot; Confidential &middot; March 2026
+</footer>
+
+<script>
+// Active nav tracking
+(function() {
+  var sections = document.querySelectorAll('.guide-section');
+  var navLinks = document.querySelectorAll('.section-nav a');
+  function updateActiveNav() {
+    var current = '';
+    sections.forEach(function(s) {
+      if (window.scrollY >= s.offsetTop - 80) current = s.id;
+    });
+    navLinks.forEach(function(a) {
+      a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+    });
+  }
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  updateActiveNav();
+})();
+</script>
+
+</body>
+</html>
